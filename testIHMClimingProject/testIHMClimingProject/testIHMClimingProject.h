@@ -2,6 +2,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_testIHMClimingProject.h"
+#include "dialogLogin.h"
+#include "jeuMenu.h"
 
 class testIHMClimingProject : public QMainWindow
 {
@@ -16,5 +18,5 @@ private:
     QString currentFile;
 private slots:
     void openConnexion();
-
+    void openMenuJeu();
 };

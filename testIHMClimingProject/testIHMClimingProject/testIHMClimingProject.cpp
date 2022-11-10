@@ -15,12 +15,19 @@ testIHMClimingProject::testIHMClimingProject(QWidget *parent)
     ui.pushButton_Jouer->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.pushButton_Connexion->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
-    connect(ui.pushButton_Connexion, SIGNAL(openConnexion()), this, SLOT(openConnexion()));
+    connect(ui.pushButton_Connexion, SIGNAL(clicked()), this, SLOT(openConnexion()));
+    connect(ui.pushButton_Jouer, SIGNAL(clicked()), this, SLOT(openMenuJeu()));
 }
 
 testIHMClimingProject::~testIHMClimingProject()
 {}
 
 void testIHMClimingProject::openConnexion() {
+    dialogLogin log = new dialogLogin(this);
+    log.exec();
+}
 
+void testIHMClimingProject::openMenuJeu() {
+    jeuMenu jm = new jeuMenu(this);
+    jm.show();
 }

@@ -86,10 +86,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="testIHMClimingProject.qrc" />
+    <QtUic Include="dialogLogin.ui" />
+    <QtUic Include="jeuMenu.ui" />
     <QtUic Include="testIHMClimingProject.ui" />
     <QtMoc Include="testIHMClimingProject.h" />
+    <ClCompile Include="dialogLogin.cpp" />
+    <ClCompile Include="jeuMenu.cpp" />
     <ClCompile Include="testIHMClimingProject.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="dialogLogin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="jeuMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
