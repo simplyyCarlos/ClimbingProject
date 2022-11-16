@@ -23,6 +23,7 @@ jeuMenu::jeuMenu(QWidget* _parent)
 
 
 	connect(ui.pushButton_Back, SIGNAL(clicked()), this, SLOT(pushbackButton()));
+	connect(ui.pushButton_Parcours, SIGNAL(clicked()), this, SLOT(openMenuChoixParcours()));
 }
 
 jeuMenu::~jeuMenu()
@@ -32,4 +33,10 @@ jeuMenu::~jeuMenu()
 void jeuMenu::pushbackButton() {
 	this->close();
 	parent->show();
+}
+
+void jeuMenu::openMenuChoixParcours() {
+	cpm = new choixParcoursMenu(this);
+	this->close();
+	cpm->show();
 }

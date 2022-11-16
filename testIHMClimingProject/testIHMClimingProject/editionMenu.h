@@ -5,7 +5,7 @@ class editionMenu : public QWidget
     Q_OBJECT
 
 public:
-    editionMenu(QWidget* parent);
+    editionMenu(QWidget* _parent);
     ~editionMenu();
 
 private:
