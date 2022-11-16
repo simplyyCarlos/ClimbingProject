@@ -46,6 +46,9 @@
     <ClCompile Include="jeuMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="editionMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialogLogin.ui">
@@ -54,12 +57,18 @@
     <QtUic Include="jeuMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="editionMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="dialogLogin.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="jeuMenu.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="editionMenu.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

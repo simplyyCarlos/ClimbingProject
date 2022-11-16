@@ -1,5 +1,4 @@
 #pragma once
-#include <QtWidgets/qwidget.h>
 #include "ui_jeuMenu.h"
 
 class jeuMenu : public QWidget
@@ -12,7 +11,8 @@ public:
 
 private:
     Ui::jeuMenuClass ui;
+    QWidget* parent;
 private slots:
-
+    void pushbackButton();
 };
 

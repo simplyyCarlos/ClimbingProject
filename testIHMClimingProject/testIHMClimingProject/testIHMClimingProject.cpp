@@ -15,8 +15,11 @@ testIHMClimingProject::testIHMClimingProject(QWidget *parent)
     ui.pushButton_Jouer->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.pushButton_Connexion->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
+    ui.label_Created->setStyleSheet("QLabel { color : white;}");
+    ui.label_Copyright->setStyleSheet("QLabel { color : white;}");
     connect(ui.pushButton_Connexion, SIGNAL(clicked()), this, SLOT(openConnexion()));
     connect(ui.pushButton_Jouer, SIGNAL(clicked()), this, SLOT(openMenuJeu()));
+    connect(ui.pushButton_Edition, SIGNAL(clicked()), this, SLOT(openMenuEdition()));
 }
 
 testIHMClimingProject::~testIHMClimingProject()
@@ -28,6 +31,13 @@ void testIHMClimingProject::openConnexion() {
 }
 
 void testIHMClimingProject::openMenuJeu() {
-    jeuMenu jm = new jeuMenu(this);
-    jm.show();
+    jm = new jeuMenu(this);
+    this->close();
+    jm->show();
+}
+
+void testIHMClimingProject::openMenuEdition() {
+    em = new editionMenu(this);
+    this->close();
+    em->show();
 }

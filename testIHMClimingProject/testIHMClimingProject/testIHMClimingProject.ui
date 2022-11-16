@@ -66,6 +66,32 @@
      <string>RA Climbing</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_Created">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>330</y>
+      <width>491</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Created and deseigned by TAFA Rakel, RABEHI Khalis, LAGREVOL Kilian and VALETTE Jules</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Copyright">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>360</y>
+      <width>161</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>©Copyright all rights reserved </string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
