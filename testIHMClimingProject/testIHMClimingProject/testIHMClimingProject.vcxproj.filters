@@ -52,6 +52,9 @@
     <ClCompile Include="choixParcoursMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="scoresMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialogLogin.ui">
@@ -66,6 +69,9 @@
     <QtUic Include="choixParcoursMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="scoresMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="dialogLogin.h">
@@ -78,6 +84,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="choixParcoursMenu.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresMenu.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

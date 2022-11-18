@@ -89,12 +89,14 @@
     <QtUic Include="dialogLogin.ui" />
     <QtUic Include="editionMenu.ui" />
     <QtUic Include="jeuMenu.ui" />
+    <QtUic Include="scoresMenu.ui" />
     <QtUic Include="testIHMClimingProject.ui" />
     <QtMoc Include="testIHMClimingProject.h" />
     <ClCompile Include="choixParcoursMenu.cpp" />
     <ClCompile Include="dialogLogin.cpp" />
     <ClCompile Include="editionMenu.cpp" />
     <ClCompile Include="jeuMenu.cpp" />
+    <ClCompile Include="scoresMenu.cpp" />
     <ClCompile Include="testIHMClimingProject.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="choixParcoursMenu.ui" />
@@ -110,6 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="choixParcoursMenu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="scoresMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
