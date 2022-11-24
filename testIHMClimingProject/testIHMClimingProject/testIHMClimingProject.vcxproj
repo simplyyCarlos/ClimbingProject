@@ -96,6 +96,9 @@
     <ClCompile Include="dialogLogin.cpp" />
     <ClCompile Include="editionMenu.cpp" />
     <ClCompile Include="jeuMenu.cpp" />
+    <ClCompile Include="Joueur.cpp" />
+    <ClCompile Include="Parcours.cpp" />
+    <ClCompile Include="Prises.cpp" />
     <ClCompile Include="scoresMenu.cpp" />
     <ClCompile Include="testIHMClimingProject.cpp" />
     <ClCompile Include="main.cpp" />
@@ -115,6 +118,11 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="scoresMenu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Joueur.h" />
+    <ClInclude Include="Parcours.h" />
+    <ClInclude Include="Prises.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
