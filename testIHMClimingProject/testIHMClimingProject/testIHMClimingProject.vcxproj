@@ -105,6 +105,7 @@
     <QtMoc Include="testIHMClimingProject.h" />
     <ClCompile Include="..\..\..\..\..\..\Downloads\sqlite-amalgamation-3070400\sqlite-amalgamation-3070400\sqlite3.c" />
     <ClCompile Include="choixParcoursMenu.cpp" />
+    <ClCompile Include="Database.cpp" />
     <ClCompile Include="dialogLogin.cpp" />
     <ClCompile Include="editionMenu.cpp" />
     <ClCompile Include="jeuMenu.cpp" />
@@ -132,6 +133,7 @@
     <QtMoc Include="scoresMenu.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Database.h" />
     <ClInclude Include="Joueur.h" />
     <ClInclude Include="Parcours.h" />
     <ClInclude Include="Prises.h" />
