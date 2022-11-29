@@ -11,8 +11,8 @@ private:
 public:
 	Parcours(int _id, int _difficulte, QString _nom);
 	void add(Prises* p);
+	void remove(int i);
 	int getId();
 	int getDifficulte();
-
 };
 
