@@ -30,6 +30,9 @@
     <Filter Include="Header Files\Window">
       <UniqueIdentifier>{e0d0c573-db7d-4711-aa60-fc34099d4a71}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Database">
+      <UniqueIdentifier>{533752fe-56e7-4d00-afc5-694b083c1bb9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="testIHMClimingProject.qrc">
@@ -69,6 +72,12 @@
     </ClCompile>
     <ClCompile Include="Parcours.cpp">
       <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Database.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Downloads\sqlite-amalgamation-3070400\sqlite-amalgamation-3070400\sqlite3.c">
+      <Filter>Source Files\Database</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +126,12 @@
     </ClInclude>
     <ClInclude Include="Parcours.h">
       <Filter>Source Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Database.h">
+      <Filter>Source Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite3.h">
+      <Filter>Source Files\Database</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

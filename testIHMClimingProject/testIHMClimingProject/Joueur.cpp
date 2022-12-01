@@ -1,7 +1,7 @@
 #include "Joueur.h"
 
-Joueur::Joueur(int _id, QString _pseudo, QString _password)
-	: id(_id),pseudo(_pseudo),password(_password)
+Joueur::Joueur(int _id, QString _pseudo, QString _password, Database* _db)
+	: id(_id),pseudo(_pseudo),password(_password),db(_db)
 {
 }
 
@@ -18,4 +18,9 @@ QString Joueur::getPseudo()
 QString Joueur::getPassword()
 {
 	return password;
+}
+
+Database* Joueur::getDatabase()
+{
+	return db;
 }

@@ -1,8 +1,17 @@
 #include "Parcours.h"
 
-Parcours::Parcours(int _id, int _difficulte, QString _nom)
-	: id(_id),difficulte(_difficulte),nom(_nom)
+int Parcours::id = 0;
+
+Parcours::Parcours(int _difficulte, QString _nom, Database* _db)
+	:difficulte(_difficulte),nom(_nom),db(_db)
 {
+	id = id++;
+	string tmp = "INSERT INTO Parcours VALUES (" + to_string(id) + " , '" + nom.toStdString() + "' , " +to_string(difficulte)+ ");";
+	const char* query = tmp.c_str();
+	db->setSql(query);
+	db->callRc();
+	db->testQuery();
+	db->closeDb();
 }
 
 void Parcours::add(Prises* p)
@@ -23,4 +32,9 @@ int Parcours::getId()
 int Parcours::getDifficulte()
 {
 	return difficulte;
+}
+
+Database* Parcours::getDatabase()
+{
+	return db;
 }

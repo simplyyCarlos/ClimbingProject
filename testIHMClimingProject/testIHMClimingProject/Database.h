@@ -14,5 +14,10 @@ private:
 public:
     Database(const char* file);
     static int callback(void* data, int argc, char** argv, char** azColName);
+    void testQuery();
+    const char* getSql();
+    void setSql(const char* query);
+    void callRc();
+    void closeDb();
 };
 

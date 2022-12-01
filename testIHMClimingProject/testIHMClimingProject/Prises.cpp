@@ -1,7 +1,7 @@
 #include "Prises.h"
 
-Prises::Prises(float _x, float _y)
-	: x(_x),y(_y)
+Prises::Prises(float _x, float _y, Database* _db)
+	: x(_x),y(_y),db(_db)
 {
 }
 
@@ -13,4 +13,9 @@ float Prises::getX()
 float Prises::getY()
 {
 	return y;
+}
+
+Database* Prises::getDatabase()
+{
+	return db;
 }
