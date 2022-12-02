@@ -17,6 +17,8 @@ choixParcoursMenu::choixParcoursMenu(QWidget* _parent)
 	ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
 	ui.tableWidget_Parcours->setStyleSheet("QTableWidget { background : rgb(203,203,203) }");
 
+	ui.tableWidget_Parcours->setRowCount(0);
+
 	connect(ui.pushButton_Back, SIGNAL(clicked()), this, SLOT(pushbackButton()));
 }
 

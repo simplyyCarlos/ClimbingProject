@@ -1,8 +1,17 @@
 #include "Joueur.h"
 
-Joueur::Joueur(int _id, QString _pseudo, QString _password, Database* _db)
-	: id(_id),pseudo(_pseudo),password(_password),db(_db)
+int Joueur::id = 0;
+
+Joueur::Joueur(QString _pseudo, QString _password, Database* _db)
+	: pseudo(_pseudo),password(_password),db(_db)
 {
+	id = id++;
+	string tmp = "INSERT INTO Joueurs VALUES (" + to_string(id) + " , '" + pseudo.toStdString() + "' , " + to_string(std::hash<std::string>{}(password.toStdString())) + ");";
+	const char* query = tmp.c_str();
+	db->setSql(query);
+	db->callRc();
+	db->testQuery();
+	db->closeDb();
 }
 
 int Joueur::getId()
