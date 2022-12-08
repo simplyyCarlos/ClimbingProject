@@ -52,9 +52,6 @@
     <ClCompile Include="Database.cpp">
       <Filter>Database</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Downloads\sqlite-amalgamation-3070400\sqlite-amalgamation-3070400\sqlite3.c">
-      <Filter>Database</Filter>
-    </ClCompile>
     <ClCompile Include="Prises.cpp">
       <Filter>Model</Filter>
     </ClCompile>
@@ -81,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="testIHMClimingProject.cpp">
       <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite3.c">
+      <Filter>Database</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

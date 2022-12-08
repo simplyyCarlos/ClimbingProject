@@ -4,6 +4,7 @@ QMap <QString, QString> Database::resultat = {};
 
 Database::Database(const char* file)
 {
+    this->file = file;
     rc = sqlite3_open(file, &db);
     if (rc) {
         fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
@@ -76,5 +77,25 @@ void Database::notifyObserver() const
 {
     for (auto index : observerList) {
         index->update();
+    }
+}
+
+Database::Database(Database* db)
+{
+    this->db = db->db;
+    this->zErrMsg = db->zErrMsg;
+    this->rc = db->rc;
+    this->sql = db->sql;
+    this->data = db->data;
+    this->observerList = db->observerList;
+    this->resultat = db->resultat;
+    this->file = db->file;
+
+    rc = sqlite3_open(file, &this->db);
+    if (rc) {
+        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(this->db));
+    }
+    else {
+        fprintf(stderr, "Opened database successfully\n");
     }
 }

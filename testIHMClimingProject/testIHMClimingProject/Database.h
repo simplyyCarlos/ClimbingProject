@@ -13,10 +13,11 @@ private:
 	sqlite3* db;
     char* zErrMsg = 0;
     int rc;
-    char* sql;
+    char* sql = nullptr;
     const char* data = "Callback function called";
     QVector<Observer*> observerList;
     static QMap<QString, QString> resultat;
+    const char* file;
 
 public:
     Database(const char* file);
@@ -30,5 +31,6 @@ public:
     void addObserver(Observer* observer);
     void removeObserver(Observer* observer);
     void notifyObserver() const;
+    Database(Database* db);
 };
 
