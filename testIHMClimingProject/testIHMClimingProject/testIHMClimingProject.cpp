@@ -1,9 +1,10 @@
 #include "testIHMClimingProject.h"
 
-testIHMClimingProject::testIHMClimingProject(QWidget *parent)
+testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
+    db = _db;
     QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
@@ -17,6 +18,7 @@ testIHMClimingProject::testIHMClimingProject(QWidget *parent)
     ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
     ui.label_Created->setStyleSheet("QLabel { color : white;}");
     ui.label_Copyright->setStyleSheet("QLabel { color : white;}");
+
     connect(ui.pushButton_Connexion, SIGNAL(clicked()), this, SLOT(openConnexion()));
     connect(ui.pushButton_Jouer, SIGNAL(clicked()), this, SLOT(openMenuJeu()));
     connect(ui.pushButton_Edition, SIGNAL(clicked()), this, SLOT(openMenuEdition()));
@@ -31,7 +33,7 @@ void testIHMClimingProject::openConnexion() {
 }
 
 void testIHMClimingProject::openMenuJeu() {
-    jm = new jeuMenu(this);
+    jm = new jeuMenu(db,this);
     this->close();
     jm->show();
 }

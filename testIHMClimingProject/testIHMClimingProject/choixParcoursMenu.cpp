@@ -1,9 +1,11 @@
 #include "choixParcoursMenu.h"
 
-choixParcoursMenu::choixParcoursMenu(QWidget* _parent)
+choixParcoursMenu::choixParcoursMenu(QWidget* _parent, Database* _db)
 	: parent(_parent)
 {
 	ui.setupUi(this);
+
+	db = _db;
 
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -18,12 +20,29 @@ choixParcoursMenu::choixParcoursMenu(QWidget* _parent)
 	ui.tableWidget_Parcours->setStyleSheet("QTableWidget { background : rgb(203,203,203) }");
 
 	ui.tableWidget_Parcours->setRowCount(0);
+	update();
 
 	connect(ui.pushButton_Back, SIGNAL(clicked()), this, SLOT(pushbackButton()));
 }
 
 choixParcoursMenu::~choixParcoursMenu()
 {
+}
+
+void choixParcoursMenu::update()
+{
+	ui.tableWidget_Parcours->clear();
+	string tmp = "SELECT * FROM Parcours;";
+	const char* query = tmp.c_str();
+	db->setSql(query);
+	db->callRc();
+	db->testQuery();
+	QMapIterator<QString, QString> i(db->getResult());
+	while (i.hasNext()) {
+		i.next();
+		std::cout << i.key().toStdString() << " " << i.value().toStdString() << std::endl;
+	}
+	db->closeDb();
 }
 
 void choixParcoursMenu::pushbackButton() {

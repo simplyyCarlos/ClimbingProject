@@ -1,5 +1,7 @@
 #include "Database.h"
 
+QMap <QString, QString> Database::resultat = {};
+
 Database::Database(const char* file)
 {
     rc = sqlite3_open(file, &db);
@@ -14,13 +16,13 @@ Database::Database(const char* file)
 int Database::callback(void* data, int argc, char** argv, char** azColName)
 {
     int i;
+    resultat.clear();
     fprintf(stderr, "%s: ", (const char*)data);
-
     for (i = 0; i < argc; i++) {
-        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+        QString tmp = azColName[i];
+        QString res = argv[i];
+        resultat.insert(tmp,res);
     }
-
-    printf("\n");
     return 0;
 }
 
@@ -42,15 +44,37 @@ const char* Database::getSql()
 
 void Database::setSql(const char* query)
 {
-    sql = query;
+    std::strncpy(sql, query, strlen(query));
 }
 
 void Database::callRc()
 {
-    rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
 }
 
 void Database::closeDb()
 {
     sqlite3_close(db);
+}
+
+QMap<QString, QString> Database::getResult()
+{
+    return resultat;
+}
+
+void Database::addObserver(Observer* observer)
+{
+    observerList.append(observer);
+}
+
+void Database::removeObserver(Observer* observer)
+{
+    observerList.remove(observerList.indexOf(observer));
+}
+
+void Database::notifyObserver() const
+{
+    for (auto index : observerList) {
+        index->update();
+    }
 }

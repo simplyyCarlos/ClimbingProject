@@ -2,13 +2,14 @@
 #include "ui_jeuMenu.h"
 #include "choixParcoursMenu.h"
 #include "scoresMenu.h"
+#include "Database.h"
 
 class jeuMenu : public QWidget
 {
     Q_OBJECT
 
 public:
-    jeuMenu(QWidget* _parent);
+    jeuMenu(Database* _db,QWidget* _parent);
     ~jeuMenu();
 
 private:
@@ -16,6 +17,7 @@ private:
     QWidget* parent;
     choixParcoursMenu* cpm;
     scoresMenu* sm;
+    Database* db;
 private slots:
     void pushbackButton();
     void openMenuChoixParcours();

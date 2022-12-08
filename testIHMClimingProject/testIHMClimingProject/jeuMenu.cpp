@@ -1,10 +1,10 @@
 #include "jeuMenu.h"
 
-jeuMenu::jeuMenu(QWidget* _parent)
+jeuMenu::jeuMenu(Database* _db,QWidget* _parent)
 	: parent(_parent)
 {
 	ui.setupUi(this);
-
+	db = _db;
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
@@ -22,7 +22,6 @@ jeuMenu::jeuMenu(QWidget* _parent)
 	ui.textBrowser_Pong->setStyleSheet("QTextBrowser { background-color : rgb(170,105,139);}");
 	ui.textBrowser_Twistter->setStyleSheet("QTextBrowser { background-color : rgb(170,105,139);}");
 
-
 	connect(ui.pushButton_Back, SIGNAL(clicked()), this, SLOT(pushbackButton()));
 	connect(ui.pushButton_Parcours, SIGNAL(clicked()), this, SLOT(openMenuChoixParcours()));
 	connect(ui.pushButton_Scores, SIGNAL(clicked()), this, SLOT(openScoresMenu()));
@@ -38,7 +37,8 @@ void jeuMenu::pushbackButton() {
 }
 
 void jeuMenu::openMenuChoixParcours() {
-	cpm = new choixParcoursMenu(this);
+	cpm = new choixParcoursMenu(this,db);
+	db->addObserver(cpm);
 	this->close();
 	cpm->show();
 }

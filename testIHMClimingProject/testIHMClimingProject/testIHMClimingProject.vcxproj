@@ -133,8 +133,10 @@
     <QtMoc Include="scoresMenu.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractController.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Joueur.h" />
+    <ClInclude Include="observer.h" />
     <ClInclude Include="Parcours.h" />
     <ClInclude Include="Prises.h" />
     <ClInclude Include="sqlite3.h" />
