@@ -42,11 +42,15 @@ def __main__() :
                 image.flags.writeable = True
                 image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
                 poses=landmark_subset.landmark
+                cpt = 0
                 for data_point in poses:
                     x=data_point.x * 640
                     y=data_point.y * 480
-                    print(x,y)
-                    cv2.circle(image,(int(x),int(y)),10,(255,0,0),-1)
+                    cpt+=1
+                    if(cpt %2 == 0):
+                        cv2.circle(image,(int(x),int(y)),10,(255,0,0),-1)
+                    else:
+                        cv2.circle(image,(int(x),int(y)),10,(0,0,255),-1)
             # Flip the image horizontally for a selfie-view display.
             cv2.imshow('MediaPipe Pose', cv2.flip(image, 1))
             if cv2.waitKey(5) & 0xFF == 27:
