@@ -1,29 +1,44 @@
-from __future__ import print_function
-import cv2
-import numpy as np
-import argparse
-from matplotlib import pyplot as plt
+import cv2 
+import numpy as np 
 
-cap = cv2.VideoCapture(0)
 
-while cap.isOpened():
-    success, src = cap.read()
-    src_copy = src.copy()
-    if not success:
-      print("Ignoring empty camera frame.")
-      # If loading a video, use 'break' instead of 'continue'.
-      break
-
-    gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
-    estimatedThreshold, thresholdImage=cv2.threshold(gray,30,30,cv2.THRESH_BINARY)
-    ## DETERMINE CONTOURS AND FILTER THEM
-    
-    cnts=cv2.findContours(thresholdImage, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cnts = cnts[0] if len(cnts) == 2 else cnts[1]
-    for c in cnts:
-        x,y,w,h = cv2.boundingRect(c)
-        cv2.rectangle(src, (x, y), (x + w, y + h), (36,255,12), 2)
-    cv2.imshow('Image', src)
-    cv2.waitKey(0)
-
-cap.release()
+img = cv2.imread("img.jpg", cv2.IMREAD_GRAYSCALE) 
+cap = cv2.VideoCapture(0) 
+sift = cv2.xfeatures2d.SIFT_create() 
+kp_image, desc_image =sift.detectAndCompute(img, None) 
+index_params = dict(algorithm = 0, trees = 5) 
+search_params = dict() 
+flann = cv2.FlannBasedMatcher(index_params, search_params) 
+_, frame = cap.read() 
+ 
+grayframe = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
+ 
+kp_grayframe, desc_grayframe = sift.detectAndCompute(grayframe, None) 
+ 
+matches= flann.knnMatch(desc_image, desc_grayframe, k=2) 
+  
+good_points=[] 
+ 
+for m, n in matches: 
+     
+    if(m.distance < 0.6*n.distance): 
+        good_points.append(m) 
+query_pts = np.float32([kp_image[m.queryIdx] 
+                .pt for m in good_points]).reshape(-1, 1, 2) 
+ 
+train_pts = np.float32([kp_grayframe[m.trainIdx] 
+                .pt for m in good_points]).reshape(-1, 1, 2) 
+ 
+matrix, mask = cv2.findHomography(query_pts, train_pts, cv2.RANSAC, 5.0) 
+ 
+matches_mask = mask.ravel().tolist() 
+ 
+h,w,d = img.shape
+ 
+pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
+ 
+dst = cv.perspectiveTransform(pts, matrix)
+ 
+homography = cv2.polylines(frame, [np.int32(dst)], True, (255, 0, 0), 3) 
+ 
+cv2.imshow("Homography", homography) 
