@@ -2,12 +2,12 @@ import cv2
 import numpy as np 
 
 
-img = cv2.imread("img.jpg", cv2.IMREAD_GRAYSCALE) 
+img = cv2.imread("charucoboard.jpeg", cv2.IMREAD_GRAYSCALE) 
 cap = cv2.VideoCapture(0) 
-sift = cv2.xfeatures2d.SIFT_create() 
+sift = cv2.SIFT_create() 
 kp_image, desc_image =sift.detectAndCompute(img, None) 
-index_params = dict(algorithm = 0, trees = 5) 
-search_params = dict() 
+index_params = dict(algorithm = 1, trees = 5) 
+search_params = dict(checks=50) 
 flann = cv2.FlannBasedMatcher(index_params, search_params) 
 _, frame = cap.read() 
  
@@ -33,12 +33,4 @@ matrix, mask = cv2.findHomography(query_pts, train_pts, cv2.RANSAC, 5.0)
  
 matches_mask = mask.ravel().tolist() 
  
-h,w,d = img.shape
- 
-pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
- 
-dst = cv.perspectiveTransform(pts, matrix)
- 
-homography = cv2.polylines(frame, [np.int32(dst)], True, (255, 0, 0), 3) 
- 
-cv2.imshow("Homography", homography) 
+print(matrix)
