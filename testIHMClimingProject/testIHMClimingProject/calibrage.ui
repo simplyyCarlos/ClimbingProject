@@ -16,22 +16,22 @@
   <widget class="QGraphicsView" name="graphicsView">
    <property name="geometry">
     <rect>
-     <x>25</x>
-     <y>63</y>
-     <width>1000</width>
-     <height>560</height>
+     <x>50</x>
+     <y>100</y>
+     <width>950</width>
+     <height>532</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>1000</width>
-     <height>560</height>
+     <width>950</width>
+     <height>532</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>1000</width>
-     <height>560</height>
+     <width>950</width>
+     <height>532</height>
     </size>
    </property>
    <property name="verticalScrollBarPolicy">
@@ -39,6 +39,71 @@
    </property>
    <property name="horizontalScrollBarPolicy">
     <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Titre">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>0</y>
+     <width>251</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Calibrage</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Back">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Continuer">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>640</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Continuer</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_consigne">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>70</y>
+     <width>451</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Sélectionner les prises d'escalades</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_attente">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>210</y>
+     <width>421</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>En attente de l'image</string>
    </property>
   </widget>
  </widget>

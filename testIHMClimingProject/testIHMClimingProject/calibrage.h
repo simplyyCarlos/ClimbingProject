@@ -4,18 +4,30 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QtWidgets/QMainWindow>
 #include "View.h"
+#include "Data.h"
+#include<thread>
+#pragma push_macro("slots")
+#undef slots
+#include "Python.h"
+#pragma pop_macro("slots")
+
+
 
 
 class Calibrage : public QWidget {
 	Q_OBJECT
 public:
-	Calibrage(QWidget* _parent);
+	Calibrage(QWidget* _parent, Data* dt);
 	~Calibrage();
+
+	void calibrage();
 private:
 	Ui::calibrageClass ui;
 	QWidget* parent;
     View* view;
-	const QString filename = "partie1.jpg";
-private slots:
+	Data* dt;
+	const QString filename = "savedImage.jpg";
 
+	void getImage();
+private slots:
 };

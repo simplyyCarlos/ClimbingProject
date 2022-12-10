@@ -4,6 +4,7 @@ testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
+    dt = new Data();
     db = new Database(_db);
     QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -12,6 +13,7 @@ testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
     this->setPalette(palette);
     this->setFixedSize(QSize(650, 400));
     calibrate = false;
+    jm, em, ca = nullptr;
 
     ui.pushButton_Edition->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.pushButton_Jouer->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
@@ -34,17 +36,23 @@ void testIHMClimingProject::openConnexion() {
 }
 
 void testIHMClimingProject::openMenuJeu() {
-    if (calibrate) {
-        jm = new jeuMenu(db, this);
+    if (dt->getCalibrate()) {
+        if (jm == nullptr) {
+            jm = new jeuMenu(db, this);
+        }
         this->close();
         jm->show();
     }
     else {
-        ca = new Calibrage(this);
+        if (ca == nullptr) {
+            ca = new Calibrage(this, dt);
+        }
         this->close();
         ca->show();
-    }
-    
+        QApplication::processEvents();
+        ca->calibrage();
+        dt->setCalibrate(true);
+    }   
 }
 
 void testIHMClimingProject::openMenuEdition() {

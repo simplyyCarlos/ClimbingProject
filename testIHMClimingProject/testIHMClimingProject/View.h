@@ -13,13 +13,13 @@ class View : public QGraphicsScene
 
 private:
 	QPointF mousePos;
-	QVector<Circle> circleList;
+	QVector<Circle*> circleList;
 	QVector<QGraphicsItem*> itemList;
 
 public:
 	View();
 	void updateModel();
-
+	QVector<Circle*> getCircle() { return circleList; }
 protected:
 	void drawForeground(QPainter*, const QRect&);
 

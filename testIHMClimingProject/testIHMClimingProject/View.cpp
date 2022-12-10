@@ -18,9 +18,11 @@ void View::drawForeground(QPainter* painter, const QRect& rect)
 
 void View::updateModel()
 {
-	for (Circle cercle : circleList)
+	itemList.clear();
+	clear();
+	for (Circle* cercle : circleList)
 	{
-		QGraphicsItem* item = cercle.getGraphicsItem();
+		QGraphicsItem* item = cercle->getGraphicsItem();
 		item->setAcceptDrops(true);
 		itemList.append(item);
 		addItem(item);
@@ -39,8 +41,30 @@ void View::mousePressEvent(QGraphicsSceneMouseEvent* mouseEvent)
 
 	if (mouseEvent->button() == Qt::LeftButton)
 	{
-		Circle cercle(couleur, QPointF(mousePos.x(), mousePos.y()), DIAMETRE_CERCLE);
+		Circle* cercle = new Circle(couleur, QPointF(mousePos.x(), mousePos.y()), DIAMETRE_CERCLE);
 		circleList.append(cercle);
+	}
+	else if (mouseEvent->button() == Qt::RightButton)
+	{
+		cout << "Right !" << endl;
+		mousePos = mouseEvent->scenePos();
+		QVector<QGraphicsItem*> items = this->items(mousePos);
+
+		if (items.size() > 0)
+		{
+			for (int i = 0; i < itemList.size(); i++)
+			{
+				if (itemList[i] == items[0])
+				{
+					circleList.remove(i);
+					break;
+				}
+			}
+		}
+		else
+		{
+			return;
+		}
 	}
 	updateModel();
 }
