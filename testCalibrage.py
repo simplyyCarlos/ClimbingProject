@@ -3,7 +3,7 @@ import numpy as np
 
 
 img = cv2.imread("charucoboard.jpeg", cv2.IMREAD_GRAYSCALE) 
-cap = cv2.VideoCapture(0) 
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW) 
 sift = cv2.SIFT_create() 
 kp_image, desc_image =sift.detectAndCompute(img, None) 
 index_params = dict(algorithm = 1, trees = 5) 
