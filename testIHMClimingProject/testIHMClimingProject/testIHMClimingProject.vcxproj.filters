@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Controllers">
+      <UniqueIdentifier>{fcede982-0fea-45e2-b21c-edc67988db87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Database">
+      <UniqueIdentifier>{edc58c0b-f6c9-4b2d-9feb-f3bda78bef35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{e7a8747f-eb30-4282-9efb-edc06eff7ac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{bbd5d53a-b877-4e11-908c-b952458bab79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Observer">
+      <UniqueIdentifier>{32bced6d-1a50-4556-bfba-9cedf308b96a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="testIHMClimingProject.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="testIHMClimingProject.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Database.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Prises.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Parcours.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Joueur.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogLogin.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="choixParcoursMenu.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="editionMenu.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="jeuMenu.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresMenu.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="testIHMClimingProject.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite3.c">
+      <Filter>Database</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="dialogLogin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="jeuMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="editionMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="choixParcoursMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="choixParcoursMenu.h">
+      <Filter>Window</Filter>
+    </QtMoc>
+    <QtMoc Include="dialogLogin.h">
+      <Filter>Window</Filter>
+    </QtMoc>
+    <QtMoc Include="editionMenu.h">
+      <Filter>Window</Filter>
+    </QtMoc>
+    <QtMoc Include="jeuMenu.h">
+      <Filter>Window</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresMenu.h">
+      <Filter>Window</Filter>
+    </QtMoc>
+    <QtMoc Include="testIHMClimingProject.h">
+      <Filter>Window</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Database.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite3.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Prises.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Parcours.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Joueur.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="observer.h">
+      <Filter>Observer</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
