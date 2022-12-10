@@ -1,9 +1,13 @@
 import cv2
-
-
+import sys
 
 
 def __main__() :
+        if (len(sys.argv) !=9):
+            sys.exit("Not enough args")
+        arg_one = sys.argv[0]
+        print(float(arg_one))
+        
         filename="savedImage.jpg"
         cap = cv2.VideoCapture(0)
         while cap.isOpened():
@@ -23,6 +27,7 @@ def __main__() :
             if cv2.waitKey(5) & 0xFF == 27:
                 break
         sucess, image=cap.read(0)
+        image = cv2.flip(image,1)
         cv2.imwrite("frame.jpg",image)
         cap.release()
         

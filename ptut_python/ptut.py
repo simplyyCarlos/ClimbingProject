@@ -6,7 +6,8 @@ from mediapipe.framework.formats import landmark_pb2
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
-
+IMAGE_HEIGHT = 480
+IMAGE_WIDTH = 640
 def __main__() :
     shmem = mmap.mmap(-1, 16*4 ,"shm", access=mmap.ACCESS_WRITE)
     cap = cv2.VideoCapture(0)
@@ -14,12 +15,13 @@ def __main__() :
         min_detection_confidence=0.7,
         min_tracking_confidence=0.9) as pose:
         tab = [[0]*8,[0]*8]
+        
         while cap.isOpened():
             success, image = cap.read(0)
             if not success:
                 print("Ignoring empty camera frame.")
             # If loading a video, use 'break' instead of 'continue'.
-                break
+                continue
             
             # To improve performance, optionally mark the image as not writeable to
             # pass by reference.
@@ -47,27 +49,29 @@ def __main__() :
                 cpt = 0
                 
                 for data_point in poses:
-                    x=data_point.x * 640
-                    y=data_point.y * 480
-                    z=data_point.z
-                    print(z)
+                    x=data_point.x * IMAGE_WIDTH
+                    y=data_point.y * IMAGE_HEIGHT
                     if(x >=0 and y>=0):
-                        tab[0][cpt] = int(x)
-                        tab[1][cpt] = int(y)
+                        tab[0][cpt] = int(data_point.x*10**8)
+                        tab[1][cpt] = int(data_point.y*10**8)
+                        
                     
-                    
+                    """
                     if(cpt %2 == 0):
                         cv2.circle(image,(tab[0][cpt],tab[1][cpt]),10,(255,0,0),1)
                     else:
                         cv2.circle(image,(tab[0][cpt],tab[1][cpt]),10,(0,0,255),1)
-                    
+                    """
                     cpt+=1
                 cpt = 0
+                
                 for op in tab:
                     for data in op:
                         shmem.seek(cpt)
                         shmem.write((data).to_bytes(4,"little"))
                         cpt += 4 
+                
+                
 
             # Flip the image horizontally for a selfie-view display.
             cv2.imshow('MediaPipe Pose', cv2.flip(image, 1))

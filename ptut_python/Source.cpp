@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <Python.h>
+
 #include <string>
 using namespace boost::interprocess;
 using namespace std;
@@ -46,11 +47,14 @@ void testSharedMemory() {
 
     cout << region.get_address() << endl << sizeof(unsigned int[16]) << endl;
 
-   
+    float x = 0.0f;
+    float y = 0.0f;
 
     for (size_t i = 0; i < 8; i++)
     {
-        cout << tab[i] << " " << tab[i+8] << endl;
+        x = tab[i] *= 10 ^ -8;
+        y = tab[i + 8] *= 10 ^ -8;
+        cout << x << " " << y;
     }
 }
     
@@ -73,8 +77,8 @@ void launchOpenCV(const char* pyFileName, wchar_t* program = Py_DecodeLocale("py
 
 
 int main() {
-    //testSharedMemory();
-    launchOpenCV("image_capture.py");
+    testSharedMemory();
+    //launchOpenCV("image_capture.py");
     return 0;
 
 }
