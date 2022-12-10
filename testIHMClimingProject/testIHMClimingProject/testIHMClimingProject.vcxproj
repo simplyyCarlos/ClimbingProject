@@ -97,12 +97,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="testIHMClimingProject.qrc" />
+    <QtUic Include="calibrage.ui" />
     <QtUic Include="dialogLogin.ui" />
     <QtUic Include="editionMenu.ui" />
     <QtUic Include="jeuMenu.ui" />
     <QtUic Include="scoresMenu.ui" />
     <QtUic Include="testIHMClimingProject.ui" />
     <QtMoc Include="testIHMClimingProject.h" />
+    <ClCompile Include="calibrage.cpp" />
     <ClCompile Include="choixParcoursMenu.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="dialogLogin.cpp" />
@@ -134,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h" />
+    <QtMoc Include="calibrage.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Joueur.h" />
     <ClInclude Include="observer.h" />
