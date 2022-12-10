@@ -96,6 +96,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="View.cpp" />
     <QtRcc Include="testIHMClimingProject.qrc" />
     <QtUic Include="calibrage.ui" />
     <QtUic Include="dialogLogin.ui" />
@@ -106,6 +107,7 @@
     <QtMoc Include="testIHMClimingProject.h" />
     <ClCompile Include="calibrage.cpp" />
     <ClCompile Include="choixParcoursMenu.cpp" />
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="dialogLogin.cpp" />
     <ClCompile Include="editionMenu.cpp" />
@@ -136,7 +138,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h" />
+    <QtMoc Include="View.h" />
     <QtMoc Include="calibrage.h" />
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Joueur.h" />
     <ClInclude Include="observer.h" />

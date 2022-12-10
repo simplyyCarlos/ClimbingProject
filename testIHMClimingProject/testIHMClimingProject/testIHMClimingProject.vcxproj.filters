@@ -36,6 +36,9 @@
     <Filter Include="Observer">
       <UniqueIdentifier>{32bced6d-1a50-4556-bfba-9cedf308b96a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Window\calibrage">
+      <UniqueIdentifier>{2aca80a3-dd6b-4e33-8945-2291cbed9948}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="testIHMClimingProject.qrc">
@@ -83,7 +86,13 @@
       <Filter>Database</Filter>
     </ClCompile>
     <ClCompile Include="calibrage.cpp">
-      <Filter>Window</Filter>
+      <Filter>Window\calibrage</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Window\calibrage</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Window\calibrage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -126,7 +135,10 @@
       <Filter>Window</Filter>
     </QtMoc>
     <QtMoc Include="calibrage.h">
-      <Filter>Window</Filter>
+      <Filter>Window\calibrage</Filter>
+    </QtMoc>
+    <QtMoc Include="View.h">
+      <Filter>Window\calibrage</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +162,9 @@
     </ClInclude>
     <ClInclude Include="observer.h">
       <Filter>Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Window\calibrage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
