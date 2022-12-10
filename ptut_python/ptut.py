@@ -12,7 +12,7 @@ def __main__() :
     cap = cv2.VideoCapture(0)
     with mp_pose.Pose(
         min_detection_confidence=0.7,
-        min_tracking_confidence=0.7) as pose:
+        min_tracking_confidence=0.9) as pose:
         tab = [[0]*8,[0]*8]
         while cap.isOpened():
             success, image = cap.read(0)
@@ -49,8 +49,12 @@ def __main__() :
                 for data_point in poses:
                     x=data_point.x * 640
                     y=data_point.y * 480
-                    tab[0][cpt] = int(x)
-                    tab[1][cpt] = int(y)
+                    z=data_point.z
+                    print(z)
+                    if(x >=0 and y>=0):
+                        tab[0][cpt] = int(x)
+                        tab[1][cpt] = int(y)
+                    
                     """
                     if(cpt %2 == 0):
                         cv2.circle(image,(tab[0][cpt],tab[1][cpt]),10,(255,0,0),1)
@@ -64,8 +68,9 @@ def __main__() :
                         shmem.seek(cpt)
                         shmem.write((data).to_bytes(4,"little"))
                         cpt += 4 
-                shmem.read()
+
             # Flip the image horizontally for a selfie-view display.
+            cv2.imshow('MediaPipe Pose', cv2.flip(image, 1))
             if cv2.waitKey(5) & 0xFF == 27:
                 break
         cap.release()

@@ -397,3 +397,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /ptut_python/ptut_python.vcxproj
+/testSharedMemory/packages/boost.1.80.0
