@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 
     if (argc == 1) {  //Parent process
         //Create a native windows shared memory object.
-        windows_shared_memory shmem(create_only, "shm", read_write, sizeof(unsigned int[2]));
+        windows_shared_memory shmem(create_only, "shm", read_write, sizeof(unsigned int[16]));
 
         //Map the whole shared memory in this process
         mapped_region region(shmem, read_write);
@@ -25,11 +25,13 @@ int main(int argc, char* argv[])
         *tab = 1736435;
         tab[1] = 24;
 
-        cout << region.get_address() << endl << sizeof(unsigned int[2]) << endl;
   
         std::system("pause");
 
-        cout << tab[0] << endl << tab[1];
+        for (size_t i = 0; i < 8; i++)
+        {
+            cout << tab[i] << " " << tab[i + 8] << endl;
+        }
     }
     else {
         //Open already created shared memory object.
