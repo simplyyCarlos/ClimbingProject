@@ -72,12 +72,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ExternalIncludePath>C:\Users\valet\AppData\Local\Programs\Python\Python310\include;C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\include;$(ExternalIncludePath)</ExternalIncludePath>
-    <LibraryPath>C:\Users\valet\AppData\Local\Programs\Python\Python310\libs;C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\Lib;C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\libs;C:\Users\valet\AppData\Local\Programs\Python\Python310\Lib;$(LibraryPath)</LibraryPath>
+    <ExternalIncludePath>C:\Program Files\Python310\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>C:\Program Files\Python310\libs;C:\Program Files\Python310\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\valet\AppData\Local\Programs\Python\Python310\include;C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\valet\AppData\Local\Programs\Python\Python310\libs;C:\Users\valet\AppData\Local\Programs\Python\Python310\Lib;C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\libs;C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files\Python310\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Python310\libs;C:\Program Files\Python310\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

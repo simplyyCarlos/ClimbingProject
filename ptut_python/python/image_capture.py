@@ -7,6 +7,7 @@ def __main__() :
             sys.exit("Not enough args")
         arg_one = sys.argv[0]
         print(float(arg_one))
+        
         filename="savedImage.jpg"
         cap = cv2.VideoCapture(0)
         while cap.isOpened():

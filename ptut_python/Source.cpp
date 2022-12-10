@@ -17,12 +17,18 @@ void launchMediapipe(const char* pyFileName,wchar_t* program = Py_DecodeLocale("
     if (program == NULL) {
         cout << "wchar_t error\n";
     }
-    FILE* f;
-    errno_t err;
-    err = fopen_s(&f, pyFileName, "r");
-    Py_SetProgramName(program);
-    Py_Initialize();
-    PyRun_SimpleFile(f, pyFileName);
+    Py_InitializeEx(0);
+    PyObject* pyModuleName = PyUnicode_DecodeFSDefault("ptut");
+
+    if (pyModuleName == nullptr){
+        cout<< "Python error: Cannot decode file system path\n";
+        return;
+    }
+
+    Py_DECREF(pyModuleName);
+    //PyObject * result = PyObject_CallObject(myFunc,NULL);
+    //auto i = result;
+    //cout << myFunc;
     if (Py_FinalizeEx() < 0) {
         return;
     }
