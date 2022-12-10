@@ -55,12 +55,26 @@ void testSharedMemory() {
 }
     
 
+void launchOpenCV(const char* pyFileName, wchar_t* program = Py_DecodeLocale("python_instance", NULL)) {
+    if (program == NULL) {
+        cout << "wchar_t erro\n";
+    }
+    FILE* f;
+    errno_t err;
+    err = fopen_s(&f, pyFileName, "r");
+    Py_SetProgramName(program);
+    Py_Initialize();
+    PyRun_SimpleFile(f, pyFileName);
+    if (Py_FinalizeEx() < 0) {
+        return;
+    }
+    PyMem_RawFree(program);
+}
+
 
 int main() {
-    testSharedMemory();
-
-    
-
+    //testSharedMemory();
+    launchOpenCV("image_capture.py");
     return 0;
 
 }

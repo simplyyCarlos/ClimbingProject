@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 #/ptut_python/ptut_python.vcxproj
 /testSharedMemory/packages/boost.1.80.0
+/packages/boost.1.80.0

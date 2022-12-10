@@ -73,7 +73,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExternalIncludePath>C:\Users\valet\AppData\Local\Programs\Python\Python310\include;$(ExternalIncludePath)</ExternalIncludePath>
-    <LibraryPath>C:\Users\valet\AppData\Local\Programs\Python\Python310\libs;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\valet\AppData\Local\Programs\Python\Python310\libs;C:\Users\valet\AppData\Local\Programs\Python\Python310\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Users\valet\AppData\Local\Programs\Python\Python310\include;$(IncludePath)</IncludePath>
