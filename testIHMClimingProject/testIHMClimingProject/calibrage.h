@@ -27,7 +27,10 @@ private:
     View* view;
 	Data* dt;
 	const QString filename = "savedImage.jpg";
+	std::thread* t;
+
 
 	void getImage();
 private slots:
+	void saveCalibration();
 };

@@ -17,11 +17,15 @@ Calibrage::Calibrage(QWidget* _parent, Data* _dt) {
 
 	this->setFixedSize(QSize(1050, 686));
 
+	connect(ui.pushButton_Continuer, SIGNAL(clicked()), this, SLOT(saveCalibration()));
+
 	ui.pushButton_Continuer->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 	ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
 	ui.label_consigne->setStyleSheet("QLabel { color : white; font-size : 20px;}");
 	ui.label_attente->setStyleSheet("QLabel { color : white; font-size : 30px;}");
+	ui.label_attente_2->setStyleSheet("QLabel { color : white; font-size : 30px;}");
 
+	ui.label_attente_2->close();
 	ui.label_consigne->close();
 	ui.graphicsView->close();
 }
@@ -44,11 +48,20 @@ void Calibrage::calibrage() {
 	ui.label_consigne->show();
 	ui.graphicsView->show();
 
+	t = new std::thread(&Data::getCalibrate, dt);
+}
+
+void Calibrage::saveCalibration() {
+	ui.label_consigne->close();
+	ui.graphicsView->close();
+	ui.label_attente_2->show();
 	for (Circle* circle : view->getCircle()) {
 		dt->addPrise(circle->getPos());
 	}
+	t->join();
+	this->close();
+	parent->show();
 }
-
 
 void Calibrage::getImage() {
 	const char* pyFileName = "image_capture.py";

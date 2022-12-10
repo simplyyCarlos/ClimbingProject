@@ -97,6 +97,9 @@
     <ClCompile Include="View.cpp">
       <Filter>Window\calibrage</Filter>
     </ClCompile>
+    <ClCompile Include="Data.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialogLogin.ui">
@@ -168,6 +171,9 @@
     </ClInclude>
     <ClInclude Include="Circle.h">
       <Filter>Window\calibrage</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.h">
+      <Filter>Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

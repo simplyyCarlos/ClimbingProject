@@ -12,7 +12,6 @@ testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
     palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
     this->setFixedSize(QSize(650, 400));
-    calibrate = false;
     jm, em, ca = nullptr;
 
     ui.pushButton_Edition->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");

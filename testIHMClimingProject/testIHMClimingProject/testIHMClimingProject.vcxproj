@@ -100,6 +100,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Data.cpp" />
     <ClCompile Include="View.cpp" />
     <QtRcc Include="testIHMClimingProject.qrc" />
     <QtUic Include="calibrage.ui" />
@@ -146,6 +147,7 @@
     <QtMoc Include="calibrage.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Database.h" />
+    <ClInclude Include="Data.h" />
     <ClInclude Include="Joueur.h" />
     <ClInclude Include="observer.h" />
     <ClInclude Include="Parcours.h" />
