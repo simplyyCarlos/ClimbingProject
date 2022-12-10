@@ -5,9 +5,10 @@ Calibrage::Calibrage(QWidget* _parent, Data* _dt) {
 	parent = _parent;
 	dt = _dt;
 	view = new View();
-	view->setSceneRect(0, 0, 1050 / 2, 570 / 2);
+	view->setSceneRect(0, 0, 950 / 2, 532 / 2);
 	ui.setupUi(this);
 	ui.graphicsView->setScene(view);
+	ui.graphicsView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
