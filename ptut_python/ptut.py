@@ -55,12 +55,12 @@ def __main__() :
                         tab[0][cpt] = int(x)
                         tab[1][cpt] = int(y)
                     
-                    """
+                    
                     if(cpt %2 == 0):
                         cv2.circle(image,(tab[0][cpt],tab[1][cpt]),10,(255,0,0),1)
                     else:
                         cv2.circle(image,(tab[0][cpt],tab[1][cpt]),10,(0,0,255),1)
-                    """
+                    
                     cpt+=1
                 cpt = 0
                 for op in tab:
