@@ -5,9 +5,9 @@ import sys
 from mediapipe.framework.formats import landmark_pb2
 
 
-print(sys.path)
 
-"""
+
+
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
@@ -84,9 +84,8 @@ def __main__() :
             if cv2.waitKey(5) & 0xFF == 27:
                 break
         cap.release()
-    return 555;
+    
         
 
 if __name__ == '__main__':
-       __main__().attr_name
-"""
+       __main__()

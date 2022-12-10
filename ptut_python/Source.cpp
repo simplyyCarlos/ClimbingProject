@@ -15,20 +15,14 @@ using namespace std;
 
 void launchMediapipe(const char* pyFileName,wchar_t* program = Py_DecodeLocale("python_instance", NULL)) {
     if (program == NULL) {
-        cout << "wchar_t error\n";
+        cout << "wchar_t erro\n";
     }
-    Py_InitializeEx(0);
-    PyObject* pyModuleName = PyUnicode_DecodeFSDefault("ptut");
-
-    if (pyModuleName == nullptr){
-        cout<< "Python error: Cannot decode file system path\n";
-        return;
-    }
-
-    Py_DECREF(pyModuleName);
-    //PyObject * result = PyObject_CallObject(myFunc,NULL);
-    //auto i = result;
-    //cout << myFunc;
+    FILE* f;
+    errno_t err;
+    err = fopen_s(&f, pyFileName, "r");
+    Py_SetProgramName(program);
+    Py_Initialize();
+    PyRun_SimpleFile(f, pyFileName);
     if (Py_FinalizeEx() < 0) {
         return;
     }
@@ -83,8 +77,8 @@ void launchOpenCV(const char* pyFileName, wchar_t* program = Py_DecodeLocale("py
 
 
 int main() {
-    testSharedMemory();
-    //launchOpenCV("image_capture.py");
+    //testSharedMemory();
+    launchOpenCV("image_capture.py");
     return 0;
 
 }

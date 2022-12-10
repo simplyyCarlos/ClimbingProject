@@ -3,14 +3,10 @@ import sys
 
 
 def __main__() :
-        if (len(sys.argv) !=9):
-            sys.exit("Not enough args")
-        arg_one = sys.argv[0]
-        print(float(arg_one))
         filename="savedImage.jpg"
-        cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
         while cap.isOpened():
-            success, image = cap.read(0,cv2.CAP_DSHOW)
+            success, image = cap.read(0)
             if not success:
                 print("Ignoring empty camera frame.")
             # If loading a video, use 'break' instead of 'continue'.

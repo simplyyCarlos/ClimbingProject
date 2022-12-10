@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Python">
+      <UniqueIdentifier>{506d69ed-0d48-4d12-b6ba-063cbba4d87b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -21,11 +24,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="ptut.py">
-      <Filter>Fichiers sources</Filter>
-    </None>
     <None Include="image_capture.py">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Python</Filter>
+    </None>
+    <None Include="ptut.py">
+      <Filter>Python</Filter>
     </None>
   </ItemGroup>
 </Project>
