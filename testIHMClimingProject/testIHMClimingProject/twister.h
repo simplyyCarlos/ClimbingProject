@@ -12,7 +12,8 @@ private:
 	Ui::twisterClass ui;
 	QWidget* parent;
 	Data* dt;
-	QPainter painter;
+
+	void paintEvent(QPaintEvent*) override;
 
 public:
 	Twister(QWidget*, Data*);

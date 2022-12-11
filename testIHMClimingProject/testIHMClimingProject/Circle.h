@@ -16,6 +16,7 @@ class Circle
 	public:
 		Circle(QString, QPointF, double);
 		QPointF* getPos() { return new QPointF(pos); }
+		void setPos(double x, double y) { pos = QPointF(x, y); }
 
 		QGraphicsItem* getGraphicsItem() const;
 };

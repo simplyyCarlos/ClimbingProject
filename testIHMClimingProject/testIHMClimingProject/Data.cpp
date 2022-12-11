@@ -24,3 +24,7 @@ void Data::notifyObserver() const {
 		obs->updateModel();
 	}
 }
+
+void Data::calibragePrise() {
+
+}

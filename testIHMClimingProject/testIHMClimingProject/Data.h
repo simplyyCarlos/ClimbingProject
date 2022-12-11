@@ -14,6 +14,7 @@ public:
 	Data();
 	~Data();
 	QVector<Circle*> getPrise() { return listPrise; }
+	void calibragePrise();
 	void setPrise(QVector<Circle*>);
 	bool getCalibrate() { return calibrate; }
 	void setCalibrate(bool b) { calibrate = b; }

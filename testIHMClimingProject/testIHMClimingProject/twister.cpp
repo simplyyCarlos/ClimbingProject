@@ -2,23 +2,17 @@
 
 #define rayonCercle 30.0f
 
-Twister::Twister(QWidget* _parent, Data* _dt) : painter(QPainter(this))
+Twister::Twister(QWidget* _parent, Data* _dt)
 {
 	ui.setupUi(this);
 	parent = _parent;
 	dt = _dt;
 
-	
+		
 
 	QRect screen;
 
-	QBrush tmpBrush(Qt::SolidPattern);
-	tmpBrush.setColor(QColor(6, 129, 253));
-	QPen tmpPen;
-	tmpPen.setColor(Qt::black);
-	tmpPen.setWidth(1);
-	painter.setPen(tmpPen);
-	painter.setBrush(tmpBrush);
+	
 
 	if (qGuiApp->screens().size() > 1) {
 		screen = qGuiApp->screens()[1]->geometry();
@@ -41,19 +35,29 @@ Twister::~Twister()
 {
 }
 
-void Twister::updateModel() {
+void Twister::paintEvent(QPaintEvent*) {
+	QPainter painter(this);
+
+	QBrush tmpBrush(Qt::SolidPattern);
+	tmpBrush.setColor(QColor(6, 129, 253));
+	QPen tmpPen;
+	tmpPen.setColor(Qt::black);
+	tmpPen.setWidth(1);
+	painter.setPen(tmpPen);
+	painter.setBrush(tmpBrush);
+
 	QPointF* pos;
 	for (Circle* circle : dt->getPrise()) {
 		pos = circle->getPos();
 		painter.drawEllipse(pos->x() - rayonCercle / 2, pos->y() - rayonCercle / 2, rayonCercle, rayonCercle);
 	}
 
-	painter.save();
-	QBrush tmpBrush(Qt::SolidPattern);
 	tmpBrush.setColor(QColor(245, 20, 20));
 	painter.setBrush(tmpBrush);
-	painter.restore();
 
+}
+
+void Twister::updateModel() {
 	update();
 }
 
