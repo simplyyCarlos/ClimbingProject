@@ -8,11 +8,7 @@ Twister::Twister(QWidget* _parent, Data* _dt)
 	parent = _parent;
 	dt = _dt;
 
-		
-
 	QRect screen;
-
-	
 
 	if (qGuiApp->screens().size() > 1) {
 		screen = qGuiApp->screens()[1]->geometry();
