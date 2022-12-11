@@ -1,18 +1,28 @@
 // TestPtut.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
-#define PY_SSIZE_T_CLEAN
-#include <boost/interprocess/windows_shared_memory.hpp>
-#include <boost/interprocess/mapped_region.hpp>
 #include <cstring>
 #include <cstdlib>
 #include <iostream>
 #include <Python.h>
+#include <vector>
+#include <pybind11/embed.h>
+#include <pybind11/pybind11.h>
+#include <pybind11/attr.h>
+#include <pybind11/numpy.h>
+#include <pybind11/stl.h>
+#include <tuple>
+#include <pybind11/pytypes.h>
+#include "Source.h"
 
-#include <string>
-using namespace boost::interprocess;
+//using namespace boost::interprocess;
 using namespace std;
+namespace py = pybind11;
+static char* URL;
 
+
+
+/*
 void launchMediapipe(const char* pyFileName,wchar_t* program = Py_DecodeLocale("python_instance", NULL)) {
     if (program == NULL) {
         cout << "wchar_t erro\n";
@@ -28,8 +38,8 @@ void launchMediapipe(const char* pyFileName,wchar_t* program = Py_DecodeLocale("
     }
     PyMem_RawFree(program);
 
-}
-
+}*/
+/*
 void testSharedMemory() {
 
     //Create a native windows shared memory object.
@@ -41,7 +51,7 @@ void testSharedMemory() {
     //Write all the memory to 1
     std::memset(region.get_address(), 1, region.get_size());
 
-    launchMediapipe("ptut.py");
+    //launchMediapipe("ptut.py");
     unsigned int* tab = static_cast<unsigned int*>(region.get_address());
 
 
@@ -57,34 +67,67 @@ void testSharedMemory() {
         cout << x << " " << y;
     }
 }
+*/  
+/*
+int launchOpenCV(const char * programName) {
+   
     
 
-void launchOpenCV(const char* pyFileName, wchar_t* program = Py_DecodeLocale("python_instance", NULL)) {
-    if (program == NULL) {
-        cout << "wchar_t erro\n";
+    int res = PyRun_SimpleFile(f, programName);
+    Py_Finalize();
+    
+    status = _Py_InitializeMain();
+    if (PyStatus_Exception(status)) {
+        Py_ExitStatusException(status);
     }
-    FILE* f;
-    errno_t err;
-    err = fopen_s(&f, pyFileName, "r");
-    Py_SetProgramName(program);
-    Py_Initialize();
-    PyRun_SimpleFile(f, pyFileName);
-    if (Py_FinalizeEx() < 0) {
-        return;
+    
+}
+*/
+
+
+
+
+void set_url( char* py_url) {
+    URL = py_url;
+    std::cout << URL;
+}
+
+void set_float(py::dict& f) {
+    vector<double> l;
+    for (auto i : f) {
+        double x = stof(string(py::str(i.first)));
+        double y = stof(string(py::str(i.second)));
+        l.push_back(x);
+        l.push_back(y);
     }
-    PyMem_RawFree(program);
+    for (auto i : l) {
+        cout << i << endl;
+    }
+    
+    
+}
+
+PYBIND11_EMBEDDED_MODULE(embeddedmodule, module)
+{
+    module.doc() = "Embedded module";
+    module.def("set_url", &set_url);
+    module.def("set_float", &set_float);
 }
 
 
-int main() {
-    //testSharedMemory();
-    launchOpenCV("image_capture.py");
-    return 0;
-
+void main() {
+    py::scoped_interpreter guard{};
+    
+    //
+    auto image_capture = py::module::import("ptut");
+    auto main_func = image_capture.attr("main");
+    main_func();
+    printf("end\n");
+    
 }
 
 
 
 
-    
+
         
