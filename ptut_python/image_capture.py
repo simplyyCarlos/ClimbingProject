@@ -3,7 +3,7 @@
 import cv2
 import sys
 import embeddedmodule
-print(sys.path)
+
 print("image_capture loaded")
    
 def main():

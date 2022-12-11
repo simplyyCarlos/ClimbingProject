@@ -19,7 +19,7 @@ def main() :
         min_detection_confidence=0.7,
         min_tracking_confidence=0.9) as pose:
         L1 = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-        L2 = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,]
+        L2 = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
         d=dict(zip(L1,L2))
         while cap.isOpened():
             success, image = cap.read(0)

@@ -11,9 +11,8 @@
 #include <pybind11/attr.h>
 #include <pybind11/numpy.h>
 #include <pybind11/stl.h>
-#include <tuple>
 #include <pybind11/pytypes.h>
-#include "Source.h"
+
 
 //using namespace boost::interprocess;
 using namespace std;
@@ -95,10 +94,10 @@ void set_url( char* py_url) {
 void set_float(py::dict& f) {
     vector<double> l;
     for (auto i : f) {
-        double x = stof(string(py::str(i.first)));
-        double y = stof(string(py::str(i.second)));
-        l.push_back(x);
-        l.push_back(y);
+        double index = stof(string(py::str(i.first)));
+        double value = stof(string(py::str(i.second)));
+        l.push_back(index);
+        l.push_back(value);
     }
     for (auto i : l) {
         cout << i << endl;
@@ -119,9 +118,13 @@ void main() {
     py::scoped_interpreter guard{};
     
     //
-    auto image_capture = py::module::import("ptut");
-    auto main_func = image_capture.attr("main");
-    main_func();
+    auto mediapipe = py::module::import("ptut");
+    auto main_mediapipe = mediapipe.attr("main");
+    main_mediapipe();
+
+    auto screenshot = py::module::import("image_capture");
+    auto main_screenshot = screenshot.attr("main");
+    main_screenshot();
     printf("end\n");
     
 }
