@@ -60,6 +60,7 @@ void Calibrage::saveCalibration() {
 	ui.label_attente_2->show();
 
 	dt->setPrise(view->getCircle());
+	dt->calibragePrise();
 
 	t->join();
 	dt->setCalibrate(true);
