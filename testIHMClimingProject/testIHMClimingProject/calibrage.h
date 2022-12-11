@@ -1,8 +1,8 @@
 #pragma once
 #include "ui_calibrage.h"
+#include "charucoboard.h"
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
-#include <QtWidgets/QMainWindow>
 #include "View.h"
 #include "Data.h"
 #include<thread>
@@ -23,13 +23,14 @@ public:
 	void calibrage();
 private:
 	Ui::calibrageClass ui;
+	Charucoboard* cb;
 	QWidget* parent;
     View* view;
 	Data* dt;
 	const QString filename = "savedImage.jpg";
 	std::thread* t;
 
-
+	void getMatrice();
 	void getImage();
 private slots:
 	void saveCalibration();

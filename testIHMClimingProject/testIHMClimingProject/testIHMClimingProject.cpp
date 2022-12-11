@@ -12,7 +12,7 @@ testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
     palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
     this->setFixedSize(QSize(650, 400));
-    jm, em, ca = nullptr;
+    jm = nullptr, em = nullptr, ca = nullptr;
 
     ui.pushButton_Edition->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.pushButton_Jouer->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
@@ -50,12 +50,13 @@ void testIHMClimingProject::openMenuJeu() {
         ca->show();
         QApplication::processEvents();
         ca->calibrage();
-        dt->setCalibrate(true);
     }   
 }
 
 void testIHMClimingProject::openMenuEdition() {
-    em = new editionMenu(this);
+    if (em == nullptr) {
+        em = new editionMenu(this);
+    }
     this->close();
     em->show();
 }

@@ -42,6 +42,9 @@
     <Filter Include="Python">
       <UniqueIdentifier>{cccc59fa-fcbe-4e68-a80e-060a474a812b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Window\Menu">
+      <UniqueIdentifier>{7b6695ef-9792-41f4-8e5e-26c66caac4fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="testIHMClimingProject.qrc">
@@ -67,21 +70,6 @@
     <ClCompile Include="Joueur.cpp">
       <Filter>Model</Filter>
     </ClCompile>
-    <ClCompile Include="dialogLogin.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="choixParcoursMenu.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="editionMenu.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="jeuMenu.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="scoresMenu.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
     <ClCompile Include="testIHMClimingProject.cpp">
       <Filter>Window</Filter>
     </ClCompile>
@@ -99,6 +87,24 @@
     </ClCompile>
     <ClCompile Include="Data.cpp">
       <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogLogin.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="choixParcoursMenu.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="editionMenu.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="jeuMenu.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresMenu.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="charucoboard.cpp">
+      <Filter>Window\calibrage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,23 +126,11 @@
     <QtUic Include="calibrage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="charucoboard.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="choixParcoursMenu.h">
-      <Filter>Window</Filter>
-    </QtMoc>
-    <QtMoc Include="dialogLogin.h">
-      <Filter>Window</Filter>
-    </QtMoc>
-    <QtMoc Include="editionMenu.h">
-      <Filter>Window</Filter>
-    </QtMoc>
-    <QtMoc Include="jeuMenu.h">
-      <Filter>Window</Filter>
-    </QtMoc>
-    <QtMoc Include="scoresMenu.h">
-      <Filter>Window</Filter>
-    </QtMoc>
     <QtMoc Include="testIHMClimingProject.h">
       <Filter>Window</Filter>
     </QtMoc>
@@ -145,6 +139,21 @@
     </QtMoc>
     <QtMoc Include="View.h">
       <Filter>Window\calibrage</Filter>
+    </QtMoc>
+    <QtMoc Include="choixParcoursMenu.h">
+      <Filter>Window\Menu</Filter>
+    </QtMoc>
+    <QtMoc Include="dialogLogin.h">
+      <Filter>Window\Menu</Filter>
+    </QtMoc>
+    <QtMoc Include="editionMenu.h">
+      <Filter>Window\Menu</Filter>
+    </QtMoc>
+    <QtMoc Include="jeuMenu.h">
+      <Filter>Window\Menu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresMenu.h">
+      <Filter>Window\Menu</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +183,9 @@
     </ClInclude>
     <ClInclude Include="Data.h">
       <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="charucoboard.h">
+      <Filter>Window\calibrage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

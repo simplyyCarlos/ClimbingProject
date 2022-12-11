@@ -3,9 +3,10 @@
 
 Calibrage::Calibrage(QWidget* _parent, Data* _dt) {
 	parent = _parent;
+	cb = new Charucoboard();
 	dt = _dt;
 	view = new View();
-	view->setSceneRect(0, 0, 950 / 2, 532 / 2);
+	view->setSceneRect(0, 0, 950, 532);
 	ui.setupUi(this);
 	ui.graphicsView->setScene(view);
 	ui.graphicsView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
@@ -49,7 +50,7 @@ void Calibrage::calibrage() {
 	ui.label_consigne->show();
 	ui.graphicsView->show();
 
-	t = new std::thread(&Data::getCalibrate, dt);
+	t = new std::thread(&Calibrage::getMatrice, this);
 }
 
 void Calibrage::saveCalibration() {
@@ -60,6 +61,7 @@ void Calibrage::saveCalibration() {
 		dt->addPrise(circle->getPos());
 	}
 	t->join();
+	dt->setCalibrate(true);
 	this->close();
 	parent->show();
 }
@@ -78,4 +80,9 @@ void Calibrage::getImage() {
 		return;
 	}
 	PyMem_RawFree(program);
+}
+
+void Calibrage::getMatrice(){
+	cb->show();
+	cb->close();
 }
