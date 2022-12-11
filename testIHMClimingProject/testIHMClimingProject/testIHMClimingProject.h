@@ -6,9 +6,7 @@
 #include "jeuMenu.h"
 #include "editionMenu.h"
 #include "Database.h"
-#include "calibrage.h"
-#include "Data.h"
-
+#include "paramMenu.h"
 class testIHMClimingProject : public QMainWindow
 {
     Q_OBJECT
@@ -21,11 +19,9 @@ private:
     Ui::testIHMClimingProjectClass ui;
     QString currentFile;
     jeuMenu* jm;
-    editionMenu* em;
-    Calibrage* ca;
     Database* db;
-    Data* dt;
     dialogLogin* log;
+    paramMenu* pm;
 private slots:
     void openConnexion();
     void openMenuJeu();

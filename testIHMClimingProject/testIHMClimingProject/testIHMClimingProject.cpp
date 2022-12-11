@@ -4,7 +4,6 @@ testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
-    dt = new Data();
     db = _db;
     QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -12,10 +11,10 @@ testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
     palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
     this->setFixedSize(QSize(650, 400));
-    jm = nullptr, em = nullptr, ca = nullptr;
+    jm = nullptr, pm = nullptr;
     log = new dialogLogin(this);
 
-    ui.pushButton_Edition->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
+    ui.pushButton_Param->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.pushButton_Jouer->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.pushButton_Connexion->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
@@ -24,7 +23,7 @@ testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
 
     connect(ui.pushButton_Connexion, SIGNAL(clicked()), this, SLOT(openConnexion()));
     connect(ui.pushButton_Jouer, SIGNAL(clicked()), this, SLOT(openMenuJeu()));
-    connect(ui.pushButton_Edition, SIGNAL(clicked()), this, SLOT(openMenuEdition()));
+    connect(ui.pushButton_Param, SIGNAL(clicked()), this, SLOT(openMenuEdition()));
 }
 
 testIHMClimingProject::~testIHMClimingProject()
@@ -35,28 +34,17 @@ void testIHMClimingProject::openConnexion() {
 }
 
 void testIHMClimingProject::openMenuJeu() {
-    if (dt->getCalibrate()) {
-        if (jm == nullptr) {
-            jm = new jeuMenu(db, this);
-        }
-        this->close();
-        jm->show();
+    if (jm == nullptr) {
+        jm = new jeuMenu(db, this);
     }
-    else {
-        if (ca == nullptr) {
-            ca = new Calibrage(this, dt);
-        }
-        this->close();
-        ca->show();
-        QApplication::processEvents();
-        ca->calibrage();
-    }   
+    this->close();
+    jm->show();
 }
 
 void testIHMClimingProject::openMenuEdition() {
-    if (em == nullptr) {
-        em = new editionMenu(db, this);
+    if (pm == nullptr) {
+        pm = new paramMenu(this);
     }
     this->close();
-    em->show();
+    pm->show();
 }
