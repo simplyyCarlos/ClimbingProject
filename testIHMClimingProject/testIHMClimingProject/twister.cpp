@@ -45,8 +45,7 @@ void Twister::paintEvent(QPaintEvent*) {
 	QPointF* pos;
 	double x = size().width();
 	double y = size().height();
-	for (Circle* circle : dt->getPrise()) {
-		pos = circle->getPos();
+	for (QPointF* pos : dt->getPrise()) {
 		painter.drawEllipse(pos->x() * x - rayonCercle / 2, pos->y() * y - rayonCercle / 2, rayonCercle, rayonCercle);
 	}
 

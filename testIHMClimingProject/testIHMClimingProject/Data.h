@@ -7,15 +7,15 @@
 class Data : public Observable
 {
 private:
-	QVector<Circle*> listPrise;
+	QVector<QPointF*> listPrise;
 	bool calibrate;
 	QVector<Observer*> listObserver;
 public:
 	Data();
 	~Data();
-	QVector<Circle*> getPrise() { return listPrise; }
+	QVector<QPointF*> getPrise() { return listPrise; }
 	void calibragePrise();
-	void setPrise(QVector<Circle*>);
+	void addPrise(QPointF*);
 	bool getCalibrate() { return calibrate; }
 	void setCalibrate(bool b) { calibrate = b; }
 	void addObserver(Observer* observer) override;

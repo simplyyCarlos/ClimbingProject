@@ -9,8 +9,8 @@ Data::~Data()
 {
 }
 
-void Data::setPrise(QVector<Circle*> prise) {
-	listPrise = prise;
+void Data::addPrise(QPointF* prise) {
+	listPrise.append(prise);
 }
 
 void Data::addObserver(Observer* observer) {
@@ -28,8 +28,7 @@ void Data::notifyObserver() const {
 void Data::calibragePrise() {
 	double largeur = 947;
 	double hauteur = 529;
-	for (Circle* circle : listPrise) {
-		QPointF* pos = circle->getPos();
-		circle->setPos(pos->x() / largeur, pos->y() / hauteur);
+	for (QPointF* prise : listPrise) {
+		*prise = QPointF(prise->x() / largeur, prise->y() / hauteur);
 	}
 }

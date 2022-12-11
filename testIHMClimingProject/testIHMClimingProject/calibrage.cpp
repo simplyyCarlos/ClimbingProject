@@ -59,7 +59,9 @@ void Calibrage::saveCalibration() {
 	ui.graphicsView->close();
 	ui.label_attente_2->show();
 
-	dt->setPrise(view->getCircle());
+	for (Circle* circle : view->getCircle()) {
+		dt->addPrise(circle->getPos());
+	}
 	dt->calibragePrise();
 
 	t->join();
