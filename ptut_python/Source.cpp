@@ -12,7 +12,7 @@
 #include <pybind11/numpy.h>
 #include <pybind11/stl.h>
 #include <pybind11/pytypes.h>
-
+#include <sstream>
 
 //using namespace boost::interprocess;
 using namespace std;
@@ -106,25 +106,63 @@ void set_float(py::dict& f) {
     
 }
 
+void set_matrix(py::array_t<double>& mat) {
+    long double d;
+    vector<double> tab;
+    string a =(string)py::str(mat);
+    cout << a << endl;
+    a.erase(remove(a.begin(), a.end(), '['),a.end());
+    a.erase(remove(a.begin(), a.end(), ']'), a.end());
+    stringstream ss(a);
+    for (size_t i = 0; i < 9; i++)
+    {
+        ss >> d;
+        cout << i << " " << d << endl;
+        d = 0.0f;
+    }
+    ss >> d;
+    cout << d << endl;
+}
+
 PYBIND11_EMBEDDED_MODULE(embeddedmodule, module)
 {
     module.doc() = "Embedded module";
     module.def("set_url", &set_url);
     module.def("set_float", &set_float);
+    module.def("set_matrix", &set_matrix);
 }
+
+class Matrix {
+public:
+    Matrix(size_t rows, size_t cols) : m_rows(rows), m_cols(cols) {
+        m_data = new float[rows * cols];
+    }
+    float* data() { return m_data; }
+    size_t rows() const { return m_rows; }
+    size_t cols() const { return m_cols; }
+private:
+    size_t m_rows, m_cols;
+    float* m_data;
+};
 
 
 void main() {
     py::scoped_interpreter guard{};
     
-    //
-    auto mediapipe = py::module::import("ptut");
+    
+    /*auto mediapipe = py::module::import("ptut");
     auto main_mediapipe = mediapipe.attr("main");
     main_mediapipe();
 
     auto screenshot = py::module::import("image_capture");
     auto main_screenshot = screenshot.attr("main");
-    main_screenshot();
+    main_screenshot();*/
+    
+
+    
+    auto matrix = py::module::import("testCalibrage");
+    auto main_matrix = matrix.attr("main");
+    main_matrix();
     printf("end\n");
     
 }

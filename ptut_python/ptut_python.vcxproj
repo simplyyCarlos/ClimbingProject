@@ -146,6 +146,7 @@
     <None Include="image_capture.py" />
     <None Include="packages.config" />
     <None Include="ptut.py" />
+    <None Include="testCalibrage.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -30,5 +30,8 @@
     <None Include="ptut.py">
       <Filter>Python</Filter>
     </None>
+    <None Include="testCalibrage.py">
+      <Filter>Python</Filter>
+    </None>
   </ItemGroup>
 </Project>
