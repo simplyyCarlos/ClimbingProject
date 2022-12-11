@@ -9,8 +9,12 @@ Charucoboard::Charucoboard()
 		this->move(QPoint(screen.x(), screen.y()));
 		this->resize(screen.width(), screen.height());
 	}
-	
-	this->showFullScreen();
+	else {
+		auto screen = qGuiApp->screens()[0]->geometry();
+		this->move(QPoint(screen.x(), screen.y()));
+		this->resize(screen.width(), screen.height());
+	}
+
 
 	QPixmap bkgnd("../testIHMClimingProject/img/charucoboard.jpeg");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);

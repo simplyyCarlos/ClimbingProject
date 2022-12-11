@@ -4,7 +4,7 @@
 class Observer {
 public:
 	virtual ~Observer() {}
-	virtual void update() = 0;
+	virtual void updateModel() = 0;
 };
 
 class Observable {

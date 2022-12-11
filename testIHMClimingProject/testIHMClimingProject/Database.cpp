@@ -76,7 +76,7 @@ void Database::removeObserver(Observer* observer)
 void Database::notifyObserver() const
 {
     for (auto index : observerList) {
-        index->update();
+        index->updateModel();
     }
 }
 

@@ -29,7 +29,7 @@ choixParcoursMenu::~choixParcoursMenu()
 {
 }
 
-void choixParcoursMenu::update()
+void choixParcoursMenu::updateModel()
 {
 	ui.tableWidget_Parcours->clear();
 	string tmp = "SELECT * FROM Parcours;";

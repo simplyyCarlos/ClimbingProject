@@ -102,6 +102,8 @@
   <ItemGroup>
     <ClCompile Include="charucoboard.cpp" />
     <ClCompile Include="Data.cpp" />
+    <ClCompile Include="twister.cpp" />
+    <ClCompile Include="twisterMenu.cpp" />
     <ClCompile Include="View.cpp" />
     <QtRcc Include="testIHMClimingProject.qrc" />
     <QtUic Include="calibrage.ui" />
@@ -127,6 +129,8 @@
     <ClCompile Include="testIHMClimingProject.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="choixParcoursMenu.ui" />
+    <QtUic Include="twister.ui" />
+    <QtUic Include="twisterMenu.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="dialogLogin.h" />
@@ -145,6 +149,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h" />
+    <ClInclude Include="twister.h" />
+    <ClInclude Include="twisterMenu.h" />
     <QtMoc Include="View.h" />
     <QtMoc Include="calibrage.h" />
     <ClInclude Include="charucoboard.h" />

@@ -45,6 +45,9 @@
     <Filter Include="Window\Menu">
       <UniqueIdentifier>{7b6695ef-9792-41f4-8e5e-26c66caac4fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Window\Jeu">
+      <UniqueIdentifier>{aa4e4588-4e3e-4854-959e-fae2215e5830}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="testIHMClimingProject.qrc">
@@ -106,6 +109,12 @@
     <ClCompile Include="charucoboard.cpp">
       <Filter>Window\calibrage</Filter>
     </ClCompile>
+    <ClCompile Include="twister.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="twisterMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialogLogin.ui">
@@ -127,6 +136,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="charucoboard.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="twister.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="twisterMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -186,6 +201,12 @@
     </ClInclude>
     <ClInclude Include="charucoboard.h">
       <Filter>Window\calibrage</Filter>
+    </ClInclude>
+    <ClInclude Include="twister.h">
+      <Filter>Window\Jeu</Filter>
+    </ClInclude>
+    <ClInclude Include="twisterMenu.h">
+      <Filter>Window\Jeu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

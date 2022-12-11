@@ -37,7 +37,7 @@ void testIHMClimingProject::openConnexion() {
 void testIHMClimingProject::openMenuJeu() {
     if (dt->getCalibrate()) {
         if (jm == nullptr) {
-            jm = new jeuMenu(db, this);
+            jm = new jeuMenu(db, this, dt);
         }
         this->close();
         jm->show();

@@ -49,6 +49,7 @@ void Calibrage::calibrage() {
 	ui.label_attente->close();
 	ui.label_consigne->show();
 	ui.graphicsView->show();
+	cb->showFullScreen();
 
 	t = new std::thread(&Calibrage::getMatrice, this);
 }
@@ -57,13 +58,14 @@ void Calibrage::saveCalibration() {
 	ui.label_consigne->close();
 	ui.graphicsView->close();
 	ui.label_attente_2->show();
-	for (Circle* circle : view->getCircle()) {
-		dt->addPrise(circle->getPos());
-	}
+
+	dt->setPrise(view->getCircle());
+
 	t->join();
 	dt->setCalibrate(true);
 	this->close();
 	parent->show();
+	cb->close();
 }
 
 void Calibrage::getImage() {
@@ -83,6 +85,5 @@ void Calibrage::getImage() {
 }
 
 void Calibrage::getMatrice(){
-	cb->show();
-	cb->close();
+	return;
 }

@@ -1,16 +1,18 @@
 #include "jeuMenu.h"
 
-jeuMenu::jeuMenu(Database* _db,QWidget* _parent)
+jeuMenu::jeuMenu(Database* _db,QWidget* _parent, Data* _dt)
 	: parent(_parent)
 {
 	ui.setupUi(this);
 	db = new Database(_db);
+	dt = _dt;
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Window, bkgnd);
 	this->setPalette(palette);
 	this->setFixedSize(QSize(650, 400));
+	tw = nullptr;
 
 
 	ui.pushButton_Twistter->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
@@ -25,6 +27,7 @@ jeuMenu::jeuMenu(Database* _db,QWidget* _parent)
 
 	connect(ui.pushButton_Back, SIGNAL(clicked()), this, SLOT(pushbackButton()));
 	connect(ui.pushButton_Parcours, SIGNAL(clicked()), this, SLOT(openMenuChoixParcours()));
+	connect(ui.pushButton_Twistter, SIGNAL(clicked()), this, SLOT(openTwister()));
 	connect(ui.pushButton_Scores, SIGNAL(clicked()), this, SLOT(openScoresMenu()));
 }
 
@@ -35,6 +38,14 @@ jeuMenu::~jeuMenu()
 void jeuMenu::pushbackButton() {
 	this->close();
 	parent->show();
+}
+
+void jeuMenu::openTwister() {
+	if (tw == nullptr) {
+		tw = new TwisterMenu(this, dt);
+	}
+	this->close();
+	tw->show();
 }
 
 void jeuMenu::openMenuChoixParcours() {

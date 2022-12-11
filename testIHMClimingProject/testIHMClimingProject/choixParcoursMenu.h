@@ -9,7 +9,7 @@ class choixParcoursMenu : public QWidget, public Observer
 public:
     choixParcoursMenu(QWidget* _parent,Database* _db);
     ~choixParcoursMenu();
-    void update();
+    void updateModel();
 private:
     Ui::choixParcoursMenuClass ui;
     QWidget* parent;

@@ -9,6 +9,18 @@ Data::~Data()
 {
 }
 
-void Data::addPrise(QPointF* pos) {
-	listPrise.append(pos);
+void Data::setPrise(QVector<Circle*> prise) {
+	listPrise = prise;
+}
+
+void Data::addObserver(Observer* observer) {
+	listObserver.append(observer);
+}
+void Data::removeObserver(Observer* observer) {
+		listObserver.removeOne(observer);
+}
+void Data::notifyObserver() const {
+	for (Observer* obs : listObserver) {
+		obs->updateModel();
+	}
 }
