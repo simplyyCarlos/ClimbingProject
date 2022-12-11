@@ -132,19 +132,6 @@ PYBIND11_EMBEDDED_MODULE(embeddedmodule, module)
     module.def("set_matrix", &set_matrix);
 }
 
-class Matrix {
-public:
-    Matrix(size_t rows, size_t cols) : m_rows(rows), m_cols(cols) {
-        m_data = new float[rows * cols];
-    }
-    float* data() { return m_data; }
-    size_t rows() const { return m_rows; }
-    size_t cols() const { return m_cols; }
-private:
-    size_t m_rows, m_cols;
-    float* m_data;
-};
-
 
 void main() {
     py::scoped_interpreter guard{};
