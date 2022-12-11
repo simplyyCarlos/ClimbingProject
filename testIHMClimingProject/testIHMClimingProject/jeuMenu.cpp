@@ -4,7 +4,7 @@ jeuMenu::jeuMenu(Database* _db,QWidget* _parent)
 	: parent(_parent)
 {
 	ui.setupUi(this);
-	db = new Database(_db);
+	db = _db;
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
@@ -46,7 +46,7 @@ void jeuMenu::openMenuChoixParcours() {
 
 void jeuMenu::openScoresMenu()
 {
-	sm = new scoresMenu(this);
+	sm = new scoresMenu(db,this);
 	this->close();
 	sm->show();
 }

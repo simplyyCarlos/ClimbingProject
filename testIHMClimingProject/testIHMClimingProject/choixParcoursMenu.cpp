@@ -5,7 +5,7 @@ choixParcoursMenu::choixParcoursMenu(QWidget* _parent, Database* _db)
 {
 	ui.setupUi(this);
 
-	db = new Database(_db);
+	db = _db;
 
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -19,7 +19,6 @@ choixParcoursMenu::choixParcoursMenu(QWidget* _parent, Database* _db)
 	ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
 	ui.tableWidget_Parcours->setStyleSheet("QTableWidget { background : rgb(203,203,203) }");
 
-	ui.tableWidget_Parcours->setRowCount(0);
 	update();
 
 	connect(ui.pushButton_Back, SIGNAL(clicked()), this, SLOT(pushbackButton()));
@@ -37,12 +36,21 @@ void choixParcoursMenu::update()
 	db->setSql(query);
 	db->callRc();
 	db->testQuery();
-	QMapIterator<QString, QString> i(db->getResult());
-	while (i.hasNext()) {
-		i.next();
-		std::cout << i.key().toStdString() << " " << i.value().toStdString() << std::endl;
+	int row = 0;
+	int col = 0;
+	ui.tableWidget_Parcours->insertRow(ui.tableWidget_Parcours->rowCount());
+
+	for (auto index : db->getResult()) {
+		QTableWidgetItem* child = new QTableWidgetItem(index);
+		ui.tableWidget_Parcours->setItem(row, col, child);
+		col++;
+		if (col % 4 == 0 && col != 0) {
+			row++;
+			ui.tableWidget_Parcours->insertRow(ui.tableWidget_Parcours->rowCount());
+			col = 0;
+		}
 	}
-	db->closeDb();
+	db->clearResult();
 }
 
 void choixParcoursMenu::pushbackButton() {

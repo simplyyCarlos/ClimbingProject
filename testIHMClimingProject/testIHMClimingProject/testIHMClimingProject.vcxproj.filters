@@ -106,6 +106,9 @@
     <ClCompile Include="charucoboard.cpp">
       <Filter>Window\calibrage</Filter>
     </ClCompile>
+    <ClCompile Include="AbstractController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialogLogin.ui">

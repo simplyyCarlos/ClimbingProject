@@ -66,7 +66,9 @@ void Calibrage::saveCalibration() {
 	parent->show();
 }
 
+
 void Calibrage::getImage() {
+	/*
 	const char* pyFileName = "image_capture.py";
 	wchar_t* program = Py_DecodeLocale("python_instance", NULL);
 
@@ -80,6 +82,7 @@ void Calibrage::getImage() {
 		return;
 	}
 	PyMem_RawFree(program);
+	*/
 }
 
 void Calibrage::getMatrice(){

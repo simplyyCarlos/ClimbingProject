@@ -39,36 +39,6 @@
     <string>Parcours</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget_Parcours">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>120</y>
-     <width>571</width>
-     <height>211</height>
-    </rect>
-   </property>
-   <column>
-    <property name="text">
-     <string>Num</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Nom</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Difficulté</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Date</string>
-    </property>
-   </column>
-  </widget>
   <widget class="QPushButton" name="pushButton_Valider">
    <property name="geometry">
     <rect>
@@ -81,6 +51,39 @@
    <property name="text">
     <string>Valider</string>
    </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget_Parcours">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>120</y>
+     <width>571</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <column>
+    <property name="text">
+     <string>ID</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nom</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Difficulte</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Date</string>
+    </property>
+   </column>
   </widget>
  </widget>
  <resources/>

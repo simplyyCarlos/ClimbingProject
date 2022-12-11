@@ -1,9 +1,11 @@
 #include "Database.h"
 
-QMap <QString, QString> Database::resultat = {};
+QVector <QString> Database::resultat = {};
 
 Database::Database(const char* file)
 {
+    sql = new char;
+    zErrMsg = new char;
     this->file = file;
     rc = sqlite3_open(file, &db);
     if (rc) {
@@ -20,9 +22,8 @@ int Database::callback(void* data, int argc, char** argv, char** azColName)
     resultat.clear();
     fprintf(stderr, "%s: ", (const char*)data);
     for (i = 0; i < argc; i++) {
-        QString tmp = azColName[i];
         QString res = argv[i];
-        resultat.insert(tmp,res);
+        resultat.append(res);
     }
     return 0;
 }
@@ -46,6 +47,7 @@ const char* Database::getSql()
 void Database::setSql(const char* query)
 {
     std::strncpy(sql, query, strlen(query));
+
 }
 
 void Database::callRc()
@@ -58,7 +60,7 @@ void Database::closeDb()
     sqlite3_close(db);
 }
 
-QMap<QString, QString> Database::getResult()
+QVector <QString> Database::getResult()
 {
     return resultat;
 }
@@ -98,4 +100,22 @@ Database::Database(Database* db)
     else {
         fprintf(stderr, "Opened database successfully\n");
     }
+}
+
+Database& Database::operator=(const Database& _db) {
+    this->db = _db.db;
+    this->zErrMsg = _db.zErrMsg;
+    this->rc = _db.rc;
+    this->sql = _db.sql;
+    this->data = _db.data;
+    this->observerList = _db.observerList;
+    this->resultat = _db.resultat;
+    this->file = _db.file;
+
+    return *this;
+}
+
+void Database::clearResult()
+{
+    resultat.clear();
 }

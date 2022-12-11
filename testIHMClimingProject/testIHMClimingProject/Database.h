@@ -16,7 +16,7 @@ private:
     char* sql = nullptr;
     const char* data = "Callback function called";
     QVector<Observer*> observerList;
-    static QMap<QString, QString> resultat;
+    static QVector<QString> resultat;
     const char* file;
 
 public:
@@ -27,10 +27,12 @@ public:
     void setSql(const char* query);
     void callRc();
     void closeDb();
-    QMap<QString, QString> getResult();
+    QVector<QString> getResult();
     void addObserver(Observer* observer);
     void removeObserver(Observer* observer);
     void notifyObserver() const;
     Database(Database* db);
+    void clearResult();
+    Database& operator=(const Database& _db);
 };
 

@@ -25,6 +25,7 @@ private:
     Calibrage* ca;
     Database* db;
     Data* dt;
+    dialogLogin* log;
 private slots:
     void openConnexion();
     void openMenuJeu();
