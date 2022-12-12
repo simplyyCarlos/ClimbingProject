@@ -4,6 +4,6 @@
 //Mettre tout ce qui est lié a parcours dans un seul truc
 //Changer les connect
 Mettre les score dans chaque jeu
-Debuggé delete button
+//Debuggé delete button
 //Et revoir la logique de création des fenêtres
 MVC
