@@ -110,7 +110,6 @@
     <QtUic Include="calibrage.ui" />
     <QtUic Include="charucoboard.ui" />
     <QtUic Include="dialogLogin.ui" />
-    <QtUic Include="editionMenu.ui" />
     <QtUic Include="jeuMenu.ui" />
     <QtUic Include="paramMenu.ui" />
     <QtUic Include="Pong.ui" />
@@ -122,7 +121,6 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="dialogLogin.cpp" />
-    <ClCompile Include="editionMenu.cpp" />
     <ClCompile Include="jeuMenu.cpp" />
     <ClCompile Include="Joueur.cpp" />
     <ClCompile Include="Parcours.cpp" />
@@ -138,9 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="jeuMenu.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="editionMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="choixParcoursMenu.h" />

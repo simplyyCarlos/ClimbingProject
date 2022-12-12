@@ -42,7 +42,7 @@
   <widget class="QPushButton" name="pushButton_Valider">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>360</x>
      <y>340</y>
      <width>131</width>
      <height>41</height>
@@ -55,9 +55,9 @@
   <widget class="QTableWidget" name="tableWidget_Parcours">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>120</y>
-     <width>571</width>
+     <x>220</x>
+     <y>110</y>
+     <width>411</width>
      <height>211</height>
     </rect>
    </property>
@@ -84,6 +84,45 @@
      <string>Date</string>
     </property>
    </column>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Add">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>130</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ajouter</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Delete">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>190</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Supprimer</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Edition">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>250</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Édition</string>
+   </property>
   </widget>
  </widget>
  <resources/>

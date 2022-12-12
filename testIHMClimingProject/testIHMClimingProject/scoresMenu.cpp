@@ -19,7 +19,7 @@ scoresMenu::scoresMenu(Database* _db, QWidget* _parent) : parent(_parent)
 
 	update();
 
-	connect(ui.pushButton_Back, SIGNAL(clicked()), this, SLOT(pushbackButton()));
+	connect(ui.pushButton_Back, &QPushButton::pressed, this, &scoresMenu::pushbackButton);
 }
 
 scoresMenu::~scoresMenu()

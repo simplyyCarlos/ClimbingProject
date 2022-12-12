@@ -24,10 +24,10 @@ jeuMenu::jeuMenu(Database* _db,QWidget* _parent)
 	ui.textBrowser_Pong->setStyleSheet("QTextBrowser { background-color : rgb(170,105,139);}");
 	ui.textBrowser_Twistter->setStyleSheet("QTextBrowser { background-color : rgb(170,105,139);}");
 
-	connect(ui.pushButton_Back, SIGNAL(clicked()), this, SLOT(pushbackButton()));
-	connect(ui.pushButton_Parcours, SIGNAL(clicked()), this, SLOT(openMenuChoixParcours()));
-	connect(ui.pushButton_Scores, SIGNAL(clicked()), this, SLOT(openScoresMenu()));
-	connect(ui.pushButton_Pong, SIGNAL(clicked()), this, SLOT(openPongMenu()));
+	connect(ui.pushButton_Back, &QPushButton::pressed, this, &jeuMenu::pushbackButton);
+	connect(ui.pushButton_Parcours, &QPushButton::pressed, this, &jeuMenu::openMenuChoixParcours);
+	connect(ui.pushButton_Scores, &QPushButton::pressed, this, &jeuMenu::openScoresMenu);
+	connect(ui.pushButton_Pong, &QPushButton::pressed, this, &jeuMenu::openPongMenu);
 }
 
 jeuMenu::~jeuMenu()

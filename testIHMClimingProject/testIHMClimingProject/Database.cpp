@@ -19,7 +19,6 @@ Database::Database(const char* file)
 int Database::callback(void* data, int argc, char** argv, char** azColName)
 {
     int i;
-    resultat.clear();
     fprintf(stderr, "%s: ", (const char*)data);
     for (i = 0; i < argc; i++) {
         QString res = argv[i];
@@ -36,6 +35,7 @@ void Database::testQuery()
     }
     else {
         fprintf(stdout, "Query Execute Succesfully\n");
+        notifyObserver();
     }
 }
 

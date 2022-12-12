@@ -2,6 +2,7 @@
 #include "ui_choixParcoursMenu.h"
 #include "observer.h"
 #include "Database.h"
+#include "AbstractController.h"
 class choixParcoursMenu : public QWidget, public Observer
 {
     Q_OBJECT
@@ -16,4 +17,6 @@ private:
     Database* db;
 private slots:
     void pushbackButton();
+    void addButton();
+    void deleteButton();
 };

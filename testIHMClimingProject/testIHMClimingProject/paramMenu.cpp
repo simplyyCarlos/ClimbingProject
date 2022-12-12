@@ -20,8 +20,8 @@ paramMenu::paramMenu(QWidget* _parent)
 	ui.pushButton_Back->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 	ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
 
-	connect(ui.pushButton_Back, SIGNAL(clicked()), this, SLOT(pushbackButton()));
-	connect(ui.pushButton_Calibrage, SIGNAL(clicked()), this, SLOT(pushCalibre()));
+	connect(ui.pushButton_Back, &QPushButton::pressed, this, &paramMenu::pushbackButton);
+	connect(ui.pushButton_Calibrage, &QPushButton::pressed, this, &paramMenu::pushCalibre);
 }
 
 paramMenu::~paramMenu()

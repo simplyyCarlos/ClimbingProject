@@ -17,7 +17,7 @@ PongMenu::PongMenu(QWidget* _parent)
 	ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 60px;}");
 	ui.pushButton_Play->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 30px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 
-	connect(ui.pushButton_Back, SIGNAL(clicked()), this, SLOT(pushbackButton()));
+	connect(ui.pushButton_Back, &QPushButton::pressed, this, &PongMenu::pushbackButton);
 }
 
 PongMenu::~PongMenu()

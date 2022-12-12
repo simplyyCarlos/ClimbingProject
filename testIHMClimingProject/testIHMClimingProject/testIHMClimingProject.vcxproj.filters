@@ -94,9 +94,6 @@
     <ClCompile Include="choixParcoursMenu.cpp">
       <Filter>Window\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="editionMenu.cpp">
-      <Filter>Window\Menu</Filter>
-    </ClCompile>
     <ClCompile Include="jeuMenu.cpp">
       <Filter>Window\Menu</Filter>
     </ClCompile>
@@ -121,9 +118,6 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="jeuMenu.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="editionMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="choixParcoursMenu.ui">
@@ -159,9 +153,6 @@
       <Filter>Window\Menu</Filter>
     </QtMoc>
     <QtMoc Include="dialogLogin.h">
-      <Filter>Window\Menu</Filter>
-    </QtMoc>
-    <QtMoc Include="editionMenu.h">
       <Filter>Window\Menu</Filter>
     </QtMoc>
     <QtMoc Include="jeuMenu.h">

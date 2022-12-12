@@ -21,9 +21,9 @@ testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
     ui.label_Created->setStyleSheet("QLabel { color : white;}");
     ui.label_Copyright->setStyleSheet("QLabel { color : white;}");
 
-    connect(ui.pushButton_Connexion, SIGNAL(clicked()), this, SLOT(openConnexion()));
-    connect(ui.pushButton_Jouer, SIGNAL(clicked()), this, SLOT(openMenuJeu()));
-    connect(ui.pushButton_Param, SIGNAL(clicked()), this, SLOT(openMenuEdition()));
+    connect(ui.pushButton_Connexion, &QPushButton::pressed, this, &testIHMClimingProject::openConnexion);
+    connect(ui.pushButton_Jouer, &QPushButton::pressed, this, &testIHMClimingProject::openMenuJeu);
+    connect(ui.pushButton_Param, &QPushButton::pressed, this, &testIHMClimingProject::openMenuEdition);
 }
 
 testIHMClimingProject::~testIHMClimingProject()

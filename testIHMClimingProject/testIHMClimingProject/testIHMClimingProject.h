@@ -4,7 +4,6 @@
 #include "ui_testIHMClimingProject.h"
 #include "dialogLogin.h"
 #include "jeuMenu.h"
-#include "editionMenu.h"
 #include "Database.h"
 #include "paramMenu.h"
 class testIHMClimingProject : public QMainWindow
