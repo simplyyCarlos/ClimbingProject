@@ -104,6 +104,7 @@
     <ClCompile Include="charucoboard.cpp" />
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="paramMenu.cpp" />
+    <ClCompile Include="PongMenu.cpp" />
     <ClCompile Include="View.cpp" />
     <QtRcc Include="testIHMClimingProject.qrc" />
     <QtUic Include="calibrage.ui" />
@@ -112,6 +113,7 @@
     <QtUic Include="editionMenu.ui" />
     <QtUic Include="jeuMenu.ui" />
     <QtUic Include="paramMenu.ui" />
+    <QtUic Include="Pong.ui" />
     <QtUic Include="scoresMenu.ui" />
     <QtUic Include="testIHMClimingProject.ui" />
     <QtMoc Include="testIHMClimingProject.h" />
@@ -158,6 +160,7 @@
     <ClInclude Include="observer.h" />
     <QtMoc Include="paramMenu.h" />
     <ClInclude Include="Parcours.h" />
+    <QtMoc Include="PongMenu.h" />
     <ClInclude Include="Prises.h" />
     <ClInclude Include="sqlite3.h" />
   </ItemGroup>

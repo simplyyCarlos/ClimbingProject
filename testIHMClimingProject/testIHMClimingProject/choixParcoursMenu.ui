@@ -49,7 +49,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Valider</string>
+    <string>Jouer</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget_Parcours">

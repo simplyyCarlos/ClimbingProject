@@ -3,6 +3,7 @@
 #include "choixParcoursMenu.h"
 #include "scoresMenu.h"
 #include "Database.h"
+#include "PongMenu.h";
 
 class jeuMenu : public QWidget
 {
@@ -17,10 +18,12 @@ private:
     QWidget* parent;
     choixParcoursMenu* cpm;
     scoresMenu* sm;
+    PongMenu* pm;
     Database* db;
 private slots:
     void pushbackButton();
     void openMenuChoixParcours();
     void openScoresMenu();
+    void openPongMenu();
 };
 

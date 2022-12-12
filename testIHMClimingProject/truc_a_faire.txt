@@ -3,5 +3,5 @@
 //Dans parma ya calibrage pour l'instant
 Mettre tout ce qui est lié a parcours dans un seul truc
 Mettre les score dans chaque jeu
-Et revoir la logique de création des fenêtres
+//Et revoir la logique de création des fenêtres
 MVC

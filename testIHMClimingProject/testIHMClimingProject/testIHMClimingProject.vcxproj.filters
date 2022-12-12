@@ -112,6 +112,9 @@
     <ClCompile Include="paramMenu.cpp">
       <Filter>Window\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="PongMenu.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialogLogin.ui">
@@ -136,6 +139,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="paramMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Pong.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -165,6 +171,9 @@
       <Filter>Window\Menu</Filter>
     </QtMoc>
     <QtMoc Include="paramMenu.h">
+      <Filter>Window\Menu</Filter>
+    </QtMoc>
+    <QtMoc Include="PongMenu.h">
       <Filter>Window\Menu</Filter>
     </QtMoc>
   </ItemGroup>
