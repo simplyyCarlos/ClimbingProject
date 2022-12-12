@@ -12,6 +12,7 @@ jeuMenu::jeuMenu(Database* _db,QWidget* _parent)
 	this->setPalette(palette);
 	this->setFixedSize(QSize(650, 400));
 
+	cpm = nullptr, sm = nullptr;
 
 	ui.pushButton_Twistter->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 	ui.pushButton_Parcours->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
@@ -38,15 +39,19 @@ void jeuMenu::pushbackButton() {
 }
 
 void jeuMenu::openMenuChoixParcours() {
-	cpm = new choixParcoursMenu(this,db);
-	db->addObserver(cpm);
+	if (cpm == nullptr) {
+		cpm = new choixParcoursMenu(this, db);
+		db->addObserver(cpm);
+	}
 	this->close();
 	cpm->show();
 }
 
 void jeuMenu::openScoresMenu()
 {
-	sm = new scoresMenu(db,this);
+	if (sm == nullptr) {
+		sm = new scoresMenu(db, this);
+	}
 	this->close();
 	sm->show();
 }
