@@ -55,12 +55,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IncludePath>C:\Python310\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Python310\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\kilia\Documents\ClimbingSAE\gitRep\testIHMClimingProject\packages\pybind11-2.10.1\include;C:\Python310\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Python310\Lib;C:\Python310\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <IncludePath>C:\Python310\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Python310\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\kilia\Documents\ClimbingSAE\gitRep\testIHMClimingProject\packages\pybind11-2.10.1\include;C:\Python310\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Python310\Lib;C:\Python310\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link />
@@ -102,6 +102,7 @@
   <ItemGroup>
     <ClCompile Include="charucoboard.cpp" />
     <ClCompile Include="Data.cpp" />
+    <ClCompile Include="traitementData.cpp" />
     <ClCompile Include="twister.cpp" />
     <ClCompile Include="twisterMenu.cpp" />
     <ClCompile Include="View.cpp" />
@@ -149,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h" />
+    <ClInclude Include="traitementData.h" />
     <ClInclude Include="twister.h" />
     <ClInclude Include="twisterMenu.h" />
     <QtMoc Include="View.h" />
@@ -165,11 +167,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image_capture.py" />
+    <None Include="packages.config" />
+    <None Include="testCalibrage.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />
   </ImportGroup>
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\boost.1.80.0\build\boost.targets" Condition="Exists('..\packages\boost.1.80.0\build\boost.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\boost.1.80.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.80.0\build\boost.targets'))" />
+  </Target>
 </Project>

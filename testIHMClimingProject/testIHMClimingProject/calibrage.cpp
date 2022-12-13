@@ -30,6 +30,11 @@ Calibrage::Calibrage(QWidget* _parent, Data* _dt) {
 	ui.label_attente_2->close();
 	ui.label_consigne->close();
 	ui.graphicsView->close();
+
+}
+
+Calibrage::Calibrage(Calibrage* cal) {
+	dt = cal->dt;
 }
 
 Calibrage::~Calibrage(){}
@@ -49,10 +54,10 @@ void Calibrage::calibrage() {
 	ui.label_attente->close();
 	ui.label_consigne->show();
 	ui.graphicsView->show();
-	cb->showFullScreen();
 
-	t = new std::thread(&Calibrage::getMatrice, this);
+	t = std::thread(&Calibrage::getMatrice, this);
 }
+
 
 void Calibrage::saveCalibration() {
 	ui.label_consigne->close();
@@ -62,31 +67,67 @@ void Calibrage::saveCalibration() {
 	for (Circle* circle : view->getCircle()) {
 		dt->addPrise(circle->getPos());
 	}
-	dt->calibragePrise();
 
-	t->join();
+	if (qGuiApp->screens().size() > 1) {
+		auto screen = qGuiApp->screens()[1]->geometry();
+		dt->calibragePrise(screen.width(), screen.height());
+	}
+	else {
+		auto screen = qGuiApp->screens()[0]->geometry();
+		dt->calibragePrise(screen.width(), screen.height());
+	}
+	
+
+	t.join();
+	getMatrice();
 	dt->setCalibrate(true);
 	this->close();
 	parent->show();
 	cb->close();
 }
 
-void Calibrage::getImage() {
-	const char* pyFileName = "image_capture.py";
-	wchar_t* program = Py_DecodeLocale("python_instance", NULL);
+//void Calibrage::set_matrix(py::array_t<double> mat)
+//{
+//	for (auto i : mat)
+//	{
+//		cout << i << endl;
+//	}
+//}
 
-	FILE* f;
-	errno_t err;
-	err = fopen_s(&f, pyFileName, "r");
-	Py_SetProgramName(program);
-	Py_Initialize();
-	PyRun_SimpleFile(f, pyFileName);
-	if (Py_FinalizeEx() < 0) {
+void Calibrage::getImage() {
+	py::scoped_interpreter guard{};
+	//try
+	{
+		windows_shared_memory shmem(create_only, "shm", read_write, sizeof(double[9]));
+		mapped_region region(shmem, read_write);
+		std::memset(region.get_address(), 1, region.get_size());
+		double* tab = static_cast<double*>(region.get_address());
+
+		auto screenshot = py::module::import("image_capture");
+		auto main_screenshot = screenshot.attr("main");
+		main_screenshot();
+		auto matrix = py::module::import("testCalibrage");
+		auto main_matrix = matrix.attr("main");
+		main_matrix();
+	}
+	//catch (const std::exception&)
+	{
 		return;
 	}
-	PyMem_RawFree(program);
+	
 }
 
 void Calibrage::getMatrice(){
-	return;
+	py::scoped_interpreter guard{};
+	//try
+	{
+		//auto matrix = py::module::import("testCalibrage");
+		//auto main_matrix = matrix.attr("main");
+		//main_matrix();
+	}
+	//catch (const std::exception&)
+	{
+		return;
+	}
 }
+

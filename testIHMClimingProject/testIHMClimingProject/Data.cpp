@@ -25,10 +25,10 @@ void Data::notifyObserver() const {
 	}
 }
 
-void Data::calibragePrise() {
+void Data::calibragePrise(double x, double y) {
 	double largeur = 947;
 	double hauteur = 529;
 	for (QPointF* prise : listPrise) {
-		*prise = QPointF(prise->x() / largeur, prise->y() / hauteur);
+		*prise = QPointF(prise->x() * x / largeur, prise->y() * y/ hauteur);
 	}
 }

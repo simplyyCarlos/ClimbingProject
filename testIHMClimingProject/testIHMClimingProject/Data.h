@@ -14,7 +14,7 @@ public:
 	Data();
 	~Data();
 	QVector<QPointF*> getPrise() { return listPrise; }
-	void calibragePrise();
+	void calibragePrise(double, double);
 	void addPrise(QPointF*);
 	bool getCalibrate() { return calibrate; }
 	void setCalibrate(bool b) { calibrate = b; }

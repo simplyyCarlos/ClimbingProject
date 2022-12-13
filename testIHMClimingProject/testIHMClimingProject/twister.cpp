@@ -43,10 +43,8 @@ void Twister::paintEvent(QPaintEvent*) {
 	painter.setBrush(tmpBrush);
 
 	QPointF* pos;
-	double x = size().width();
-	double y = size().height();
 	for (QPointF* pos : dt->getPrise()) {
-		painter.drawEllipse(pos->x() * x - rayonCercle / 2, pos->y() * y - rayonCercle / 2, rayonCercle, rayonCercle);
+		painter.drawEllipse(pos->x() - rayonCercle / 2, pos->y() - rayonCercle / 2, rayonCercle, rayonCercle);
 	}
 
 	tmpBrush.setColor(QColor(245, 20, 20));

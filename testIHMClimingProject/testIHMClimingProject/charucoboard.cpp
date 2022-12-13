@@ -21,6 +21,7 @@ Charucoboard::Charucoboard()
 	QPalette palette;
 	palette.setBrush(QPalette::Window, bkgnd);
 	this->setPalette(palette);
+	this->showFullScreen();
 }
 
 Charucoboard::~Charucoboard()
