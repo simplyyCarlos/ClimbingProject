@@ -6,7 +6,7 @@ choixParcoursMenu::choixParcoursMenu(QWidget* _parent, Database* _db)
 	ui.setupUi(this);
 
 	db = _db;
-
+	spm = nullptr;
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
@@ -21,12 +21,14 @@ choixParcoursMenu::choixParcoursMenu(QWidget* _parent, Database* _db)
 	ui.pushButton_Edition->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 20px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 	ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
 	ui.tableWidget_Parcours->setStyleSheet("QTableWidget { background : rgb(203,203,203) }");
+	ui.pushButton_Scores->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 
 	update();
 
 	connect(ui.pushButton_Back, &QPushButton::pressed, this, &choixParcoursMenu::pushbackButton);
 	connect(ui.pushButton_Add, &QPushButton::pressed, this, &choixParcoursMenu::addButton);
 	connect(ui.pushButton_Delete, &QPushButton::pressed, this, &choixParcoursMenu::deleteButton);
+	connect(ui.pushButton_Scores, &QPushButton::pressed, this, &choixParcoursMenu::openScoreParcoursMenu);
 }
 
 choixParcoursMenu::~choixParcoursMenu()
@@ -67,6 +69,15 @@ void choixParcoursMenu::deleteButton()
 		QString tmp = ui.tableWidget_Parcours->item(ui.tableWidget_Parcours->currentRow(), 0)->text();
 		(ControllerRemoveParcours(db).control(tmp.toInt()));
 	}
+}
+
+void choixParcoursMenu::openScoreParcoursMenu()
+{
+	if (spm == nullptr) {
+		spm = new scoresParcoursMenu(db, this);
+	}
+	this->close();
+	spm->show();
 }
 
 void choixParcoursMenu::pushbackButton() {

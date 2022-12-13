@@ -113,7 +113,7 @@
     <QtUic Include="jeuMenu.ui" />
     <QtUic Include="paramMenu.ui" />
     <QtUic Include="Pong.ui" />
-    <QtUic Include="scoresMenu.ui" />
+    <QtUic Include="scoresParcoursMenu.ui" />
     <QtUic Include="testIHMClimingProject.ui" />
     <QtMoc Include="testIHMClimingProject.h" />
     <ClCompile Include="calibrage.cpp" />
@@ -125,7 +125,7 @@
     <ClCompile Include="Joueur.cpp" />
     <ClCompile Include="Parcours.cpp" />
     <ClCompile Include="Prises.cpp" />
-    <ClCompile Include="scoresMenu.cpp" />
+    <ClCompile Include="scoresParcoursMenu.cpp" />
     <ClCompile Include="sqlite3.c" />
     <ClCompile Include="testIHMClimingProject.cpp" />
     <ClCompile Include="main.cpp" />
@@ -141,7 +141,7 @@
     <QtMoc Include="choixParcoursMenu.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="scoresMenu.h" />
+    <QtMoc Include="scoresParcoursMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h" />

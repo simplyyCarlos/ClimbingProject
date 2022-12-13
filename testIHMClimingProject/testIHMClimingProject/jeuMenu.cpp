@@ -12,7 +12,7 @@ jeuMenu::jeuMenu(Database* _db,QWidget* _parent)
 	this->setPalette(palette);
 	this->setFixedSize(QSize(650, 400));
 
-	cpm = nullptr, sm = nullptr, pm = nullptr;
+	cpm = nullptr,pm = nullptr;
 
 	ui.pushButton_Twistter->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 	ui.pushButton_Parcours->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
@@ -26,7 +26,6 @@ jeuMenu::jeuMenu(Database* _db,QWidget* _parent)
 
 	connect(ui.pushButton_Back, &QPushButton::pressed, this, &jeuMenu::pushbackButton);
 	connect(ui.pushButton_Parcours, &QPushButton::pressed, this, &jeuMenu::openMenuChoixParcours);
-	connect(ui.pushButton_Scores, &QPushButton::pressed, this, &jeuMenu::openScoresMenu);
 	connect(ui.pushButton_Pong, &QPushButton::pressed, this, &jeuMenu::openPongMenu);
 }
 
@@ -46,15 +45,6 @@ void jeuMenu::openMenuChoixParcours() {
 	}
 	this->close();
 	cpm->show();
-}
-
-void jeuMenu::openScoresMenu()
-{
-	if (sm == nullptr) {
-		sm = new scoresMenu(db, this);
-	}
-	this->close();
-	sm->show();
 }
 
 void jeuMenu::openPongMenu()

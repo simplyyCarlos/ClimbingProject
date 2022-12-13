@@ -29,7 +29,7 @@
   <widget class="QLabel" name="label_Titre">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>170</x>
      <y>50</y>
      <width>311</width>
      <height>71</height>

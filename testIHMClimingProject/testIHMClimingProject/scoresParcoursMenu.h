@@ -2,16 +2,16 @@
 #include "ui_scoresMenu.h"
 #include "Database.h"
 #include "observer.h"
-class scoresMenu : public QWidget, public Observer
+class scoresParcoursMenu : public QWidget, public Observer
 {
     Q_OBJECT
 
 public:
-    scoresMenu(Database* _db, QWidget* _parent);
-    ~scoresMenu();
+    scoresParcoursMenu(Database* _db, QWidget* _parent);
+    ~scoresParcoursMenu();
     void update();
 private:
-    Ui::scoresMenuClass ui;
+    Ui::scoresParcoursMenuClass ui;
     QWidget* parent;
     Database* db;
 private slots:
