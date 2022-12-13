@@ -38,6 +38,7 @@ choixParcoursMenu::~choixParcoursMenu()
 void choixParcoursMenu::update()
 {
 	ui.tableWidget_Parcours->clear();
+	db->clearResult();
 	string tmp = "SELECT * FROM Parcours;";
 	const char* query = tmp.c_str();
 	db->setSql(query);

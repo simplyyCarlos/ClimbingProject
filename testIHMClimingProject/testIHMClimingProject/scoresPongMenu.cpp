@@ -1,6 +1,5 @@
-#include "scoresParcoursMenu.h"
-
-scoresParcoursMenu::scoresParcoursMenu(Database* _db, QWidget* _parent) : parent(_parent)
+#include "scoresPongMenu.h"
+scoresPongMenu::scoresPongMenu(Database* _db, QWidget* _parent) : parent(_parent)
 {
 	ui.setupUi(this);
 
@@ -19,19 +18,19 @@ scoresParcoursMenu::scoresParcoursMenu(Database* _db, QWidget* _parent) : parent
 
 	update();
 
-	connect(ui.pushButton_Back, &QPushButton::pressed, this, &scoresParcoursMenu::pushbackButton);
+	connect(ui.pushButton_Back, &QPushButton::pressed, this, &scoresPongMenu::pushbackButton);
 }
 
-scoresParcoursMenu::~scoresParcoursMenu()
+scoresPongMenu::~scoresPongMenu()
 {
 
 }
 
-void scoresParcoursMenu::update()
+void scoresPongMenu::update()
 {
 	ui.tableWidget_Parcours->clear();
 	db->clearResult();
-	string tmp = "SELECT j.pseudo,h.chrono,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Parcours' ORDER BY h.score DESC;";
+	string tmp = "SELECT j.pseudo,h.score,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Pong' ORDER BY h.score DESC;";
 	const char* query = tmp.c_str();
 	db->setSql(query);
 	db->callRc();
@@ -53,7 +52,7 @@ void scoresParcoursMenu::update()
 	db->clearResult();
 }
 
-void scoresParcoursMenu::pushbackButton() {
+void scoresPongMenu::pushbackButton() {
 	this->close();
 	parent->show();
 }

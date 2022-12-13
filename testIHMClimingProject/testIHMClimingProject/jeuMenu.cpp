@@ -50,7 +50,7 @@ void jeuMenu::openMenuChoixParcours() {
 void jeuMenu::openPongMenu()
 {
 	if (pm == nullptr) {
-		pm = new PongMenu(this);
+		pm = new PongMenu(db,this);
 	}
 	this->close();
 	pm->show();

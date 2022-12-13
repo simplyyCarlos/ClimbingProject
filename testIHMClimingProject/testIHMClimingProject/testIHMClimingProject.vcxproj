@@ -105,6 +105,7 @@
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="paramMenu.cpp" />
     <ClCompile Include="PongMenu.cpp" />
+    <ClCompile Include="scoresPongMenu.cpp" />
     <ClCompile Include="View.cpp" />
     <QtRcc Include="testIHMClimingProject.qrc" />
     <QtUic Include="calibrage.ui" />
@@ -114,6 +115,7 @@
     <QtUic Include="paramMenu.ui" />
     <QtUic Include="Pong.ui" />
     <QtUic Include="scoresParcoursMenu.ui" />
+    <QtUic Include="scoresPongMenu.ui" />
     <QtUic Include="testIHMClimingProject.ui" />
     <QtMoc Include="testIHMClimingProject.h" />
     <ClCompile Include="calibrage.cpp" />
@@ -157,6 +159,7 @@
     <ClInclude Include="Parcours.h" />
     <QtMoc Include="PongMenu.h" />
     <ClInclude Include="Prises.h" />
+    <QtMoc Include="scoresPongMenu.h" />
     <ClInclude Include="sqlite3.h" />
   </ItemGroup>
   <ItemGroup>

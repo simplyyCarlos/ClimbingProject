@@ -1,5 +1,5 @@
 #pragma once
-#include "ui_scoresMenu.h"
+#include "ui_scoresParcoursMenu.h"
 #include "Database.h"
 #include "observer.h"
 class scoresParcoursMenu : public QWidget, public Observer

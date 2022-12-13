@@ -52,6 +52,19 @@
     <string>Jouer</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_Scores">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>20</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Scores</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
