@@ -3,6 +3,10 @@
 #include <qpoint.h>
 #include "observer.h"
 #include "Circle.h"
+#include <opencv2/core/mat.hpp>
+
+#include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
 
 class Data : public Observable
 {
@@ -10,6 +14,7 @@ private:
 	QVector<QPointF*> listPrise;
 	bool calibrate;
 	QVector<Observer*> listObserver;
+	cv::Matx33f matCali;
 public:
 	Data();
 	~Data();
@@ -21,6 +26,6 @@ public:
 	void addObserver(Observer* observer) override;
 	void removeObserver(Observer* observer) override;
 	void notifyObserver() const override;
-
+	void setMatrice(double[9]);
 };
 

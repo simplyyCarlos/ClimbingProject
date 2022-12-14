@@ -55,12 +55,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IncludePath>C:\Users\kilia\Documents\ClimbingSAE\gitRep\testIHMClimingProject\packages\pybind11-2.10.1\include;C:\Python310\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Python310\Lib;C:\Python310\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\opencv\build\include;C:\Users\kilia\Documents\ClimbingSAE\gitRep\testIHMClimingProject\packages\pybind11-2.10.1\include;C:\Python310\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\opencv\build\x64\vc15\lib;C:\Python310\Lib;C:\Python310\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <IncludePath>C:\Users\kilia\Documents\ClimbingSAE\gitRep\testIHMClimingProject\packages\pybind11-2.10.1\include;C:\Python310\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Python310\Lib;C:\Python310\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\opencv\build\include;C:\Users\kilia\Documents\ClimbingSAE\gitRep\testIHMClimingProject\packages\pybind11-2.10.1\include;C:\Python310\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\opencv\build\x64\vc15\lib;C:\Python310\Lib;C:\Python310\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link />
@@ -70,7 +70,12 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(Qt_LIBS_)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);$(Qt_LIBS_);opencv_world460d.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(Qt_LIBS_);opencv_world460d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">

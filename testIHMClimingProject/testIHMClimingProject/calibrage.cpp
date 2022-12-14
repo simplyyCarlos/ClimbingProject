@@ -6,7 +6,7 @@ Calibrage::Calibrage(QWidget* _parent, Data* _dt) {
 	cb = new Charucoboard();
 	dt = _dt;
 	view = new View();
-	view->setSceneRect(0, 0, 950, 532);
+	view->setSceneRect(0, 0, 832, 624);
 	ui.setupUi(this);
 	ui.graphicsView->setScene(view);
 	ui.graphicsView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
@@ -17,7 +17,7 @@ Calibrage::Calibrage(QWidget* _parent, Data* _dt) {
 	palette.setBrush(QPalette::Window, bkgnd);
 	this->setPalette(palette);
 
-	this->setFixedSize(QSize(1050, 686));
+	this->setFixedSize(QSize(1050, 776));
 
 	connect(ui.pushButton_Continuer, SIGNAL(clicked()), this, SLOT(saveCalibration()));
 
@@ -79,7 +79,6 @@ void Calibrage::saveCalibration() {
 	
 
 	t.join();
-	getMatrice();
 	dt->setCalibrate(true);
 	this->close();
 	parent->show();
@@ -96,12 +95,12 @@ void Calibrage::saveCalibration() {
 
 void Calibrage::getImage() {
 	py::scoped_interpreter guard{};
-	//try
+	try
 	{
-		windows_shared_memory shmem(create_only, "shm", read_write, sizeof(double[9]));
+		/*windows_shared_memory shmem(create_only, "shm", read_write, sizeof(double[9]));
 		mapped_region region(shmem, read_write);
 		std::memset(region.get_address(), 1, region.get_size());
-		double* tab = static_cast<double*>(region.get_address());
+		double* tab = static_cast<double*>(region.get_address());*/
 
 		auto screenshot = py::module::import("image_capture");
 		auto main_screenshot = screenshot.attr("main");
@@ -109,9 +108,16 @@ void Calibrage::getImage() {
 		auto matrix = py::module::import("testCalibrage");
 		auto main_matrix = matrix.attr("main");
 		main_matrix();
+
+		//dt->setMatrice(tab);
 	}
-	//catch (const std::exception&)
+	catch (const std::exception&)
 	{
+		windows_shared_memory shmem(create_only, "shm", read_write, sizeof(double[9]));
+		mapped_region region(shmem, read_write);
+		std::memset(region.get_address(), 1, region.get_size());
+		double* tab = static_cast<double*>(region.get_address());
+		dt->setMatrice(tab);
 		return;
 	}
 	

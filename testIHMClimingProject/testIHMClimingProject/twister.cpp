@@ -22,8 +22,6 @@ Twister::Twister(QWidget* _parent, Data* _dt)
 	}
 		
 	ui.setupUi(this);
-	//ui.graphicsView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-	//ui.graphicsView->setSceneRect(0, 0, screen.width(), screen.height());
 	updateModel();
 }
 

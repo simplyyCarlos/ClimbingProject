@@ -1,5 +1,6 @@
 #include "twisterMenu.h"
 
+
 TwisterMenu::TwisterMenu(QWidget* _parent, Data* _dt)
 {
 	ui.setupUi(this);

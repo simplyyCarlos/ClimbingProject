@@ -17,6 +17,5 @@ public:
 private slots:
 	void openJeu();
 	void pushbackButton();
-
 };
 
