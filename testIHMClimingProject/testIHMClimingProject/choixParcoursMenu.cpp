@@ -1,6 +1,6 @@
 #include "choixParcoursMenu.h"
 
-choixParcoursMenu::choixParcoursMenu(QWidget* _parent, Database* _db)
+choixParcoursMenu::choixParcoursMenu(QWidget* _parent, DbManager* _db)
 	: parent(_parent)
 {
 	ui.setupUi(this);

@@ -1,5 +1,5 @@
 #include "scoresPongMenu.h"
-scoresPongMenu::scoresPongMenu(Database* _db, QWidget* _parent) : parent(_parent)
+scoresPongMenu::scoresPongMenu(DbManager* _db, QWidget* _parent) : parent(_parent)
 {
 	ui.setupUi(this);
 

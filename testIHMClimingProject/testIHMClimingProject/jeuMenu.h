@@ -1,7 +1,7 @@
 #pragma once
 #include "ui_jeuMenu.h"
 #include "choixParcoursMenu.h"
-#include "Database.h"
+#include "dbmanager.h"
 #include "PongMenu.h";
 
 class jeuMenu : public QWidget
@@ -9,7 +9,7 @@ class jeuMenu : public QWidget
     Q_OBJECT
 
 public:
-    jeuMenu(Database* _db,QWidget* _parent);
+    jeuMenu(DbManager* _db,QWidget* _parent);
     ~jeuMenu();
 
 private:
@@ -17,7 +17,7 @@ private:
     QWidget* parent;
     choixParcoursMenu* cpm;
     PongMenu* pm;
-    Database* db;
+    DbManager* db;
 private slots:
     void pushbackButton();
     void openMenuChoixParcours();

@@ -1,6 +1,6 @@
 #include "Prises.h"
 
-Prises::Prises(float _x, float _y, Database* _db)
+Prises::Prises(float _x, float _y, DbManager* _db)
 	: x(_x),y(_y),db(_db)
 {
 	string tmp = "INSERT INTO Prises VALUES (" + to_string(x) + " , " + to_string(y) + ");";
@@ -21,7 +21,8 @@ float Prises::getY()
 	return y;
 }
 
-Database* Prises::getDatabase()
+DbManager* Prises::get
+()
 {
 	return db;
 }

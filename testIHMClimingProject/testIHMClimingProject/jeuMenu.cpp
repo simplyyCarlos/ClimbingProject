@@ -1,6 +1,6 @@
 #include "jeuMenu.h"
 
-jeuMenu::jeuMenu(Database* _db,QWidget* _parent)
+jeuMenu::jeuMenu(DbManager* _db,QWidget* _parent)
 	: parent(_parent)
 {
 	ui.setupUi(this);

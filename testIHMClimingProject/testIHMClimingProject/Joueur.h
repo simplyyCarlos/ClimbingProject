@@ -1,6 +1,6 @@
 #pragma once
 #include "qstring.h"
-#include "Database.h"
+#include "dbmanager.h"
 #include "observer.h"
 #include "qlist.h"
 
@@ -9,13 +9,14 @@ class Joueur
 private:
 	static int id;
 	QString pseudo, password;
-	Database* db;
+	DbManager* db;
 	QVector<Observer*> observerList;
 public:
-	Joueur(QString _pseudo, QString _password, Database* _db);
+	Joueur(QString _pseudo, QString _password, DbManager* _db);
 	int getId();
 	QString getPseudo();
 	QString getPassword();
-	Database* getDatabase();
+	DbManager* get
+	();
 };
 

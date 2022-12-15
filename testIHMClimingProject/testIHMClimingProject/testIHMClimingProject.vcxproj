@@ -103,6 +103,7 @@
     <ClCompile Include="AbstractController.cpp" />
     <ClCompile Include="charucoboard.cpp" />
     <ClCompile Include="Data.cpp" />
+    <ClCompile Include="dbmanager.cpp" />
     <ClCompile Include="paramMenu.cpp" />
     <ClCompile Include="PongMenu.cpp" />
     <ClCompile Include="scoresPongMenu.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Data.h" />
+    <ClInclude Include="dbmanager.h" />
     <ClInclude Include="Joueur.h" />
     <ClInclude Include="observer.h" />
     <QtMoc Include="paramMenu.h" />

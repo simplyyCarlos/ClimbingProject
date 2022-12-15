@@ -2,7 +2,7 @@
 
 int Joueur::id = 0;
 
-Joueur::Joueur(QString _pseudo, QString _password, Database* _db)
+Joueur::Joueur(QString _pseudo, QString _password, DbManager* _db)
 	: pseudo(_pseudo),password(_password),db(_db)
 {
 	id = id++;
@@ -29,7 +29,8 @@ QString Joueur::getPassword()
 	return password;
 }
 
-Database* Joueur::getDatabase()
+DbManager* Joueur::get
+()
 {
 	return db;
 }

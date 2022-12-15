@@ -1,19 +1,19 @@
 #pragma once
 #include "ui_scoresParcoursMenu.h"
-#include "Database.h"
+#include "dbmanager.h"
 #include "observer.h"
 class scoresParcoursMenu : public QWidget, public Observer
 {
     Q_OBJECT
 
 public:
-    scoresParcoursMenu(Database* _db, QWidget* _parent);
+    scoresParcoursMenu(DbManager* _db, QWidget* _parent);
     ~scoresParcoursMenu();
     void update();
 private:
     Ui::scoresParcoursMenuClass ui;
     QWidget* parent;
-    Database* db;
+    DbManager* db;
 private slots:
     void pushbackButton();
 };

@@ -1,6 +1,6 @@
 #include "AbstractController.h"
 
-ControllerRemoveParcours::ControllerRemoveParcours(Database* _db)
+ControllerRemoveParcours::ControllerRemoveParcours(DbManager* _db)
 {
 	db = _db;
 }

@@ -1,6 +1,6 @@
 #include "scoresParcoursMenu.h"
 
-scoresParcoursMenu::scoresParcoursMenu(Database* _db, QWidget* _parent) : parent(_parent)
+scoresParcoursMenu::scoresParcoursMenu(DbManager* _db, QWidget* _parent) : parent(_parent)
 {
 	ui.setupUi(this);
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "ui_choixParcoursMenu.h"
 #include "observer.h"
-#include "Database.h"
+#include "dbmanager.h"
 #include "AbstractController.h"
 #include "scoresParcoursMenu.h"
 class choixParcoursMenu : public QWidget, public Observer
@@ -9,13 +9,13 @@ class choixParcoursMenu : public QWidget, public Observer
     Q_OBJECT
 
 public:
-    choixParcoursMenu(QWidget* _parent,Database* _db);
+    choixParcoursMenu(QWidget* _parent, DbManager* _db);
     ~choixParcoursMenu();
     void update();
 private:
     Ui::choixParcoursMenuClass ui;
     QWidget* parent;
-    Database* db;
+    DbManager* db;
     scoresParcoursMenu* spm;
 private slots:
     void pushbackButton();

@@ -4,21 +4,21 @@
 #include "ui_testIHMClimingProject.h"
 #include "dialogLogin.h"
 #include "jeuMenu.h"
-#include "Database.h"
+#include "dbmanager.h"
 #include "paramMenu.h"
 class testIHMClimingProject : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    testIHMClimingProject(Database* _db,QWidget *parent = nullptr);
+    testIHMClimingProject(DbManager* _db,QWidget *parent = nullptr);
     ~testIHMClimingProject();
 
 private:
     Ui::testIHMClimingProjectClass ui;
     QString currentFile;
     jeuMenu* jm;
-    Database* db;
+    DbManager* db;
     dialogLogin* log;
     paramMenu* pm;
 private slots:

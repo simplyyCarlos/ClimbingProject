@@ -1,5 +1,5 @@
 #pragma once
-#include "Database.h"
+#include "dbmanager.h"
 class AbstractController
 {
 public:
@@ -10,8 +10,8 @@ public:
 class ControllerRemoveParcours : public AbstractController
 {
 private:
-	Database* db;
+	DbManager* db;
 public:
-	ControllerRemoveParcours(Database* _db);
+	ControllerRemoveParcours(DbManager* _db);
 	void control(int id);
 };

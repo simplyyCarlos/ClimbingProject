@@ -1,6 +1,6 @@
 #include "testIHMClimingProject.h"
 
-testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
+testIHMClimingProject::testIHMClimingProject(DbManager* _db,QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);

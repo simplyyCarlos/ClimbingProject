@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    Database db = new Database("climbingProject.db");
+    DbManager db = new DbManager("climbingProject.db");
     QApplication a(argc, argv);
     testIHMClimingProject w(&db);
     w.show();
