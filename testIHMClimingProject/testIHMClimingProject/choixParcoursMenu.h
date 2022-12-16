@@ -9,12 +9,13 @@ class choixParcoursMenu : public QWidget, public Observer
     Q_OBJECT
 
 public:
-    choixParcoursMenu(QWidget* _parent, DbManager* _db);
+    choixParcoursMenu(QWidget* _parent);
     ~choixParcoursMenu();
     void update();
 private:
     Ui::choixParcoursMenuClass ui;
     QWidget* parent;
+    
     DbManager* db;
     scoresParcoursMenu* spm;
 private slots:

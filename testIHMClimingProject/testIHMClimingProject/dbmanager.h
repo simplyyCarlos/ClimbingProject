@@ -53,7 +53,11 @@ public:
      * @param aqi - air quality indice
      * @return true - data added successfully, false - data not added
      */
-    bool addParcours(QString name, int diff, QString date);
+    bool addParcours(int id, QString name, int diff, QString date);
+
+    bool addJoueur(int id, QString name, QString mdp);
+
+    bool addPrises(float x, float y);
 
     /**
      * @brief Remove data of dt "dt" from db
@@ -77,7 +81,7 @@ public:
     /**
      * @brief return values of all data in db
      */
-    QVector<QVector<int>>* getAllData() const;
+    QVector<QVector<QString>>* getAllParcours() const;
 
     /**
      * @brief Remove all data from db

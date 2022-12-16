@@ -16,11 +16,10 @@ private:
 	DbManager* db;
 	QVector<Observer*> observerList;
 public:
-	Parcours(int _difficulte, QString _nom, DbManager* _db);
+	Parcours(int _difficulte, QString _nom,QString _date);
 	void add(Prises* p);
 	void remove(int i);
 	int getId();
 	int getDifficulte();
-	DbManager* getDatabase();
 };
 

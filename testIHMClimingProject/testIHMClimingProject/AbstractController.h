@@ -12,6 +12,6 @@ class ControllerRemoveParcours : public AbstractController
 private:
 	DbManager* db;
 public:
-	ControllerRemoveParcours(DbManager* _db);
+	ControllerRemoveParcours();
 	void control(int id);
 };

@@ -9,7 +9,7 @@ class jeuMenu : public QWidget
     Q_OBJECT
 
 public:
-    jeuMenu(DbManager* _db,QWidget* _parent);
+    jeuMenu(QWidget* _parent);
     ~jeuMenu();
 
 private:

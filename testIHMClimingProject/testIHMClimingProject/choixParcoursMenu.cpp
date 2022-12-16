@@ -1,11 +1,11 @@
 #include "choixParcoursMenu.h"
 
-choixParcoursMenu::choixParcoursMenu(QWidget* _parent, DbManager* _db)
+choixParcoursMenu::choixParcoursMenu(QWidget* _parent)
 	: parent(_parent)
 {
 	ui.setupUi(this);
 
-	db = _db;
+	db = db->getInstance();
 	spm = nullptr;
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -38,17 +38,12 @@ choixParcoursMenu::~choixParcoursMenu()
 void choixParcoursMenu::update()
 {
 	ui.tableWidget_Parcours->clear();
-	db->clearResult();
-	string tmp = "SELECT * FROM Parcours;";
-	const char* query = tmp.c_str();
-	db->setSql(query);
-	db->callRc();
-	db->testQuery();
+	QVector<QVector<QString>> data = *db->getAllParcours();
 	int row = 0;
 	int col = 0;
-	ui.tableWidget_Parcours->insertRow(ui.tableWidget_Parcours->rowCount());
-	for (auto index : db->getResult()) {
-		QTableWidgetItem* child = new QTableWidgetItem(index);
+	int i = 0;
+	for (auto index : data) {
+		QTableWidgetItem* child = new QTableWidgetItem(index.at(i));
 		ui.tableWidget_Parcours->setItem(row, col, child);
 		col++;
 		if (col % 4 == 0 && col != 0) {
@@ -56,8 +51,8 @@ void choixParcoursMenu::update()
 			ui.tableWidget_Parcours->insertRow(ui.tableWidget_Parcours->rowCount());
 			col = 0;
 		}
+		i++;
 	}
-	db->clearResult();
 }
 
 void choixParcoursMenu::addButton()
@@ -68,14 +63,14 @@ void choixParcoursMenu::deleteButton()
 {
 	if (ui.tableWidget_Parcours->item(ui.tableWidget_Parcours->currentRow(), 0)) {
 		QString tmp = ui.tableWidget_Parcours->item(ui.tableWidget_Parcours->currentRow(), 0)->text();
-		(ControllerRemoveParcours(db).control(tmp.toInt()));
+		(ControllerRemoveParcours().control(tmp.toInt()));
 	}
 }
 
 void choixParcoursMenu::openScoreParcoursMenu()
 {
 	if (spm == nullptr) {
-		spm = new scoresParcoursMenu(db, this);
+		spm = new scoresParcoursMenu(this);
 	}
 	this->close();
 	spm->show();

@@ -11,7 +11,7 @@ class testIHMClimingProject : public QMainWindow
     Q_OBJECT
 
 public:
-    testIHMClimingProject(DbManager* _db,QWidget *parent = nullptr);
+    testIHMClimingProject(QWidget *parent = nullptr);
     ~testIHMClimingProject();
 
 private:

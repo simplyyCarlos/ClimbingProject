@@ -1,10 +1,10 @@
 #include "testIHMClimingProject.h"
 
-testIHMClimingProject::testIHMClimingProject(DbManager* _db,QWidget *parent)
+testIHMClimingProject::testIHMClimingProject(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
-    db = _db;
+    db = db->getInstance();
     QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
@@ -35,7 +35,7 @@ void testIHMClimingProject::openConnexion() {
 
 void testIHMClimingProject::openMenuJeu() {
     if (jm == nullptr) {
-        jm = new jeuMenu(db, this);
+        jm = new jeuMenu(this);
     }
     this->close();
     jm->show();

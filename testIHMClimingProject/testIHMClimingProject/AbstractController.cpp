@@ -1,8 +1,8 @@
 #include "AbstractController.h"
 
-ControllerRemoveParcours::ControllerRemoveParcours(DbManager* _db)
+ControllerRemoveParcours::ControllerRemoveParcours()
 {
-	db = _db;
+	db = db->getInstance();
 }
 
 void ControllerRemoveParcours::control(int id)

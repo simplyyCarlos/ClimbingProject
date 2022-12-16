@@ -12,7 +12,7 @@ private:
 	DbManager* db;
 	QVector<Observer*> observerList;
 public:
-	Joueur(QString _pseudo, QString _password, DbManager* _db);
+	Joueur(QString _pseudo, QString _password);
 	int getId();
 	QString getPseudo();
 	QString getPassword();

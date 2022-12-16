@@ -6,7 +6,7 @@ class PongMenu : public QWidget
 {
 	Q_OBJECT
 public:
-    PongMenu(DbManager* _db,QWidget* _parent);
+    PongMenu(QWidget* _parent);
     ~PongMenu();
 
 private:

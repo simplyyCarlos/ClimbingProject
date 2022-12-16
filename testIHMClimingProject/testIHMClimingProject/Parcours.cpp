@@ -2,17 +2,12 @@
 
 int Parcours::id = 0;
 
-Parcours::Parcours(int _difficulte, QString _nom)
-	:difficulte(_difficulte),nom(_nom)
+Parcours::Parcours(int _difficulte, QString _nom,QString _date)
+	:difficulte(_difficulte),nom(_nom),date(_date)
 {
 	db = db->getInstance();
 	id = id++;
-	QString query = "INSERT INTO Parcours VALUES (" + QString::number(id) + " , '" + nom + "' , " +QString::number(difficulte)+ ");";
 	db->addParcours(id,nom,difficulte,date);
-	db->setSql(query);
-	db->callRc();
-	db->testQuery();
-	db->closeDb();
 }
 
 void Parcours::add(Prises* p)
@@ -33,9 +28,4 @@ int Parcours::getId()
 int Parcours::getDifficulte()
 {
 	return difficulte;
-}
-
-DbManager* Parcours::getDatabase()
-{
-	return db;
 }

@@ -1,11 +1,11 @@
 #include "PongMenu.h"
 
-PongMenu::PongMenu(DbManager* _db,QWidget* _parent)
+PongMenu::PongMenu(QWidget* _parent)
 	: parent(_parent)
 {
 	ui.setupUi(this);
 
-	db = _db;
+	db = db->getInstance();
 	spm = nullptr;
 
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");

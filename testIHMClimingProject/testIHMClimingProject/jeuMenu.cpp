@@ -1,10 +1,10 @@
 #include "jeuMenu.h"
 
-jeuMenu::jeuMenu(DbManager* _db,QWidget* _parent)
+jeuMenu::jeuMenu(QWidget* _parent)
 	: parent(_parent)
 {
 	ui.setupUi(this);
-	db = _db;
+	db = db->getInstance();
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;

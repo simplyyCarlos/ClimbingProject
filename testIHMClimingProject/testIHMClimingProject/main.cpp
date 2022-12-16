@@ -9,9 +9,9 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    DbManager db = new DbManager("climbingProject.db");
+    DbManager* db = db->getInstance();
     QApplication a(argc, argv);
-    testIHMClimingProject w(&db);
+    testIHMClimingProject w;
     w.show();
 
     return a.exec();

@@ -7,7 +7,7 @@ class scoresPongMenu : public QWidget, public Observer
     Q_OBJECT
 
 public:
-    scoresPongMenu(DbManager* _db, QWidget* _parent);
+    scoresPongMenu(QWidget* _parent);
     ~scoresPongMenu();
     void update();
 private:
