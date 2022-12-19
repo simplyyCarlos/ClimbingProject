@@ -1,6 +1,5 @@
 #pragma once
 #include "dbmanager.h"
-#include <string>
 
 class Prises
 {

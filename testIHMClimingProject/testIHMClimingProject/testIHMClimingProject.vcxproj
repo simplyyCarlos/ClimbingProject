@@ -32,7 +32,7 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>6.2.4_msvc2019_64</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;gui;widgets;sql</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
@@ -122,14 +122,12 @@
     <ClCompile Include="calibrage.cpp" />
     <ClCompile Include="choixParcoursMenu.cpp" />
     <ClCompile Include="Circle.cpp" />
-    <ClCompile Include="Database.cpp" />
     <ClCompile Include="dialogLogin.cpp" />
     <ClCompile Include="jeuMenu.cpp" />
     <ClCompile Include="Joueur.cpp" />
     <ClCompile Include="Parcours.cpp" />
     <ClCompile Include="Prises.cpp" />
     <ClCompile Include="scoresParcoursMenu.cpp" />
-    <ClCompile Include="sqlite3.c" />
     <ClCompile Include="testIHMClimingProject.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="choixParcoursMenu.ui" />
@@ -152,7 +150,6 @@
     <QtMoc Include="calibrage.h" />
     <ClInclude Include="charucoboard.h" />
     <ClInclude Include="Circle.h" />
-    <ClInclude Include="Database.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="dbmanager.h" />
     <ClInclude Include="Joueur.h" />
@@ -162,7 +159,6 @@
     <QtMoc Include="PongMenu.h" />
     <ClInclude Include="Prises.h" />
     <QtMoc Include="scoresPongMenu.h" />
-    <ClInclude Include="sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="image_capture.py" />

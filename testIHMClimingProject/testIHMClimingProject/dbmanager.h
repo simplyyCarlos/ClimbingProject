@@ -1,11 +1,12 @@
-#ifndef DBMANAGER_H
-#define DBMANAGER_H
+#pragma once
 
-#include <QtSql/qsqldatabase.h>
-#include <QJsonObject>
-#include <QVector>
+#include "QtSql/qsqldatabase.h"
+#include "QtSql/qsqlerror.h"
+#include "QtSql/qsqlquery.h"
+#include "QtSql/qsqlrecord.h"
+#include "qvector.h"
+#include "qdebug.h"
 #include "observer.h"
-#include "Parcours.h"
 
 /**
  * \class DbManager
@@ -20,11 +21,12 @@
  * 2. sqlite> CREATE TABLE pollution(ids integer primary key, dt interger, aqi integer);
  * 3. sqlite> .quit
  */
-class DbManager
+class DbManager : public Observable
 {
 private:
-    DbManager* instance;
+    static DbManager* instance;
     QSqlDatabase sqldb;
+    QVector<Observer*> observerList;
 public:
     /**
      * @brief Constructor
@@ -41,7 +43,7 @@ public:
      */
     ~DbManager();
 
-    DbManager* getInstance();
+    static DbManager* getInstance();
     DbManager(DbManager& db) = delete;
     void operator=(const DbManager&) = delete;
 
@@ -64,7 +66,7 @@ public:
      * @param dt - dt of data to remove.
      * @return true - data removed successfully, false - data not removed
      */
-    bool removeData(int dt);
+    bool removeParcours(int dt);
 
     /**
      * @brief Check if data of dt "dt" exists in db
@@ -83,6 +85,9 @@ public:
      */
     QVector<QVector<QString>>* getAllParcours() const;
 
+    QVector<QVector<QString>>* getScoresParcours() const;
+
+    QVector<QVector<QString>>* getScoresPong() const;
     /**
      * @brief Remove all data from db
      * @return true - all data removed successfully, false - not removed
@@ -90,6 +95,8 @@ public:
     bool removeAllData();
 
     int returnNbRow();
-};
 
-#endif // DBMANAGER_H
+    void addObserver(Observer* observer) override;
+    void removeObserver(Observer* observer) override;
+    void notifyObserver() const override;
+};

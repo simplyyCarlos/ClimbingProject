@@ -40,7 +40,7 @@ void jeuMenu::pushbackButton() {
 
 void jeuMenu::openMenuChoixParcours() {
 	if (cpm == nullptr) {
-		cpm = new choixParcoursMenu(this, db);
+		cpm = new choixParcoursMenu(this);
 		db->addObserver(cpm);
 	}
 	this->close();
@@ -50,7 +50,7 @@ void jeuMenu::openMenuChoixParcours() {
 void jeuMenu::openPongMenu()
 {
 	if (pm == nullptr) {
-		pm = new PongMenu(db,this);
+		pm = new PongMenu(this);
 	}
 	this->close();
 	pm->show();

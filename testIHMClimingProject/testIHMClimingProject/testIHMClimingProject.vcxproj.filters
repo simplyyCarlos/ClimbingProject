@@ -58,9 +58,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Database.cpp">
-      <Filter>Database</Filter>
-    </ClCompile>
     <ClCompile Include="Prises.cpp">
       <Filter>Model</Filter>
     </ClCompile>
@@ -72,9 +69,6 @@
     </ClCompile>
     <ClCompile Include="testIHMClimingProject.cpp">
       <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="sqlite3.c">
-      <Filter>Database</Filter>
     </ClCompile>
     <ClCompile Include="calibrage.cpp">
       <Filter>Window\calibrage</Filter>
@@ -183,12 +177,6 @@
   <ItemGroup>
     <ClInclude Include="AbstractController.h">
       <Filter>Controllers</Filter>
-    </ClInclude>
-    <ClInclude Include="Database.h">
-      <Filter>Database</Filter>
-    </ClInclude>
-    <ClInclude Include="sqlite3.h">
-      <Filter>Database</Filter>
     </ClInclude>
     <ClInclude Include="Prises.h">
       <Filter>Model</Filter>

@@ -7,9 +7,5 @@ ControllerRemoveParcours::ControllerRemoveParcours()
 
 void ControllerRemoveParcours::control(int id)
 {
-	string tmp = "DELETE FROM Parcours WHERE id_Parcours=" + to_string(id) + " ;";;
-	const char* query = tmp.c_str();
-	db->setSql(query);
-	db->callRc();
-	db->testQuery();
+	db->removeParcours(id);
 }

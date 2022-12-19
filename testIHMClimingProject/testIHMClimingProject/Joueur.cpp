@@ -25,8 +25,7 @@ QString Joueur::getPassword()
 	return password;
 }
 
-DbManager* Joueur::get
-()
+DbManager* Joueur::getDb()
 {
 	return db;
 }

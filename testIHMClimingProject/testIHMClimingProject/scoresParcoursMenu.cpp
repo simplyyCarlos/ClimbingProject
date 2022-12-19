@@ -29,19 +29,12 @@ scoresParcoursMenu::~scoresParcoursMenu()
 
 void scoresParcoursMenu::update()
 {
-	ui.tableWidget_Parcours->clear();
-	db->clearResult();
-	string tmp = "SELECT j.pseudo,h.chrono,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Parcours' ORDER BY h.score DESC;";
-	const char* query = tmp.c_str();
-	db->setSql(query);
-	db->callRc();
-	db->testQuery();
+	QVector<QVector<QString>> data = *db->getScoresParcours();
 	int row = 0;
 	int col = 0;
-	ui.tableWidget_Parcours->insertRow(ui.tableWidget_Parcours->rowCount());
-
-	for (auto index : db->getResult()) {
-		QTableWidgetItem* child = new QTableWidgetItem(index);
+	int i = 0;
+	for (auto index : data) {
+		QTableWidgetItem* child = new QTableWidgetItem(index.at(i));
 		ui.tableWidget_Parcours->setItem(row, col, child);
 		col++;
 		if (col % 4 == 0 && col != 0) {
@@ -49,8 +42,8 @@ void scoresParcoursMenu::update()
 			ui.tableWidget_Parcours->insertRow(ui.tableWidget_Parcours->rowCount());
 			col = 0;
 		}
+		i++;
 	}
-	db->clearResult();
 }
 
 void scoresParcoursMenu::pushbackButton() {

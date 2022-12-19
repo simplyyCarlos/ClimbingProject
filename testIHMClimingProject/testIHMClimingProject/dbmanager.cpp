@@ -1,8 +1,7 @@
 #include "dbmanager.h"
-#include <QtSql/qsqlquery.h>
-#include <QtSql/qsqlerror.h>
-#include <QtSql/qsqlrecord.h>
-#include <QDebug>
+#include "qdir.h"
+
+DbManager* DbManager::instance = nullptr;
 
 DbManager::DbManager(const QString &path)
 {
@@ -30,7 +29,7 @@ DbManager::~DbManager()
 DbManager* DbManager::getInstance()
 {
     if (instance == nullptr) {
-        instance = new DbManager("/climbingProject.db");
+        instance = new DbManager(QDir::currentPath() + "/../climbingProject.db");
     }
     return instance;
 }
@@ -112,15 +111,15 @@ bool DbManager::addPrises(float x, float y) {
     return success;
 }
 
-bool DbManager::removeData(int dt)
+bool DbManager::removeParcours(int id)
 {
     bool success = false;
 
-    if (entryExists(dt))
+    if (entryExists(id))
     {
         QSqlQuery queryDelete;
-        queryDelete.prepare("DELETE FROM pollution WHERE dt = (:dt)");
-        queryDelete.bindValue(":dt", dt);
+        queryDelete.prepare("DELETE FROM Parcours WHERE id_Parcours = (:id)");
+        queryDelete.bindValue(":id", id);
         success = queryDelete.exec();
 
         if(!success)
@@ -130,7 +129,7 @@ bool DbManager::removeData(int dt)
     }
     else
     {
-        qDebug() << "remove data failed: dt doesnt exist";
+        qDebug() << "remove data failed: id doesnt exist";
     }
 
     return success;
@@ -169,6 +168,44 @@ QVector<QVector<QString>>* DbManager::getAllParcours() const
     return res;
 }
 
+QVector<QVector<QString>>* DbManager::getScoresParcours() const
+{
+    QSqlQuery query("SELECT j.pseudo,h.chrono,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Parcours' ORDER BY h.score DESC;");
+    int idPseudo = query.record().indexOf("j.pseudo");
+    int idChrono = query.record().indexOf("h.chrono");
+    int idName = query.record().indexOf("p.Nom");
+    int idDate = query.record().indexOf("h.date_jeu");
+    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
+    while (query.next()) {
+        QVector<QString> data;
+        data.append(query.value(idPseudo).toString());
+        data.append(query.value(idChrono).toString());
+        data.append(query.value(idName).toString());
+        data.append(query.value(idDate).toString());
+        res->append(data);
+    }
+    return res;
+}
+
+QVector<QVector<QString>>* DbManager::getScoresPong() const
+{
+    QSqlQuery query("SELECT j.pseudo,h.score,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Pong' ORDER BY h.score DESC;");
+    int idPseudo = query.record().indexOf("j.pseudo");
+    int idScore = query.record().indexOf("h.score");
+    int idName = query.record().indexOf("p.Nom");
+    int idDate = query.record().indexOf("h.date_jeu");
+    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
+    while (query.next()) {
+        QVector<QString> data;
+        data.append(query.value(idPseudo).toString());
+        data.append(query.value(idScore).toString());
+        data.append(query.value(idName).toString());
+        data.append(query.value(idDate).toString());
+        res->append(data);
+    }
+    return res;
+}
+
 bool DbManager::entryExists(int dt) const
 {
     bool exists = false;
@@ -190,10 +227,6 @@ bool DbManager::entryExists(int dt) const
     }
 
     return exists;
-}
-
-bool DbManager::removeParcours() {
-
 }
 
 bool DbManager::removeAllData()
@@ -220,4 +253,21 @@ int DbManager::returnNbRow()
     QSqlQuery query("SELECT count(*) FROM pollution;");
     int count = query.record().indexOf("count(*)");
     return query.value(count).toInt();
+}
+
+void DbManager::addObserver(Observer* observer)
+{
+    observerList.append(observer);
+}
+
+void DbManager::removeObserver(Observer* observer)
+{
+    observerList.remove(observerList.indexOf(observer));
+}
+
+void DbManager::notifyObserver() const
+{
+    for (auto index : observerList) {
+        index->update();
+    }
 }

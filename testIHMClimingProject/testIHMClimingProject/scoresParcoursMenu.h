@@ -2,6 +2,7 @@
 #include "ui_scoresParcoursMenu.h"
 #include "dbmanager.h"
 #include "observer.h"
+
 class scoresParcoursMenu : public QWidget, public Observer
 {
     Q_OBJECT

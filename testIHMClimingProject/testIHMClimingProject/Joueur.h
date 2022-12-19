@@ -16,7 +16,6 @@ public:
 	int getId();
 	QString getPseudo();
 	QString getPassword();
-	DbManager* get
-	();
+	DbManager* getDb();
 };
 

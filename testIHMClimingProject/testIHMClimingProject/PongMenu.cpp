@@ -33,7 +33,7 @@ PongMenu::~PongMenu()
 void PongMenu::openScoresPong()
 {
 	if (spm == nullptr) {
-		spm = new scoresPongMenu(db, this);
+		spm = new scoresPongMenu(this);
 	}
 	this->close();
 	spm->show();

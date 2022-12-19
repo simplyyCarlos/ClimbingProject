@@ -2,7 +2,7 @@
 #include "ui_jeuMenu.h"
 #include "choixParcoursMenu.h"
 #include "dbmanager.h"
-#include "PongMenu.h";
+#include "PongMenu.h"
 
 class jeuMenu : public QWidget
 {

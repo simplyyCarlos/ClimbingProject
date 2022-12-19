@@ -13,5 +13,5 @@ private:
 	DbManager* db;
 public:
 	ControllerRemoveParcours();
-	void control(int id);
+	void control(int id) override;
 };
