@@ -9,4 +9,5 @@ Mettre les score dans chaque jeu
 //MVC
 //Singleton BD
 Remove object not only the BD
-Corriger affichage BD
+//Corriger affichage BD
+Connexion
