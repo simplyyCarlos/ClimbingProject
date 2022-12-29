@@ -171,10 +171,10 @@ QVector<QVector<QString>>* DbManager::getAllParcours() const
 QVector<QVector<QString>>* DbManager::getScoresParcours() const
 {
     QSqlQuery query("SELECT j.pseudo,h.chrono,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Parcours' ORDER BY h.score DESC;");
-    int idPseudo = query.record().indexOf("j.pseudo");
-    int idChrono = query.record().indexOf("h.chrono");
-    int idName = query.record().indexOf("p.Nom");
-    int idDate = query.record().indexOf("h.date_jeu");
+    int idPseudo = query.record().indexOf("pseudo");
+    int idChrono = query.record().indexOf("chrono");
+    int idName = query.record().indexOf("Nom");
+    int idDate = query.record().indexOf("date_jeu");
     QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     while (query.next()) {
         QVector<QString> data;
@@ -190,10 +190,10 @@ QVector<QVector<QString>>* DbManager::getScoresParcours() const
 QVector<QVector<QString>>* DbManager::getScoresPong() const
 {
     QSqlQuery query("SELECT j.pseudo,h.score,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Pong' ORDER BY h.score DESC;");
-    int idPseudo = query.record().indexOf("j.pseudo");
-    int idScore = query.record().indexOf("h.score");
-    int idName = query.record().indexOf("p.Nom");
-    int idDate = query.record().indexOf("h.date_jeu");
+    int idPseudo = query.record().indexOf("pseudo");
+    int idScore = query.record().indexOf("score");
+    int idName = query.record().indexOf("Nom");
+    int idDate = query.record().indexOf("date_jeu");
     QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     while (query.next()) {
         QVector<QString> data;

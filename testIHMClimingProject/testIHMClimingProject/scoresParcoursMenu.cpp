@@ -29,20 +29,20 @@ scoresParcoursMenu::~scoresParcoursMenu()
 
 void scoresParcoursMenu::update()
 {
+	ui.tableWidget_Parcours->clear();
 	QVector<QVector<QString>> data = *db->getScoresParcours();
 	int row = 0;
 	int col = 0;
-	int i = 0;
 	for (auto index : data) {
-		QTableWidgetItem* child = new QTableWidgetItem(index.at(i));
-		ui.tableWidget_Parcours->setItem(row, col, child);
-		col++;
-		if (col % 4 == 0 && col != 0) {
-			row++;
-			ui.tableWidget_Parcours->insertRow(ui.tableWidget_Parcours->rowCount());
-			col = 0;
+		ui.tableWidget_Parcours->insertRow(ui.tableWidget_Parcours->rowCount());
+		for (auto _index : index) {
+			QTableWidgetItem* child = new QTableWidgetItem();
+			child->setText(_index);
+			ui.tableWidget_Parcours->setItem(row, col, child);
+			col++;
 		}
-		i++;
+		row++;
+		col = 0;
 	}
 }
 

@@ -6,6 +6,7 @@
 Mettre les score dans chaque jeu
 //Debuggé delete button
 //Et revoir la logique de création des fenêtres
-MVC
-Singleton BD
+//MVC
+//Singleton BD
 Remove object not only the BD
+Corriger affichage BD
