@@ -206,6 +206,29 @@ QVector<QVector<QString>>* DbManager::getScoresPong() const
     return res;
 }
 
+bool DbManager::getLogin(QString log, QString mdp) {
+    QSqlQuery query;
+    query.prepare("SELECT * FROM Joueurs WHERE pseudo = (:log) and password = (:mdp)");
+    query.bindValue(":log", log);
+    query.bindValue(":mdp", mdp);
+
+    int exists = false;
+
+    if (query.exec())
+    {
+        if (query.next())
+        {
+            exists = true;
+        }
+    }
+    else
+    {
+        qDebug() << "data exists failed: " << query.lastError();
+    }
+
+    return exists;
+}
+
 bool DbManager::entryExists(int dt) const
 {
     bool exists = false;

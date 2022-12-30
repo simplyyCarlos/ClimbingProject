@@ -88,6 +88,8 @@ public:
     QVector<QVector<QString>>* getScoresParcours() const;
 
     QVector<QVector<QString>>* getScoresPong() const;
+
+    bool getLogin(QString log, QString mdp);
     /**
      * @brief Remove all data from db
      * @return true - all data removed successfully, false - not removed
