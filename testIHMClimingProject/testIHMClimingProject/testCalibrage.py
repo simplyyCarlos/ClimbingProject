@@ -73,4 +73,3 @@ def main():
         cap.release()
     except:
         return
-main()

@@ -94,46 +94,43 @@ void Calibrage::saveCalibration() {
 //}
 
 void Calibrage::getImage() {
-	py::scoped_interpreter guard{};
+	py::gil_scoped_acquire acquire;
 	try
 	{
-		/*windows_shared_memory shmem(create_only, "shm", read_write, sizeof(double[9]));
-		mapped_region region(shmem, read_write);
-		std::memset(region.get_address(), 1, region.get_size());
-		double* tab = static_cast<double*>(region.get_address());*/
-
 		auto screenshot = py::module::import("image_capture");
 		auto main_screenshot = screenshot.attr("main");
 		main_screenshot();
+	}
+	catch (const std::exception&)
+	{
+		
+		return;
+	}
+	py::gil_scoped_release release;
+}
+
+void Calibrage::getMatrice(){
+	py::gil_scoped_acquire acquire;
+	try
+	{
+		windows_shared_memory shmem(create_only, "shm", read_write, sizeof(double[9]));
+		mapped_region region(shmem, read_write);
+		double* tab = static_cast<double*>(region.get_address());
+
 		auto matrix = py::module::import("testCalibrage");
 		auto main_matrix = matrix.attr("main");
 		main_matrix();
 
-		//dt->setMatrice(tab);
+		dt->setMatrice(tab);
 	}
 	catch (const std::exception&)
 	{
 		windows_shared_memory shmem(create_only, "shm", read_write, sizeof(double[9]));
 		mapped_region region(shmem, read_write);
-		std::memset(region.get_address(), 1, region.get_size());
 		double* tab = static_cast<double*>(region.get_address());
 		dt->setMatrice(tab);
 		return;
 	}
-	
-}
-
-void Calibrage::getMatrice(){
-	py::scoped_interpreter guard{};
-	//try
-	{
-		//auto matrix = py::module::import("testCalibrage");
-		//auto main_matrix = matrix.attr("main");
-		//main_matrix();
-	}
-	//catch (const std::exception&)
-	{
-		return;
-	}
+	py::gil_scoped_release release;
 }
 

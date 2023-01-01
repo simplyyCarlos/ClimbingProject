@@ -30,6 +30,10 @@ TwisterMenu::~TwisterMenu()
 
 void TwisterMenu::openJeu() {
 	tw->showFullScreen();
+	QApplication::processEvents();
+	std::thread jeu(&Twister::lancerJeu,tw);
+	jeu.detach();
+
 }
 
 void TwisterMenu::pushbackButton() {

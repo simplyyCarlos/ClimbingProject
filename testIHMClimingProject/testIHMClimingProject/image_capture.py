@@ -30,5 +30,3 @@ def main():
     sucess, image=cap.read(0)
     cv2.imwrite(filename,image)
     cap.release()
-        
-main()

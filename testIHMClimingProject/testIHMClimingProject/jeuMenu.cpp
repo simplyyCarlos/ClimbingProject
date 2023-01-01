@@ -49,10 +49,10 @@ void jeuMenu::openTwister() {
 }
 
 void jeuMenu::openMenuChoixParcours() {
-	cpm = new choixParcoursMenu(this,db);
+	/*cpm = new choixParcoursMenu(this,db);
 	db->addObserver(cpm);
 	this->close();
-	cpm->show();
+	cpm->show();*/
 }
 
 void jeuMenu::openScoresMenu()

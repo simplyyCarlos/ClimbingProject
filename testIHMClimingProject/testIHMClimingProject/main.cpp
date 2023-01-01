@@ -23,8 +23,8 @@ int main(int argc, char *argv[])
     }
     db->closeDb();
     */
-
-    
+    py::scoped_interpreter python;
+    py::gil_scoped_release release;
     Database* db = new Database("climbingProject.db");
     QApplication a(argc, argv);
     testIHMClimingProject w(db);

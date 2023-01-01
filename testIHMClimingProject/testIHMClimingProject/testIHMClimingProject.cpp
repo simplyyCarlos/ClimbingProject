@@ -24,6 +24,7 @@ testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
     connect(ui.pushButton_Connexion, SIGNAL(clicked()), this, SLOT(openConnexion()));
     connect(ui.pushButton_Jouer, SIGNAL(clicked()), this, SLOT(openMenuJeu()));
     connect(ui.pushButton_Edition, SIGNAL(clicked()), this, SLOT(openMenuEdition()));
+
 }
 
 testIHMClimingProject::~testIHMClimingProject()

@@ -70,12 +70,12 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(Qt_LIBS_);opencv_world460d.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);$(Qt_LIBS_);opencv_world460d.lib;opencv_world460.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(Qt_LIBS_);opencv_world460d.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);$(Qt_LIBS_);opencv_world460d.lib;opencv_world460.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -107,7 +107,6 @@
   <ItemGroup>
     <ClCompile Include="charucoboard.cpp" />
     <ClCompile Include="Data.cpp" />
-    <ClCompile Include="traitementData.cpp" />
     <ClCompile Include="twister.cpp" />
     <ClCompile Include="twisterMenu.cpp" />
     <ClCompile Include="View.cpp" />
@@ -155,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h" />
-    <ClInclude Include="traitementData.h" />
     <ClInclude Include="twister.h" />
     <ClInclude Include="twisterMenu.h" />
     <QtMoc Include="View.h" />
@@ -171,6 +169,7 @@
     <ClInclude Include="sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="detectionMain.py" />
     <None Include="image_capture.py" />
     <None Include="packages.config" />
     <None Include="testCalibrage.py" />

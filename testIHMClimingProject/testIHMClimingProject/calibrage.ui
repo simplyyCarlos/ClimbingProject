@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1050</width>
-    <height>776</height>
+    <height>732</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,22 +16,22 @@
   <widget class="QGraphicsView" name="graphicsView">
    <property name="geometry">
     <rect>
-     <x>109</x>
+     <x>12</x>
      <y>100</y>
-     <width>832</width>
-     <height>624</height>
+     <width>1024</width>
+     <height>576</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>832</width>
-     <height>624</height>
+     <width>1024</width>
+     <height>576</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>832</width>
-     <height>624</height>
+     <width>1024</width>
+     <height>576</height>
     </size>
    </property>
    <property name="verticalScrollBarPolicy">
@@ -57,8 +57,8 @@
   <widget class="QPushButton" name="pushButton_Continuer">
    <property name="geometry">
     <rect>
-     <x>820</x>
-     <y>735</y>
+     <x>910</x>
+     <y>690</y>
      <width>121</width>
      <height>31</height>
     </rect>

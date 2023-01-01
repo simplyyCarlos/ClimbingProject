@@ -217,5 +217,8 @@
       <Filter>Python</Filter>
     </None>
     <None Include="packages.config" />
+    <None Include="detectionMain.py">
+      <Filter>Python</Filter>
+    </None>
   </ItemGroup>
 </Project>

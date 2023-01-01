@@ -17,7 +17,6 @@
 #include <pybind11/numpy.h>
 #include <pybind11/stl.h>
 #include <sstream>
-#include <filesystem>
 #include <iostream>
 #include <boost/interprocess/windows_shared_memory.hpp>
 #include <boost/interprocess/mapped_region.hpp>
