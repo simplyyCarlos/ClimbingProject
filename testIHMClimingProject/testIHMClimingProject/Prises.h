@@ -1,15 +1,13 @@
 #pragma once
-#include "Database.h"
-#include <string>
+#include "dbmanager.h"
 
 class Prises
 {
 private:
 	float x, y;
-	Database* db;
+	DbManager* db;
 public:
-	Prises(float _x, float _y, Database* _db);
+	Prises(float _x, float _y);
 	float getX();
 	float getY();
-	Database* getDatabase();
 };

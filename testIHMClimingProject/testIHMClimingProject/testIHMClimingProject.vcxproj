@@ -32,7 +32,7 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>6.2.4_msvc2019_64</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;gui;widgets;sql</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
@@ -105,8 +105,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractController.cpp" />
     <ClCompile Include="charucoboard.cpp" />
     <ClCompile Include="Data.cpp" />
+    <ClCompile Include="dbmanager.cpp" />
+    <ClCompile Include="paramMenu.cpp" />
+    <ClCompile Include="PongMenu.cpp" />
+    <ClCompile Include="scoresPongMenu.cpp" />
     <ClCompile Include="twister.cpp" />
     <ClCompile Include="twisterMenu.cpp" />
     <ClCompile Include="View.cpp" />
@@ -114,23 +119,22 @@
     <QtUic Include="calibrage.ui" />
     <QtUic Include="charucoboard.ui" />
     <QtUic Include="dialogLogin.ui" />
-    <QtUic Include="editionMenu.ui" />
     <QtUic Include="jeuMenu.ui" />
-    <QtUic Include="scoresMenu.ui" />
+    <QtUic Include="paramMenu.ui" />
+    <QtUic Include="Pong.ui" />
+    <QtUic Include="scoresParcoursMenu.ui" />
+    <QtUic Include="scoresPongMenu.ui" />
     <QtUic Include="testIHMClimingProject.ui" />
     <QtMoc Include="testIHMClimingProject.h" />
     <ClCompile Include="calibrage.cpp" />
     <ClCompile Include="choixParcoursMenu.cpp" />
     <ClCompile Include="Circle.cpp" />
-    <ClCompile Include="Database.cpp" />
     <ClCompile Include="dialogLogin.cpp" />
-    <ClCompile Include="editionMenu.cpp" />
     <ClCompile Include="jeuMenu.cpp" />
     <ClCompile Include="Joueur.cpp" />
     <ClCompile Include="Parcours.cpp" />
     <ClCompile Include="Prises.cpp" />
-    <ClCompile Include="scoresMenu.cpp" />
-    <ClCompile Include="sqlite3.c" />
+    <ClCompile Include="scoresParcoursMenu.cpp" />
     <ClCompile Include="testIHMClimingProject.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="choixParcoursMenu.ui" />
@@ -144,13 +148,10 @@
     <QtMoc Include="jeuMenu.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="editionMenu.h" />
-  </ItemGroup>
-  <ItemGroup>
     <QtMoc Include="choixParcoursMenu.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="scoresMenu.h" />
+    <QtMoc Include="scoresParcoursMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h" />
@@ -160,13 +161,15 @@
     <QtMoc Include="calibrage.h" />
     <ClInclude Include="charucoboard.h" />
     <ClInclude Include="Circle.h" />
-    <ClInclude Include="Database.h" />
     <ClInclude Include="Data.h" />
+    <ClInclude Include="dbmanager.h" />
     <ClInclude Include="Joueur.h" />
     <ClInclude Include="observer.h" />
+    <QtMoc Include="paramMenu.h" />
     <ClInclude Include="Parcours.h" />
+    <QtMoc Include="PongMenu.h" />
     <ClInclude Include="Prises.h" />
-    <ClInclude Include="sqlite3.h" />
+    <QtMoc Include="scoresPongMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="detectionMain.py" />

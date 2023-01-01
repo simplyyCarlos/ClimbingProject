@@ -1,38 +1,36 @@
 #include "testIHMClimingProject.h"
 
-testIHMClimingProject::testIHMClimingProject(Database* _db,QWidget *parent)
+testIHMClimingProject::testIHMClimingProject(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
-    dt = new Data();
-    db = new Database(_db);
+    db = db->getInstance();
     QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
     this->setFixedSize(QSize(650, 400));
-    jm = nullptr, em = nullptr, ca = nullptr;
+    jm = nullptr, pm = nullptr;
+    log = new dialogLogin(this);
 
-    ui.pushButton_Edition->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
+    ui.pushButton_Param->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.pushButton_Jouer->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.pushButton_Connexion->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
     ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
     ui.label_Created->setStyleSheet("QLabel { color : white;}");
     ui.label_Copyright->setStyleSheet("QLabel { color : white;}");
 
-    connect(ui.pushButton_Connexion, SIGNAL(clicked()), this, SLOT(openConnexion()));
-    connect(ui.pushButton_Jouer, SIGNAL(clicked()), this, SLOT(openMenuJeu()));
-    connect(ui.pushButton_Edition, SIGNAL(clicked()), this, SLOT(openMenuEdition()));
-
+    connect(ui.pushButton_Connexion, &QPushButton::pressed, this, &testIHMClimingProject::openConnexion);
+    connect(ui.pushButton_Jouer, &QPushButton::pressed, this, &testIHMClimingProject::openMenuJeu);
+    connect(ui.pushButton_Param, &QPushButton::pressed, this, &testIHMClimingProject::openMenuEdition);
 }
 
 testIHMClimingProject::~testIHMClimingProject()
 {}
 
 void testIHMClimingProject::openConnexion() {
-    dialogLogin log = new dialogLogin(this);
-    log.exec();
+    log->exec();
 }
 
 void testIHMClimingProject::openMenuJeu() {
@@ -55,9 +53,9 @@ void testIHMClimingProject::openMenuJeu() {
 }
 
 void testIHMClimingProject::openMenuEdition() {
-    if (em == nullptr) {
-        em = new editionMenu(this);
+    if (pm == nullptr) {
+        pm = new paramMenu(this);
     }
     this->close();
-    em->show();
+    pm->show();
 }

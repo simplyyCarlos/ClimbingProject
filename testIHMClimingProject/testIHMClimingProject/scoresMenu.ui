@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>scoresMenuClass</class>
- <widget class="QWidget" name="scoresMenuClass">
+ <class>scoresParcoursMenuClass</class>
+ <widget class="QWidget" name="scoresParcoursMenuClass">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Scores</string>
+    <string>Scores Parcours</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget_Parcours">
@@ -55,7 +55,7 @@
    </column>
    <column>
     <property name="text">
-     <string>Score</string>
+     <string>Chrono</string>
     </property>
    </column>
    <column>

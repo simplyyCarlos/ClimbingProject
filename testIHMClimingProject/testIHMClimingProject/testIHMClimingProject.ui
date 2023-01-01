@@ -14,7 +14,7 @@
    <string>testIHMClimingProject</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton_Edition">
+   <widget class="QPushButton" name="pushButton_Param">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Édition</string>
+     <string>Parametre</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Jouer">
