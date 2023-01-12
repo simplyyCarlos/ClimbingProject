@@ -56,7 +56,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <IncludePath>C:\opencv\build\include;C:\Users\khali\OneDrive\Documents\GitHub\ClimbingProject\testIHMClimingProject\packages\pybind11\include;C:\Users\khali\AppData\Local\Programs\Python\Python310\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\opencv\build\x64\vc15\lib;C:\Users\khali\AppData\Local\Programs\Python\Python310\libs;C:\Users\khali\AppData\Local\Programs\Python\Python310\Lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\opencv\build\x64\vc15\lib;C:\Users\khali\AppData\Local\Programs\Python\Python310\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <IncludePath>C:\opencv\build\include;C:\Users\kilia\Documents\ClimbingSAE\gitRep\testIHMClimingProject\packages\pybind11-2.10.1\include;C:\Python310\include;$(IncludePath)</IncludePath>
