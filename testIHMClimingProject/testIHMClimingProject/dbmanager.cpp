@@ -291,6 +291,6 @@ void DbManager::removeObserver(Observer* observer)
 void DbManager::notifyObserver() const
 {
     for (auto index : observerList) {
-        index->update();
+        index->updateModel();
     }
 }

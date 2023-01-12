@@ -10,7 +10,7 @@ class scoresParcoursMenu : public QWidget, public Observer
 public:
     scoresParcoursMenu(QWidget* _parent);
     ~scoresParcoursMenu();
-    void update();
+    void updateModel();
 private:
     Ui::scoresParcoursMenuClass ui;
     QWidget* parent;

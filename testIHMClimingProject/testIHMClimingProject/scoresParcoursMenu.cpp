@@ -27,7 +27,7 @@ scoresParcoursMenu::~scoresParcoursMenu()
 
 }
 
-void scoresParcoursMenu::update()
+void scoresParcoursMenu::updateModel()
 {
 	ui.tableWidget_Parcours->clear();
 	QVector<QVector<QString>> data = *db->getScoresParcours();

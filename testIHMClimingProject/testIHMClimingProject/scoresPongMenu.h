@@ -9,7 +9,7 @@ class scoresPongMenu : public QWidget, public Observer
 public:
     scoresPongMenu(QWidget* _parent);
     ~scoresPongMenu();
-    void update();
+    void updateModel();
 private:
     Ui::scoresPongMenuClass ui;
     QWidget* parent;
