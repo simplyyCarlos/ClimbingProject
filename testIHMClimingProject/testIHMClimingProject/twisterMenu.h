@@ -1,5 +1,5 @@
 #pragma once
-#include "twister.h";
+#include "twister.h"
 #include "ui_twisterMenu.h"
 
 

@@ -25,8 +25,7 @@ jeuMenu::jeuMenu(QWidget* _parent, Data* _dt)
 	ui.textBrowser_Twistter->setStyleSheet("QTextBrowser { background-color : rgb(170,105,139);}");
 
 
-	connect(ui.pushButton_Twistter, SIGNAL(clicked()), this, SLOT(openTwister()));
-	connect(ui.pushButton_Scores, SIGNAL(clicked()), this, SLOT(openScoresMenu()));
+	connect(ui.pushButton_Twistter, &QPushButton::pressed, this, &jeuMenu::openTwister);
 	connect(ui.pushButton_Back, &QPushButton::pressed, this, &jeuMenu::pushbackButton);
 	connect(ui.pushButton_Parcours, &QPushButton::pressed, this, &jeuMenu::openMenuChoixParcours);
 	connect(ui.pushButton_Pong, &QPushButton::pressed, this, &jeuMenu::openPongMenu);

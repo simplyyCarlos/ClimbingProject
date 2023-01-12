@@ -6,6 +6,8 @@
 #include "jeuMenu.h"
 #include "dbmanager.h"
 #include "paramMenu.h"
+#include "calibrage.h"
+#include "Data.h"
 class testIHMClimingProject : public QMainWindow
 {
     Q_OBJECT
@@ -21,6 +23,8 @@ private:
     DbManager* db;
     dialogLogin* log;
     paramMenu* pm;
+    Data* dt;
+    Calibrage* ca;
 private slots:
     void openConnexion();
     void openMenuJeu();
