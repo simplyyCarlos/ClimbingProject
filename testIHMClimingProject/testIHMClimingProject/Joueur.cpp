@@ -10,6 +10,10 @@ Joueur::Joueur(QString _pseudo, QString _password)
 	db->addJoueur(id,pseudo,password);
 }
 
+Joueur::~Joueur()
+{
+}
+
 int Joueur::getId()
 {
 	return id;

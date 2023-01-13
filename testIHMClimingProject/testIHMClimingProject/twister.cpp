@@ -35,6 +35,7 @@ Twister::Twister(QWidget* _parent, Data* _dt)
 
 Twister::~Twister()
 {
+	delete dt, tabMain;
 }
 
 void Twister::paintEvent(QPaintEvent*) {

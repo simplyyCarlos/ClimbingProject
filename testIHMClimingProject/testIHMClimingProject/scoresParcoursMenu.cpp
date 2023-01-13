@@ -24,7 +24,6 @@ scoresParcoursMenu::scoresParcoursMenu( QWidget* _parent) : parent(_parent)
 
 scoresParcoursMenu::~scoresParcoursMenu()
 {
-
 }
 
 void scoresParcoursMenu::updateModel()

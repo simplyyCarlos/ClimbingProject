@@ -8,6 +8,7 @@ private:
 	DbManager* db;
 public:
 	Prises(float _x, float _y);
+	~Prises();
 	float getX();
 	float getY();
 };

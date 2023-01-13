@@ -33,6 +33,7 @@ choixParcoursMenu::choixParcoursMenu(QWidget* _parent)
 
 choixParcoursMenu::~choixParcoursMenu()
 {
+	delete spm;
 }
 
 void choixParcoursMenu::updateModel()

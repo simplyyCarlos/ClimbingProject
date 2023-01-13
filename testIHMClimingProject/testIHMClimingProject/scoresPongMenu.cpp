@@ -23,7 +23,6 @@ scoresPongMenu::scoresPongMenu(QWidget* _parent) : parent(_parent)
 
 scoresPongMenu::~scoresPongMenu()
 {
-
 }
 
 void scoresPongMenu::updateModel()

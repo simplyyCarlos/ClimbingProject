@@ -27,14 +27,14 @@ private:
     static DbManager* instance;
     QSqlDatabase sqldb;
     QVector<Observer*> observerList;
-public:
     /**
-     * @brief Constructor
-     *
-     * Constructor sets up connection with db and opens it
-     * @param path - absolute path to db file
-     */
+    * @brief Constructor
+    *
+    * Constructor sets up connection with db and opens it
+    * @param path - absolute path to db file
+    */
     DbManager(const QString& path);
+public:
 
     /**
      * @brief Destructor

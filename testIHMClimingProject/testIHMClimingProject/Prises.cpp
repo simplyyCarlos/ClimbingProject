@@ -7,6 +7,10 @@ Prises::Prises(float _x, float _y)
 	db->addPrises(x, y);
 }
 
+Prises::~Prises()
+{
+}
+
 float Prises::getX()
 {
 	return x;

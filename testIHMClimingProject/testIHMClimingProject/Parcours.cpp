@@ -10,6 +10,10 @@ Parcours::Parcours(int _difficulte, QString _nom,QString _date)
 	db->addParcours(id,nom,difficulte,date);
 }
 
+Parcours::~Parcours()
+{
+}
+
 void Parcours::add(Prises* p)
 {
 	listPrise.append(p);

@@ -9,7 +9,6 @@ dialogLogin::dialogLogin(QWidget* parent) : QDialog(parent) {
 }
 
 dialogLogin::~dialogLogin() {
-
 }
 
 void dialogLogin::validerConnexion() {

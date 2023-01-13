@@ -27,7 +27,9 @@ testIHMClimingProject::testIHMClimingProject(QWidget *parent)
 }
 
 testIHMClimingProject::~testIHMClimingProject()
-{}
+{
+    delete jm, db, log, pm, dt, ca;
+}
 
 void testIHMClimingProject::openConnexion() {
     log->exec();

@@ -13,6 +13,7 @@ private:
 	QVector<Observer*> observerList;
 public:
 	Joueur(QString _pseudo, QString _password);
+	~Joueur();
 	int getId();
 	QString getPseudo();
 	QString getPassword();

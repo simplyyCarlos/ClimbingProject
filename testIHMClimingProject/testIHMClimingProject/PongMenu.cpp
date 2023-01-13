@@ -28,6 +28,7 @@ PongMenu::PongMenu(QWidget* _parent)
 
 PongMenu::~PongMenu()
 {
+	delete spm;
 }
 
 void PongMenu::openScoresPong()

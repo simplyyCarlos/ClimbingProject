@@ -37,7 +37,9 @@ Calibrage::Calibrage(Calibrage* cal) {
 	dt = cal->dt;
 }
 
-Calibrage::~Calibrage(){}
+Calibrage::~Calibrage(){
+	delete cb, view, dt;
+}
 
 void Calibrage::calibrage() {
 

@@ -27,6 +27,7 @@ TwisterMenu::TwisterMenu(QWidget* _parent, Data* _dt)
 
 TwisterMenu::~TwisterMenu()
 {
+	delete dt, tw, stm;
 }
 
 void TwisterMenu::openJeu() {

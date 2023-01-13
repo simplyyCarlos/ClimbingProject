@@ -26,6 +26,7 @@ paramMenu::paramMenu(QWidget* _parent)
 
 paramMenu::~paramMenu()
 {
+	delete dt, ca;
 }
 
 void paramMenu::pushCalibre()

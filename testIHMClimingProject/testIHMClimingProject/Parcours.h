@@ -17,6 +17,7 @@ private:
 	QVector<Observer*> observerList;
 public:
 	Parcours(int _difficulte, QString _nom,QString _date);
+	~Parcours();
 	void add(Prises* p);
 	void remove(int i);
 	int getId();
