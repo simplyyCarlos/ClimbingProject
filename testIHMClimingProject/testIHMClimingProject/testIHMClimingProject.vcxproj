@@ -112,6 +112,7 @@
     <ClCompile Include="paramMenu.cpp" />
     <ClCompile Include="PongMenu.cpp" />
     <ClCompile Include="scoresPongMenu.cpp" />
+    <ClCompile Include="scoresTwisterMenu.cpp" />
     <ClCompile Include="twister.cpp" />
     <ClCompile Include="twisterMenu.cpp" />
     <ClCompile Include="View.cpp" />
@@ -124,6 +125,7 @@
     <QtUic Include="Pong.ui" />
     <QtUic Include="scoresParcoursMenu.ui" />
     <QtUic Include="scoresPongMenu.ui" />
+    <QtUic Include="scoresTwisterMenu.ui" />
     <QtUic Include="testIHMClimingProject.ui" />
     <QtMoc Include="testIHMClimingProject.h" />
     <ClCompile Include="calibrage.cpp" />
@@ -155,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h" />
+    <QtMoc Include="scoresTwisterMenu.h" />
     <ClInclude Include="twister.h" />
     <ClInclude Include="twisterMenu.h" />
     <QtMoc Include="View.h" />

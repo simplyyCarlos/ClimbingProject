@@ -1,6 +1,6 @@
-#include "scoresParcoursMenu.h"
+#include "scoresTwisterMenu.h"
 
-scoresParcoursMenu::scoresParcoursMenu( QWidget* _parent) : parent(_parent)
+scoresTwisterMenu::scoresTwisterMenu(QWidget* _parent) : parent(_parent)
 {
 	ui.setupUi(this);
 
@@ -19,18 +19,17 @@ scoresParcoursMenu::scoresParcoursMenu( QWidget* _parent) : parent(_parent)
 
 	updateModel();
 
-	connect(ui.pushButton_Back, &QPushButton::pressed, this, &scoresParcoursMenu::pushbackButton);
+	connect(ui.pushButton_Back, &QPushButton::pressed, this, &scoresTwisterMenu::pushbackButton);
 }
 
-scoresParcoursMenu::~scoresParcoursMenu()
+scoresTwisterMenu::~scoresTwisterMenu()
 {
-
 }
 
-void scoresParcoursMenu::updateModel()
+void scoresTwisterMenu::updateModel()
 {
 	ui.tableWidget_Parcours->clear();
-	QVector<QVector<QString>> data = *db->getScoresParcours();
+	QVector<QVector<QString>> data = *db->getScoresTwister();
 	int row = 0;
 	int col = 0;
 	for (auto index : data) {
@@ -46,7 +45,7 @@ void scoresParcoursMenu::updateModel()
 	}
 }
 
-void scoresParcoursMenu::pushbackButton() {
+void scoresTwisterMenu::pushbackButton() {
 	this->close();
 	parent->show();
 }

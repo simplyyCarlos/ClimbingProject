@@ -1,6 +1,7 @@
 #pragma once
 #include "twister.h"
 #include "ui_twisterMenu.h"
+#include "scoresTwisterMenu.h"
 
 
 class TwisterMenu : public QWidget
@@ -10,6 +11,7 @@ private:
 	QWidget* parent;
 	Data* dt;
 	Twister* tw;
+	scoresTwisterMenu* stm;
 public:
 	TwisterMenu(QWidget*, Data*);
 	~TwisterMenu();
@@ -17,5 +19,6 @@ public:
 private slots:
 	void openJeu();
 	void pushbackButton();
+	void openScoresTwisterMenu();
 };
 

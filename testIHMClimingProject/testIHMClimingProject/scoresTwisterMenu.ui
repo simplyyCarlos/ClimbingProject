@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>twisterMenuClass</class>
- <widget class="QWidget" name="twisterMenuClass">
+ <class>ScoresTwisterMenuClass</class>
+ <widget class="QWidget" name="ScoresTwisterMenuClass">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>703</width>
-    <height>396</height>
+    <width>654</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,27 +16,14 @@
   <widget class="QLabel" name="label_Titre">
    <property name="geometry">
     <rect>
-     <x>276</x>
-     <y>40</y>
-     <width>151</width>
+     <x>130</x>
+     <y>60</y>
+     <width>381</width>
      <height>71</height>
     </rect>
    </property>
    <property name="text">
-    <string>Twister</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_Jouer">
-   <property name="geometry">
-    <rect>
-     <x>301</x>
-     <y>160</y>
-     <width>101</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Jouer</string>
+    <string>Scores Twister</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_Back">
@@ -44,26 +31,38 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>75</width>
-     <height>24</height>
+     <width>81</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_Scores">
+  <widget class="QTableWidget" name="tableWidget_Parcours">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>20</y>
-     <width>91</width>
-     <height>31</height>
+     <x>110</x>
+     <y>160</y>
+     <width>431</width>
+     <height>211</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Scores</string>
-   </property>
+   <column>
+    <property name="text">
+     <string>Pseudo</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Scores</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Date</string>
+    </property>
+   </column>
   </widget>
  </widget>
  <resources/>

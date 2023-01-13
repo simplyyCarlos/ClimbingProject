@@ -206,6 +206,23 @@ QVector<QVector<QString>>* DbManager::getScoresPong() const
     return res;
 }
 
+QVector<QVector<QString>>* DbManager::getScoresTwister() const
+{
+    QSqlQuery query("SELECT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Twister' ORDER BY h.score DESC;");
+    int idPseudo = query.record().indexOf("pseudo");
+    int idScore = query.record().indexOf("score");
+    int idDate = query.record().indexOf("date_jeu");
+    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
+    while (query.next()) {
+        QVector<QString> data;
+        data.append(query.value(idPseudo).toString());
+        data.append(query.value(idScore).toString());
+        data.append(query.value(idDate).toString());
+        res->append(data);
+    }
+    return res;
+}
+
 bool DbManager::getLogin(QString log, QString mdp) {
     QSqlQuery query;
     query.prepare("SELECT * FROM Joueurs WHERE pseudo = (:log) and password = (:mdp)");

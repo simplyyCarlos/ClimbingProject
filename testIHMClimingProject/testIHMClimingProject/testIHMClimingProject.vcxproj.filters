@@ -88,15 +88,6 @@
     <ClCompile Include="dialogLogin.cpp">
       <Filter>Window\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="choixParcoursMenu.cpp">
-      <Filter>Window\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="jeuMenu.cpp">
-      <Filter>Window\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="scoresParcoursMenu.cpp">
-      <Filter>Window\Menu</Filter>
-    </ClCompile>
     <ClCompile Include="charucoboard.cpp">
       <Filter>Window\calibrage</Filter>
     </ClCompile>
@@ -112,14 +103,26 @@
     <ClCompile Include="paramMenu.cpp">
       <Filter>Window\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="PongMenu.cpp">
-      <Filter>Window\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="scoresPongMenu.cpp">
-      <Filter>Window\Menu</Filter>
-    </ClCompile>
     <ClCompile Include="dbmanager.cpp">
       <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="jeuMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresPongMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresParcoursMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="PongMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="choixParcoursMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresTwisterMenu.cpp">
+      <Filter>Window\Jeu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +159,9 @@
     <QtUic Include="scoresPongMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="scoresTwisterMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="testIHMClimingProject.h">
@@ -167,26 +173,29 @@
     <QtMoc Include="View.h">
       <Filter>Window\calibrage</Filter>
     </QtMoc>
-    <QtMoc Include="choixParcoursMenu.h">
-      <Filter>Window\Menu</Filter>
-    </QtMoc>
     <QtMoc Include="dialogLogin.h">
-      <Filter>Window\Menu</Filter>
-    </QtMoc>
-    <QtMoc Include="jeuMenu.h">
-      <Filter>Window\Menu</Filter>
-    </QtMoc>
-    <QtMoc Include="scoresParcoursMenu.h">
       <Filter>Window\Menu</Filter>
     </QtMoc>
     <QtMoc Include="paramMenu.h">
       <Filter>Window\Menu</Filter>
     </QtMoc>
-    <QtMoc Include="PongMenu.h">
-      <Filter>Window\Menu</Filter>
+    <QtMoc Include="jeuMenu.h">
+      <Filter>Window\Jeu</Filter>
     </QtMoc>
     <QtMoc Include="scoresPongMenu.h">
-      <Filter>Window\Menu</Filter>
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresParcoursMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="PongMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="choixParcoursMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresTwisterMenu.h">
+      <Filter>Window\Jeu</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

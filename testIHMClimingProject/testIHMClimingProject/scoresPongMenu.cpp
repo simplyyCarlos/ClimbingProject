@@ -16,7 +16,7 @@ scoresPongMenu::scoresPongMenu(QWidget* _parent) : parent(_parent)
 	ui.tableWidget_Parcours->setStyleSheet("QTableWidget { background : rgb(203,203,203) }");
 	ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
 
-	update();
+	updateModel();
 
 	connect(ui.pushButton_Back, &QPushButton::pressed, this, &scoresPongMenu::pushbackButton);
 }

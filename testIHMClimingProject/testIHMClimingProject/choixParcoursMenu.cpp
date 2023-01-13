@@ -23,7 +23,7 @@ choixParcoursMenu::choixParcoursMenu(QWidget* _parent)
 	ui.tableWidget_Parcours->setStyleSheet("QTableWidget { background : rgb(203,203,203) }");
 	ui.pushButton_Scores->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 
-	update();
+	updateModel();
 
 	connect(ui.pushButton_Back, &QPushButton::pressed, this, &choixParcoursMenu::pushbackButton);
 	connect(ui.pushButton_Add, &QPushButton::pressed, this, &choixParcoursMenu::addButton);

@@ -89,6 +89,8 @@ public:
 
     QVector<QVector<QString>>* getScoresPong() const;
 
+    QVector<QVector<QString>>* getScoresTwister() const;
+
     bool getLogin(QString log, QString mdp);
     /**
      * @brief Remove all data from db
