@@ -11,7 +11,7 @@ testIHMClimingProject::testIHMClimingProject(QWidget *parent)
     palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
     this->setFixedSize(QSize(650, 400));
-    jm = nullptr, pm = nullptr;
+    jm = nullptr, pm = nullptr, ca=nullptr, dt = new Data;
     log = new dialogLogin(this);
 
     ui.pushButton_Param->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
@@ -47,7 +47,7 @@ void testIHMClimingProject::openMenuJeu() {
         }
         this->close();
         ca->show();
-        QApplication::processEvents();
+        //QApplication::processEvents();
         ca->calibrage();
     }   
 }

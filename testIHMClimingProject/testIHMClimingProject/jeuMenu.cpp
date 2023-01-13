@@ -1,7 +1,7 @@
 #include "jeuMenu.h"
 
 jeuMenu::jeuMenu(QWidget* _parent, Data* _dt)
-	: parent(_parent)
+	: parent(_parent), dt(_dt)
 {
 	ui.setupUi(this);
 	db = db->getInstance();
