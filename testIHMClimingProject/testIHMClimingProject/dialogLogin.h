@@ -2,7 +2,7 @@
 #include <QtWidgets/qdialog.h>
 #include "ui_dialogLogin.h"
 #include "dbmanager.h"
-
+#include "UserConnected.h";
 
 class dialogLogin : public QDialog
 {
@@ -13,6 +13,7 @@ public:
 private:
 	Ui::DialogClass ui;
 	DbManager* db;
+	UserConnected* uc;
 private slots:
 	void validerConnexion();
 };

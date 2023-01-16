@@ -92,6 +92,19 @@
      <string>©Copyright all rights reserved </string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_User">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>170</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>

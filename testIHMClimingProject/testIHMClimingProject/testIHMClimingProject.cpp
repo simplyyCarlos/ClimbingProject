@@ -5,6 +5,7 @@ testIHMClimingProject::testIHMClimingProject(QWidget *parent)
 {
     ui.setupUi(this);
     db = db->getInstance();
+    uc = uc->getInstance();
     QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
@@ -28,7 +29,7 @@ testIHMClimingProject::testIHMClimingProject(QWidget *parent)
 
 testIHMClimingProject::~testIHMClimingProject()
 {
-    delete jm, db, log, pm, dt, ca;
+    delete jm, db, log, pm, dt, ca,uc;
 }
 
 void testIHMClimingProject::openConnexion() {

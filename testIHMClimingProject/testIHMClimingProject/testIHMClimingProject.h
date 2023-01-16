@@ -8,6 +8,7 @@
 #include "paramMenu.h"
 #include "calibrage.h"
 #include "Data.h"
+#include "UserConnected.h"
 class testIHMClimingProject : public QMainWindow
 {
     Q_OBJECT
@@ -25,6 +26,7 @@ private:
     paramMenu* pm;
     Data* dt;
     Calibrage* ca;
+    UserConnected* uc;
 private slots:
     void openConnexion();
     void openMenuJeu();

@@ -115,6 +115,7 @@
     <ClCompile Include="scoresTwisterMenu.cpp" />
     <ClCompile Include="twister.cpp" />
     <ClCompile Include="twisterMenu.cpp" />
+    <ClCompile Include="UserConnected.cpp" />
     <ClCompile Include="View.cpp" />
     <QtRcc Include="testIHMClimingProject.qrc" />
     <QtUic Include="calibrage.ui" />
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h" />
+    <ClInclude Include="UserConnected.h" />
     <QtMoc Include="scoresTwisterMenu.h" />
     <ClInclude Include="twister.h" />
     <ClInclude Include="twisterMenu.h" />

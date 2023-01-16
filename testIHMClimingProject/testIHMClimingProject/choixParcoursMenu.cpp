@@ -6,6 +6,7 @@ choixParcoursMenu::choixParcoursMenu(QWidget* _parent)
 	ui.setupUi(this);
 
 	db = db->getInstance();
+	uc = uc->getInstance();
 	spm = nullptr;
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);

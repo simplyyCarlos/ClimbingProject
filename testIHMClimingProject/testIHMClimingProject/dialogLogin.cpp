@@ -4,7 +4,7 @@
 dialogLogin::dialogLogin(QWidget* parent) : QDialog(parent) {
 	ui.setupUi(this);
 	db = db->getInstance();
-
+	uc = uc->getInstance();
 	connect(ui.pushButton, &QPushButton::pressed, this, &dialogLogin::validerConnexion);
 }
 
@@ -16,6 +16,7 @@ void dialogLogin::validerConnexion() {
 	QString mdp = ui.lineEdit_password->text();
 	if (db->getLogin(log, mdp)) {
 		QMessageBox::information(this, "Connexion", "Vous etes connecte. Bienvenue " + log, QMessageBox::Ok);
+		uc->setName(log);
 		this->close();
 	}
 	else {

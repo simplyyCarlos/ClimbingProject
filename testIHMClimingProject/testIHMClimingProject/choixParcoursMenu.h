@@ -4,6 +4,7 @@
 #include "dbmanager.h"
 #include "AbstractController.h"
 #include "scoresParcoursMenu.h"
+#include "UserConnected.h"
 class choixParcoursMenu : public QWidget, public Observer
 {
     Q_OBJECT
@@ -17,6 +18,7 @@ private:
     QWidget* parent;
     
     DbManager* db;
+    UserConnected* uc;
     scoresParcoursMenu* spm;
 private slots:
     void pushbackButton();
