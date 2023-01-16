@@ -33,7 +33,14 @@ testIHMClimingProject::~testIHMClimingProject()
 }
 
 void testIHMClimingProject::openConnexion() {
-    log->exec();
+    if (uc->getName() == "") {
+        log->exec();
+        ui.pushButton_Connexion->setText("Deconnexion");
+    }
+    else {
+        uc->setName("");
+        ui.pushButton_Connexion->setText("Connexion");
+    }
 }
 
 void testIHMClimingProject::openMenuJeu() {
