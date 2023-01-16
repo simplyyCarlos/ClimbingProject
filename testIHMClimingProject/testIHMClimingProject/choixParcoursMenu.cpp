@@ -1,4 +1,5 @@
 #include "choixParcoursMenu.h"
+#include "qmessagebox.h"
 
 choixParcoursMenu::choixParcoursMenu(QWidget* _parent)
 	: parent(_parent)
@@ -25,11 +26,11 @@ choixParcoursMenu::choixParcoursMenu(QWidget* _parent)
 	ui.pushButton_Scores->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 
 	updateModel();
-
 	connect(ui.pushButton_Back, &QPushButton::pressed, this, &choixParcoursMenu::pushbackButton);
 	connect(ui.pushButton_Add, &QPushButton::pressed, this, &choixParcoursMenu::addButton);
 	connect(ui.pushButton_Delete, &QPushButton::pressed, this, &choixParcoursMenu::deleteButton);
 	connect(ui.pushButton_Scores, &QPushButton::pressed, this, &choixParcoursMenu::openScoreParcoursMenu);
+	connect(ui.pushButton_Edition, &QPushButton::pressed, this, &choixParcoursMenu::openEditionMenu);
 }
 
 choixParcoursMenu::~choixParcoursMenu()
@@ -58,10 +59,16 @@ void choixParcoursMenu::updateModel()
 
 void choixParcoursMenu::addButton()
 {
+	if (uc->getName() == "") {
+		QMessageBox::warning(this, "Connexion", "Vous devez vous connecté !", QMessageBox::Ok);
+	}
 }
 
 void choixParcoursMenu::deleteButton()
 {
+	if (uc->getName() == "") {
+		QMessageBox::warning(this, "Connexion", "Vous devez vous connecté !", QMessageBox::Ok);
+	}
 	if (ui.tableWidget_Parcours->item(ui.tableWidget_Parcours->currentRow(), 0)) {
 		QString tmp = ui.tableWidget_Parcours->item(ui.tableWidget_Parcours->currentRow(), 0)->text();
 		(ControllerRemoveParcours().control(tmp.toInt()));
@@ -75,6 +82,13 @@ void choixParcoursMenu::openScoreParcoursMenu()
 	}
 	this->close();
 	spm->show();
+}
+
+void choixParcoursMenu::openEditionMenu()
+{
+	if (uc->getName() == "") {
+		QMessageBox::warning(this, "Connexion", "Vous devez vous connecté !", QMessageBox::Ok);
+	}
 }
 
 void choixParcoursMenu::pushbackButton() {

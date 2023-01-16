@@ -25,4 +25,5 @@ private slots:
     void addButton();
     void deleteButton();
     void openScoreParcoursMenu();
+    void openEditionMenu();
 };
