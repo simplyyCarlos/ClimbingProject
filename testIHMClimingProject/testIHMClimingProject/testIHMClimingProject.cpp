@@ -49,7 +49,7 @@ void testIHMClimingProject::openMenuJeu() {
         }
         this->close();
         ca->show();
-        //QApplication::processEvents();
+        QApplication::processEvents();
         ca->calibrage();
     }   
 }
