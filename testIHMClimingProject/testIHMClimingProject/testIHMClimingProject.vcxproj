@@ -109,6 +109,7 @@
     <ClCompile Include="charucoboard.cpp" />
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="dbmanager.cpp" />
+    <ClCompile Include="dialogCreation.cpp" />
     <ClCompile Include="paramMenu.cpp" />
     <ClCompile Include="PongMenu.cpp" />
     <ClCompile Include="scoresPongMenu.cpp" />
@@ -120,6 +121,7 @@
     <QtRcc Include="testIHMClimingProject.qrc" />
     <QtUic Include="calibrage.ui" />
     <QtUic Include="charucoboard.ui" />
+    <QtUic Include="dialogCreation.ui" />
     <QtUic Include="dialogLogin.ui" />
     <QtUic Include="jeuMenu.ui" />
     <QtUic Include="paramMenu.ui" />
@@ -158,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h" />
+    <QtMoc Include="dialogCreation.h" />
     <ClInclude Include="UserConnected.h" />
     <QtMoc Include="scoresTwisterMenu.h" />
     <ClInclude Include="twister.h" />

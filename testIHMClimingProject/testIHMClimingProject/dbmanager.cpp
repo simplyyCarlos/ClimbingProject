@@ -39,13 +39,12 @@ bool DbManager::isOpen() const
     return sqldb.isOpen();
 }
 
-bool DbManager::addParcours(int id, QString name, int diff, QString date) {
+bool DbManager::addParcours(QString name, int diff, QString date) {
 
     bool success = false;
 
     QSqlQuery queryAdd;
-    queryAdd.prepare("INSERT INTO Parcours VALUES (:id,:name,:diff,:date)");
-    queryAdd.bindValue(":id", id);
+    queryAdd.prepare("INSERT INTO Parcours (Nom,Difficulte,Date) VALUES (:name,:diff,:date)");
     queryAdd.bindValue(":name", name);
     queryAdd.bindValue(":diff", diff);
     queryAdd.bindValue(":date", date);
@@ -64,13 +63,12 @@ bool DbManager::addParcours(int id, QString name, int diff, QString date) {
     return success;
 }
 
-bool DbManager::addJoueur(int id, QString name, QString mdp) {
+bool DbManager::addJoueur(QString name, QString mdp) {
 
     bool success = false;
 
     QSqlQuery queryAdd;
-    queryAdd.prepare("INSERT INTO Joueurs VALUES (:id,:name,:mdp)");
-    queryAdd.bindValue(":id", id);
+    queryAdd.prepare("INSERT INTO Joueurs (pseudo,password) VALUES (:name,:mdp)");
     queryAdd.bindValue(":name", name);
     queryAdd.bindValue(":mdp", mdp);
 
@@ -115,7 +113,7 @@ bool DbManager::removeParcours(int id)
 {
     bool success = false;
 
-    if (entryExists(id))
+    if (pseudoExists(""))
     {
         QSqlQuery queryDelete;
         queryDelete.prepare("DELETE FROM Parcours WHERE id_Parcours = (:id)");
@@ -246,13 +244,13 @@ bool DbManager::getLogin(QString log, QString mdp) {
     return exists;
 }
 
-bool DbManager::entryExists(int dt) const
+bool DbManager::pseudoExists(QString log) const
 {
     bool exists = false;
 
     QSqlQuery checkQuery;
-    checkQuery.prepare("SELECT dt FROM pollution WHERE dt = (:dt)");
-    checkQuery.bindValue(":dt", dt);
+    checkQuery.prepare("SELECT pseudo FROM Joueurs WHERE pseudo = (:log)");
+    checkQuery.bindValue(":log", log);
 
     if (checkQuery.exec())
     {

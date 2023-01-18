@@ -9,6 +9,8 @@ dialogLogin::dialogLogin(QWidget* parent) : QDialog(parent) {
 }
 
 dialogLogin::~dialogLogin() {
+	delete db;
+	delete uc;
 }
 
 void dialogLogin::validerConnexion() {

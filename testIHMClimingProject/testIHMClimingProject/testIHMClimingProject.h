@@ -9,6 +9,7 @@
 #include "calibrage.h"
 #include "Data.h"
 #include "UserConnected.h"
+#include "dialogCreation.h"
 class testIHMClimingProject : public QMainWindow
 {
     Q_OBJECT
@@ -23,6 +24,7 @@ private:
     jeuMenu* jm;
     DbManager* db;
     dialogLogin* log;
+    dialogCreation* dc;
     paramMenu* pm;
     Data* dt;
     Calibrage* ca;
@@ -31,4 +33,5 @@ private slots:
     void openConnexion();
     void openMenuJeu();
     void openMenuEdition();
+    void openCreation();
 };

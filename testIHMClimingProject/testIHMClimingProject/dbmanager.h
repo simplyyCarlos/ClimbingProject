@@ -55,9 +55,9 @@ public:
      * @param aqi - air quality indice
      * @return true - data added successfully, false - data not added
      */
-    bool addParcours(int id, QString name, int diff, QString date);
+    bool addParcours(QString name, int diff, QString date);
 
-    bool addJoueur(int id, QString name, QString mdp);
+    bool addJoueur(QString name, QString mdp);
 
     bool addPrises(float x, float y);
 
@@ -73,7 +73,7 @@ public:
      * @param dt - dt of data to  to check.
      * @return true - data exists, false - data does not exist
      */
-    bool entryExists(int dt) const;
+    bool pseudoExists(QString log) const;
 
     /**
      * @brief Print values of all data in db

@@ -7,7 +7,7 @@ Parcours::Parcours(int _difficulte, QString _nom,QString _date)
 {
 	db = db->getInstance();
 	id = id++;
-	db->addParcours(id,nom,difficulte,date);
+	db->addParcours(nom,difficulte,date);
 }
 
 Parcours::~Parcours()

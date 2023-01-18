@@ -7,7 +7,7 @@ Joueur::Joueur(QString _pseudo, QString _password)
 {
 	id = id++;
 	db = db->getInstance();
-	db->addJoueur(id,pseudo,password);
+	db->addJoueur(pseudo,password);
 }
 
 Joueur::~Joueur()
