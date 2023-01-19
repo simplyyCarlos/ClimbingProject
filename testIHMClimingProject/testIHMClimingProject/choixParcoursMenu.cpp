@@ -60,14 +60,14 @@ void choixParcoursMenu::updateModel()
 void choixParcoursMenu::addButton()
 {
 	if (uc->getName() == "") {
-		QMessageBox::warning(this, "Connexion", "Vous devez vous connecté !", QMessageBox::Ok);
+		QMessageBox::warning(this, "Connexion", "Vous devez vous connecte !", QMessageBox::Ok);
 	}
 }
 
 void choixParcoursMenu::deleteButton()
 {
 	if (uc->getName() == "") {
-		QMessageBox::warning(this, "Connexion", "Vous devez vous connecté !", QMessageBox::Ok);
+		QMessageBox::warning(this, "Connexion", "Vous devez vous connecte !", QMessageBox::Ok);
 	}
 	if (ui.tableWidget_Parcours->item(ui.tableWidget_Parcours->currentRow(), 0)) {
 		QString tmp = ui.tableWidget_Parcours->item(ui.tableWidget_Parcours->currentRow(), 0)->text();
@@ -87,7 +87,7 @@ void choixParcoursMenu::openScoreParcoursMenu()
 void choixParcoursMenu::openEditionMenu()
 {
 	if (uc->getName() == "") {
-		QMessageBox::warning(this, "Connexion", "Vous devez vous connecté !", QMessageBox::Ok);
+		QMessageBox::warning(this, "Connexion", "Vous devez vous connecte !", QMessageBox::Ok);
 	}
 }
 

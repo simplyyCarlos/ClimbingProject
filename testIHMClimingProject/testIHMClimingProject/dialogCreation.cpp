@@ -22,7 +22,7 @@ void dialogCreation::validerCreation() {
 		return;
 	}
 	if (db->pseudoExists(log)) {
-		QMessageBox::warning(this, "Creation", "Cette urilisateur existe déja !!", QMessageBox::Ok);
+		QMessageBox::warning(this, "Creation", "Cette urilisateur existe deja !!", QMessageBox::Ok);
 		return;
 	}
 	QMessageBox::information(this, "Creation", "Votre utilisateur a bien ete cree. Bienvenue " + log, QMessageBox::Ok);

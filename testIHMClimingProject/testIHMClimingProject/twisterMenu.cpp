@@ -33,7 +33,7 @@ TwisterMenu::~TwisterMenu()
 
 void TwisterMenu::openJeu() {
 	if (uc->getName() == "") {
-		QMessageBox::warning(this, "Connexion", "Vous devez vous connecté !", QMessageBox::Ok);
+		QMessageBox::warning(this, "Connexion", "Vous devez vous connecte !", QMessageBox::Ok);
 	}
 	else {
 		tw->showFullScreen();
