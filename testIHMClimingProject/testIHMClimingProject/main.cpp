@@ -1,8 +1,6 @@
 #include "testIHMClimingProject.h"
 #include <QtWidgets/QApplication>
 
-#include "Parcours.h"
-#include "Prises.h"
 #include "dialogLogin.h"
 #include <iostream>
 

@@ -136,9 +136,6 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="dialogLogin.cpp" />
     <ClCompile Include="jeuMenu.cpp" />
-    <ClCompile Include="Joueur.cpp" />
-    <ClCompile Include="Parcours.cpp" />
-    <ClCompile Include="Prises.cpp" />
     <ClCompile Include="scoresParcoursMenu.cpp" />
     <ClCompile Include="testIHMClimingProject.cpp" />
     <ClCompile Include="main.cpp" />
@@ -171,12 +168,9 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="dbmanager.h" />
-    <ClInclude Include="Joueur.h" />
     <ClInclude Include="observer.h" />
     <QtMoc Include="paramMenu.h" />
-    <ClInclude Include="Parcours.h" />
     <QtMoc Include="PongMenu.h" />
-    <ClInclude Include="Prises.h" />
     <QtMoc Include="scoresPongMenu.h" />
   </ItemGroup>
   <ItemGroup>

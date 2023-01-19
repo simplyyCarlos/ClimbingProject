@@ -105,7 +105,6 @@ bool DbManager::addPrises(float x, float y) {
     }
 
 
-
     return success;
 }
 
@@ -113,7 +112,7 @@ bool DbManager::removeParcours(int id)
 {
     bool success = false;
 
-    if (pseudoExists(""))
+    if (parcoursExist(id))
     {
         QSqlQuery queryDelete;
         queryDelete.prepare("DELETE FROM Parcours WHERE id_Parcours = (:id)");
@@ -129,7 +128,7 @@ bool DbManager::removeParcours(int id)
     {
         qDebug() << "remove data failed: id doesnt exist";
     }
-
+    notifyObserver();
     return success;
 }
 
@@ -251,6 +250,29 @@ bool DbManager::pseudoExists(QString log) const
     QSqlQuery checkQuery;
     checkQuery.prepare("SELECT pseudo FROM Joueurs WHERE pseudo = (:log)");
     checkQuery.bindValue(":log", log);
+
+    if (checkQuery.exec())
+    {
+        if (checkQuery.next())
+        {
+            exists = true;
+        }
+    }
+    else
+    {
+        qDebug() << "data exists failed: " << checkQuery.lastError();
+    }
+
+    return exists;
+}
+
+bool DbManager::parcoursExist(int id) const
+{
+    bool exists = false;
+
+    QSqlQuery checkQuery;
+    checkQuery.prepare("SELECT * FROM Parcours WHERE id_Parcours = (:id)");
+    checkQuery.bindValue(":id", id);
 
     if (checkQuery.exec())
     {

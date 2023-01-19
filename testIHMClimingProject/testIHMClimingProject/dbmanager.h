@@ -74,6 +74,7 @@ public:
      * @return true - data exists, false - data does not exist
      */
     bool pseudoExists(QString log) const;
+    bool parcoursExist(int id) const;
 
     /**
      * @brief Print values of all data in db

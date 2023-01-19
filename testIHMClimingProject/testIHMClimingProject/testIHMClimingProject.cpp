@@ -39,12 +39,14 @@ void testIHMClimingProject::openConnexion() {
     if (uc->getName() == "") {
         log->exec();
         if (uc->getName() != "") {
+            ui.pushButton_Creation->hide();
             ui.pushButton_Connexion->setText("Deconnexion");
         }
     }
     else {
         uc->setName("");
         ui.pushButton_Connexion->setText("Connexion");
+        ui.pushButton_Creation->show();
     }
 }
 
