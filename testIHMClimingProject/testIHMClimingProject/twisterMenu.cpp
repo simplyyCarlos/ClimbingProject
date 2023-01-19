@@ -1,9 +1,10 @@
 #include "twisterMenu.h"
-
+#include "qmessagebox.h"
 
 TwisterMenu::TwisterMenu(QWidget* _parent, Data* _dt)
 {
 	ui.setupUi(this);
+	uc = uc->getInstance();
 	parent = _parent;
 	dt = _dt;
 	tw = new Twister(this, dt);
@@ -31,11 +32,15 @@ TwisterMenu::~TwisterMenu()
 }
 
 void TwisterMenu::openJeu() {
-	tw->showFullScreen();
-	QApplication::processEvents();
-	std::thread jeu(&Twister::lancerJeu,tw);
-	jeu.detach();
-
+	if (uc->getName() == "") {
+		QMessageBox::warning(this, "Connexion", "Vous devez vous connecté !", QMessageBox::Ok);
+	}
+	else {
+		tw->showFullScreen();
+		QApplication::processEvents();
+		std::thread jeu(&Twister::lancerJeu, tw);
+		jeu.detach();
+	}
 }
 
 void TwisterMenu::pushbackButton() {
