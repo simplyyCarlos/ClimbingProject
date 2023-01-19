@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Back</string>
+    <string>Retour</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_Titre">
@@ -76,7 +76,7 @@
    </column>
    <column>
     <property name="text">
-     <string>Difficulte</string>
+     <string>Difficulté</string>
     </property>
    </column>
    <column>

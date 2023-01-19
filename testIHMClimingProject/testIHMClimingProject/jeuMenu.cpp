@@ -33,7 +33,7 @@ jeuMenu::jeuMenu(QWidget* _parent, Data* _dt)
 
 jeuMenu::~jeuMenu()
 {
-	delete cpm, pm, db, tw, dt;
+	delete cpm, pm, tw, dt;
 }
 
 void jeuMenu::pushbackButton() {

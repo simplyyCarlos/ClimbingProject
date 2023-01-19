@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Back</string>
+    <string>Retour</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget_Parcours">

@@ -11,8 +11,6 @@ dialogCreation::dialogCreation(QWidget* parent) : QDialog(parent)
 }
 
 dialogCreation::~dialogCreation() {
-	delete db;
-	delete uc;
 }
 
 void dialogCreation::validerCreation() {

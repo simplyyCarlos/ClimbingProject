@@ -42,14 +42,14 @@
   <widget class="QPushButton" name="pushButton_Back">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>75</width>
-     <height>24</height>
+     <x>14</x>
+     <y>13</y>
+     <width>81</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>Back</string>
+    <string>Retour</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_Scores">

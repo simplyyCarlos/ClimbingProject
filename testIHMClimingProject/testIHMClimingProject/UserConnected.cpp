@@ -8,7 +8,6 @@ UserConnected::UserConnected(QString _name) : name(_name) {
 
 UserConnected::~UserConnected()
 {
-	delete usr;
 }
 
 UserConnected* UserConnected::getInstance()
