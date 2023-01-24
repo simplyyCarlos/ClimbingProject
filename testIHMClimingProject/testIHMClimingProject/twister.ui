@@ -13,6 +13,19 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QLabel" name="label_Over">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>470</y>
+     <width>401</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Game Over</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

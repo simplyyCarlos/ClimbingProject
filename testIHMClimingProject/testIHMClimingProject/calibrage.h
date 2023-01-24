@@ -34,7 +34,6 @@ public:
 	~Calibrage();
 
 	void calibrage();
-	//void set_matrix(py::array_t<double>);
 private:
 	Ui::calibrageClass ui;
 	Charucoboard* cb;

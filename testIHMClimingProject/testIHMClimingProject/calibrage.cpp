@@ -17,8 +17,6 @@ Calibrage::Calibrage(QWidget* _parent, Data* _dt) {
 	palette.setBrush(QPalette::Window, bkgnd);
 	this->setPalette(palette);
 
-	this->setFixedSize(QSize(1050, 776));
-
 	connect(ui.pushButton_Continuer, SIGNAL(clicked()), this, SLOT(saveCalibration()));
 
 	ui.pushButton_Continuer->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
@@ -120,7 +118,6 @@ void Calibrage::getMatrice(){
 		auto matrix = py::module::import("testCalibrage");
 		auto main_matrix = matrix.attr("main");
 		main_matrix();
-
 		dt->setMatrice(tab);
 	}
 	catch (const std::exception&)

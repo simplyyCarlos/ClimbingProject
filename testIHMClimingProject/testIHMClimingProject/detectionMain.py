@@ -19,7 +19,9 @@ def main() :
         min_detection_confidence=0.6,
         min_tracking_confidence=0.6) as pose:
         shmem = mmap.mmap(-1, 64 ,"positionMain", access=mmap.ACCESS_WRITE)
-        while cap.isOpened():
+        file = open("ContinueMediapipe.txt")
+        while cap.isOpened() and file.read()=="1":
+            file.close()
             success, image = cap.read(0)
             if not success:
                 print("Ignoring empty camera frame.")
@@ -59,9 +61,19 @@ def main() :
                     shmem.seek(i)
                     shmem.write(np.float32(data_point.y).tobytes())
                     i+=4
-
+            readable = False
+            while(readable != True):
+                try:
+                    file = open("ContinueMediapipe.txt")
+                    if(file.readable()==True):
+                        readable = True
+                except:
+                    continue
+                
             # Flip the image horizontally for a selfie-view display.
             """cv2.imshow('MediaPipe Pose', cv2.flip(image, 1))
             if cv2.waitKey(5) & 0xFF == 27:
                 break"""
         cap.release()
+
+main()

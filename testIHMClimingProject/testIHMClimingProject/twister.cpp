@@ -1,13 +1,13 @@
 #include "twister.h"
+#include "twisterMenu.h"
 
 #define rayonCercle 30.0f
 
-Twister::Twister(QWidget* _parent, Data* _dt)
+Twister::Twister(TwisterMenu* _parent, Data* _dt)
 {
 	ui.setupUi(this);
 	parent = _parent;
 	dt = _dt;
-	detect = false;
 	tabMain = nullptr;
 
 	QRect screen;
@@ -27,6 +27,8 @@ Twister::Twister(QWidget* _parent, Data* _dt)
 		this->resize(largeur, hauteur);
 	}
 	prise = dt->getPrise();
+	ui.label_Over->setStyleSheet("QLabel { color : red; font-size : 60px;}");
+	ui.label_Over->setAlignment(Qt::AlignCenter);
 	srand(time(NULL));
 	ui.setupUi(this);
 
@@ -78,6 +80,10 @@ void Twister::paintEvent(QPaintEvent*) {
 			}
 			
 		}
+		QPointF center1((poly->at(1).x() + poly->at(2).x()) / 2, (poly->at(1).y() + poly->at(2).y()) / 2);
+		QPointF center2((poly2->at(1).x() + poly2->at(2).x()) / 2, (poly2->at(1).y() + poly2->at(2).y()) / 2);
+		poly->insert(2, QPointF(2 * center1.x() - poly->at(0).x(), 2 * center1.y() - poly->at(0).y()));
+		poly2->insert(2, QPointF(2 * center2.x() - poly2->at(0).x(), 2 * center2.y() - poly2->at(0).y()));
 		caliPosMain(poly, poly2);
 		painter.drawPolygon(*poly);
 		painter.drawPolygon(*poly2);
@@ -88,21 +94,46 @@ void Twister::paintEvent(QPaintEvent*) {
 
 void Twister::lancerJeu() {
 
-
 	windows_shared_memory shmem(open_or_create, "positionMain", read_write, sizeof(float[16]));
 	mapped_region region(shmem, read_write);
 	tabMain = static_cast<float*>(region.get_address());
+	prise = dt->getPrise();
+
 
 	std::thread detectMain;
 	std::thread jeu(&Twister::algorithmeJeu, this);
-	if (!detect) {
-		detectMain = std::thread(&Twister::detectionMain, this);
-		detect = true;
+	std::ofstream Continue;
+	while (!Continue.is_open()) {
+		try
+		{
+			Continue = std::ofstream("ContinueMediapipe.txt");
+		}
+		catch (const std::exception&)
+		{
+			continue;
+		}	
 	}
+	Continue << "1";
+	Continue.close();
+
+	detectMain = std::thread(&Twister::detectionMain, this);
 	
 	jeu.join();
-	detectMain.detach();
 
+	while (!Continue.is_open()) {
+		try
+		{
+			Continue = std::ofstream("ContinueMediapipe.txt");
+		}
+		catch (const std::exception&)
+		{
+			continue;
+		}
+	}
+	Continue << "0";
+	Continue.close();
+	detectMain.detach();
+	tabMain = nullptr;
 }
 
 void Twister::detectionMain() {
@@ -121,9 +152,11 @@ void Twister::detectionMain() {
 }
 
 void Twister::algorithmeJeu() {
+	ui.label_Over->hide();
+	continueThread = true;
 	QPolygonF* poly = new QPolygonF(), * poly2 = new QPolygonF();
-	int x = 0, timer = 50, speed = 30;
-	while(true) {
+	int x = 0, timer = 50, speed = 40;
+	while(continueThread) {
 		poly->clear();
 		poly2->clear();
 		for (size_t i = 0; i < 8; i++)
@@ -136,11 +169,17 @@ void Twister::algorithmeJeu() {
 			}
 
 		}
+		QPointF center1(poly->at(1).x() + poly->at(2).x() / 2, poly->at(1).y() + poly->at(2).y() / 2);
+		QPointF center2(poly2->at(1).x() + poly2->at(2).x() / 2, poly2->at(1).y() + poly2->at(2).y() / 2);
+		poly->insert(2, QPointF(2 * center1.x() - poly->at(0).x(), 2 * center1.y() - poly->at(0).y()));
+		poly2->insert(2, QPointF(2 * center2.x() - poly->at(0).x(), 2 * center2.y() - poly->at(0).y()));
+
 		caliPosMain(poly, poly2);
 		for (QPointF* point : listObjectif) {
 			if (poly->containsPoint(*point, Qt::OddEvenFill) || poly2->containsPoint(*point, Qt::OddEvenFill)) {
 				listTouche.append(point);
 				listObjectif.removeOne(point);
+				parent->addPoint();
 			}
 		}
 		if (x == speed * 100 / timer) {
@@ -157,28 +196,31 @@ void Twister::algorithmeJeu() {
 				prise.removeOne(tmp);
 			}
 			
-			/*if (listObjectif.size() > 2) {
+			if (listObjectif.size() > 2) {
+				ui.label_Over->show();
+				parent->loose();
 				break;
-			}*/
+			}
 
 		}
 		x++;
 		update();
 		Sleep(timer);
 	}
-
+	listObjectif.clear();
+	listTouche.clear();
 }
 
 void Twister::caliPosMain(QPolygonF* poly, QPolygonF* poly2) {
 	std::vector<cv::Point2f> input;
 	std::vector<cv::Point2f> output;
-	for (size_t i = 0; i < 4; i++)
+	for (size_t i = 0; i < 5; i++)
 	{
 		double x = poly->at(i).x() * 1024;
 		double y = poly->at(i).y() * 576;
 		input.push_back(cv::Point2f(x, y));
 	}
-	for (size_t i = 0; i < 4; i++)
+	for (size_t i = 0; i < 5; i++)
 	{
 		double x = poly2->at(i).x() * 1024;
 		double y = poly2->at(i).y() * 576;
@@ -187,22 +229,21 @@ void Twister::caliPosMain(QPolygonF* poly, QPolygonF* poly2) {
 	perspectiveTransform(input, output, dt->getMatrice());
 	poly->clear();
 	poly2->clear();
-	for (size_t i = 0; i < 4; i++)
+	for (size_t i = 0; i < 5; i++)
 	{
 		double x = output.at(i).x * largeur / 1920;
 		double y = output.at(i).y * hauteur / 1080;
 		poly->append(QPointF(x, y));
 	}
-	for (size_t i = 4; i < 8; i++)
+	for (size_t i = 5; i < 10; i++)
 	{
 		double x = output.at(i).x * largeur / 1920;
 		double y = output.at(i).y * hauteur / 1080;
 		poly2->append(QPointF(x, y));
 	}
-	/*poly->append(poly->at(2));
-	poly->removeAt(2);
-	poly2->append(poly->at(2));
-	poly2->removeAt(2);*/
 }
 
+void Twister::setContinue() {
+	continueThread = false;
+}
 

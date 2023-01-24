@@ -19,20 +19,23 @@
 #include <boost/interprocess/windows_shared_memory.hpp>
 #include <boost/interprocess/mapped_region.hpp>
 #include <cstdlib>
+#include <fstream>
+
 
 namespace py = pybind11;
 using namespace boost::interprocess;
 
+class TwisterMenu;
 
 class Twister : public QWidget
 {
 private:
 	Ui::twisterClass ui;
-	QWidget* parent;
+	TwisterMenu* parent;
 	Data* dt;
 	float* tabMain;
 	QVector<QPointF*> listObjectif, listTouche, prise;
-	bool detect;
+	bool continueThread;
 	int largeur, hauteur;
 
 	void paintEvent(QPaintEvent*) override;
@@ -41,9 +44,10 @@ private:
 	void caliPosMain(QPolygonF*, QPolygonF*);
 
 public:
-	Twister(QWidget*, Data*);
+	Twister(TwisterMenu*, Data*);
 	~Twister();
 	void lancerJeu();
+	void setContinue();
 
 };
 
