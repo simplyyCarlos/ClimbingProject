@@ -7,6 +7,7 @@
 #include "qvector.h"
 #include "qdebug.h"
 #include "observer.h"
+#include "UserConnected.h"
 
 /**
  * \class DbManager
@@ -27,6 +28,7 @@ private:
     static DbManager* instance;
     QSqlDatabase sqldb;
     QVector<Observer*> observerList;
+    UserConnected* uc;
     /**
     * @brief Constructor
     *
@@ -46,7 +48,6 @@ public:
     static DbManager* getInstance();
     DbManager(DbManager& db) = delete;
     void operator=(const DbManager&) = delete;
-
     bool isOpen() const;
 
     /**
@@ -60,6 +61,12 @@ public:
     bool addJoueur(QString name, QString mdp);
 
     bool addPrises(float x, float y);
+
+    bool addScore(int score, QString jeu);
+
+    int getIdJoueur(QString player);
+
+    QString currentDateTime();
 
     /**
      * @brief Remove data of dt "dt" from db

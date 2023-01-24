@@ -7,7 +7,7 @@ DbManager::DbManager(const QString &path)
 {
     sqldb = QSqlDatabase::addDatabase("QSQLITE");
     sqldb.setDatabaseName(path);
-
+    uc = uc->getInstance();
     if (!sqldb.open())
     {
         qDebug() << "Error: connection with database fail";
@@ -58,9 +58,75 @@ bool DbManager::addParcours(QString name, int diff, QString date) {
         qDebug() << "add dt/aqi failed: " << queryAdd.lastError();
     }
 
+    return success;
+}
 
+bool DbManager::addScore(int score, QString jeu) {
+
+    QSqlQuery queryAdd;
+    bool success = false;
+    QString player = uc->getName();
+    int idPlayer = getIdJoueur(player);
+    if (idPlayer == 7) {
+        player = "anonyme";
+    }
+    if (jeu == "Twister" || jeu == "Pong") {
+        queryAdd.prepare("INSERT INTO Historique (id_Joueur,date_jeu,score,jeu) VALUES (:idJ,:date,:score,:jeu)");
+        queryAdd.bindValue(":idJ", idPlayer);
+        queryAdd.bindValue(":date", currentDateTime());
+        queryAdd.bindValue(":score", score);
+        queryAdd.bindValue(":jeu", jeu);
+    }
+    else {
+        queryAdd.prepare("INSERT INTO Historique (id_Joueur,id_Parcours,date_jeu,score,jeu) VALUES (:idJ,:idP,:date,:chrono,:jeu)");
+        queryAdd.bindValue(":idJ", idPlayer);
+        queryAdd.bindValue(":idP", 1);
+        queryAdd.bindValue(":date", currentDateTime());
+        queryAdd.bindValue(":chrono", score);
+        queryAdd.bindValue(":jeu", jeu);
+    }
+
+    if (queryAdd.exec())
+    {
+        success = true;
+    }
+    else
+    {
+        qDebug() << "add dt/aqi failed: " << queryAdd.lastError();
+    }
 
     return success;
+}
+
+int DbManager::getIdJoueur(QString player)
+{
+    QSqlQuery query;
+    query.prepare("SELECT id_Joueur FROM Joueurs WHERE pseudo = (:ply)");
+    query.bindValue(":ply", player);
+    int idJoueur = query.record().indexOf("id_Joueur");
+
+    if (query.exec())
+    {
+        if (query.next())
+        {
+            return query.value(idJoueur).toInt();
+        }
+    }
+    else
+    {
+        return 7;
+        qDebug() << "data exists failed: " << query.lastError();
+    }
+}
+
+QString DbManager::currentDateTime() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
+
+    return buf;
 }
 
 bool DbManager::addJoueur(QString name, QString mdp) {
@@ -167,7 +233,7 @@ QVector<QVector<QString>>* DbManager::getAllParcours() const
 
 QVector<QVector<QString>>* DbManager::getScoresParcours() const
 {
-    QSqlQuery query("SELECT j.pseudo,h.chrono,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Parcours' ORDER BY h.score DESC;");
+    QSqlQuery query("SELECT j.pseudo,h.chrono,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Parcours' ORDER BY h.score DESC; ");
     int idPseudo = query.record().indexOf("pseudo");
     int idChrono = query.record().indexOf("chrono");
     int idName = query.record().indexOf("Nom");
