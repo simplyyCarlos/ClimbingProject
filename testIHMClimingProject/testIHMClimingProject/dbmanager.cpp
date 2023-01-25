@@ -252,17 +252,15 @@ QVector<QVector<QString>>* DbManager::getScoresParcours() const
 
 QVector<QVector<QString>>* DbManager::getScoresPong() const
 {
-    QSqlQuery query("SELECT j.pseudo,h.score,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Pong' ORDER BY h.score DESC;");
+    QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Pong' ORDER BY h.score DESC;");
     int idPseudo = query.record().indexOf("pseudo");
     int idScore = query.record().indexOf("score");
-    int idName = query.record().indexOf("Nom");
     int idDate = query.record().indexOf("date_jeu");
     QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     while (query.next()) {
         QVector<QString> data;
         data.append(query.value(idPseudo).toString());
         data.append(query.value(idScore).toString());
-        data.append(query.value(idName).toString());
         data.append(query.value(idDate).toString());
         res->append(data);
     }
@@ -271,7 +269,7 @@ QVector<QVector<QString>>* DbManager::getScoresPong() const
 
 QVector<QVector<QString>>* DbManager::getScoresTwister() const
 {
-    QSqlQuery query("SELECT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Twister' ORDER BY h.score DESC;");
+    QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Twister' ORDER BY h.score DESC;");
     int idPseudo = query.record().indexOf("pseudo");
     int idScore = query.record().indexOf("score");
     int idDate = query.record().indexOf("date_jeu");
@@ -305,7 +303,7 @@ QVector<QVector<QString>>* DbManager::getUsrScoresParcours() const {
 }
 
 QVector<QVector<QString>>* DbManager::getUsrScoresPong() const {
-    QSqlQuery query("SELECT j.pseudo,h.score,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Pong' and j.pseudo = '" + uc->getName() + "' ORDER BY h.score DESC;");
+    QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Pong' and j.pseudo = '" + uc->getName() + "' ORDER BY h.score DESC;");
     int idPseudo = query.record().indexOf("pseudo");
     int idScore = query.record().indexOf("score");
     int idName = query.record().indexOf("Nom");
@@ -323,7 +321,7 @@ QVector<QVector<QString>>* DbManager::getUsrScoresPong() const {
 }
 
 QVector<QVector<QString>>* DbManager::getUsrScoresTwister() const {
-    QSqlQuery query("SELECT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Twister' and j.pseudo = '" + uc->getName() + "' ORDER BY h.score DESC;");
+    QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Twister' and j.pseudo = '" + uc->getName() + "' ORDER BY h.score DESC;");
     int idPseudo = query.record().indexOf("pseudo");
     int idScore = query.record().indexOf("score");
     int idDate = query.record().indexOf("date_jeu");

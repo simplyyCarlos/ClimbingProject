@@ -42,9 +42,9 @@
   <widget class="QTableWidget" name="tableWidget_Parcours">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>170</y>
-     <width>571</width>
+     <x>120</x>
+     <y>160</y>
+     <width>421</width>
      <height>211</height>
     </rect>
    </property>
@@ -59,11 +59,6 @@
    <column>
     <property name="text">
      <string>Scores</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Nom Parcours</string>
     </property>
    </column>
    <column>
