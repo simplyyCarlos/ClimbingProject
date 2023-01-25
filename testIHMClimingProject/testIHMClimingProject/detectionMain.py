@@ -16,8 +16,8 @@ def main() :
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1024)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 576)
     with mp_pose.Pose(
-        min_detection_confidence=0.6,
-        min_tracking_confidence=0.6) as pose:
+        min_detection_confidence=0.75,
+        min_tracking_confidence=0.75) as pose:
         shmem = mmap.mmap(-1, 64 ,"positionMain", access=mmap.ACCESS_WRITE)
         file = open("ContinueMediapipe.txt")
         while cap.isOpened() and file.read()=="1":

@@ -1,7 +1,8 @@
 #include "twister.h"
 #include "twisterMenu.h"
 
-#define rayonCercle 30.0f
+#define rayonCercle 35.0f
+#define rayonCercleMain 35.0f
 
 Twister::Twister(TwisterMenu* _parent, Data* _dt)
 {
@@ -9,7 +10,6 @@ Twister::Twister(TwisterMenu* _parent, Data* _dt)
 	parent = _parent;
 	dt = _dt;
 	tabMain = nullptr;
-
 	QRect screen;
 
 	if (qGuiApp->screens().size() > 1) {
@@ -27,8 +27,6 @@ Twister::Twister(TwisterMenu* _parent, Data* _dt)
 		this->resize(largeur, hauteur);
 	}
 	prise = dt->getPrise();
-	ui.label_Over->setStyleSheet("QLabel { color : red; font-size : 60px;}");
-	ui.label_Over->setAlignment(Qt::AlignCenter);
 	ui.label_Over->hide();
 	srand(time(NULL));
 	ui.setupUi(this);
@@ -72,7 +70,7 @@ void Twister::paintEvent(QPaintEvent*) {
 	}
 	QPolygonF* poly = new QPolygonF(), *poly2 = new QPolygonF();
 	if (tabMain != nullptr) {
-		for (size_t i = 0; i < 8; i++)
+		for (size_t i = 0; i < 6; i++)
 		{
 			if (i % 2 == 0) {
 				poly->append(QPointF(tabMain[i * 2], tabMain[i * 2 + 1]));
@@ -84,11 +82,12 @@ void Twister::paintEvent(QPaintEvent*) {
 		}
 		QPointF center1((poly->at(1).x() + poly->at(2).x()) / 2, (poly->at(1).y() + poly->at(2).y()) / 2);
 		QPointF center2((poly2->at(1).x() + poly2->at(2).x()) / 2, (poly2->at(1).y() + poly2->at(2).y()) / 2);
-		poly->insert(2, QPointF(2 * center1.x() - poly->at(0).x(), 2 * center1.y() - poly->at(0).y()));
-		poly2->insert(2, QPointF(2 * center2.x() - poly2->at(0).x(), 2 * center2.y() - poly2->at(0).y()));
-		caliPosMain(poly, poly2);
-		painter.drawPolygon(*poly);
-		painter.drawPolygon(*poly2);
+		/*poly->insert(2, QPointF(2 * center1.x() - poly->at(0).x(), 2 * center1.y() - poly->at(0).y()));
+		poly2->insert(2, QPointF(2 * center2.x() - poly2->at(0).x(), 2 * center2.y() - poly2->at(0).y()));*/
+
+		caliPosMain(center1, center2);
+		painter.drawEllipse(center1, rayonCercleMain, rayonCercleMain);
+		painter.drawEllipse(center2, rayonCercleMain, rayonCercleMain);
 	}
 	
 
@@ -161,7 +160,7 @@ void Twister::algorithmeJeu() {
 	while(continueThread) {
 		poly->clear();
 		poly2->clear();
-		for (size_t i = 0; i < 8; i++)
+		for (size_t i = 0; i < 6; i++)
 		{
 			if (i % 2 == 0) {
 				poly->append(QPointF(tabMain[i * 2], tabMain[i * 2 + 1]));
@@ -173,12 +172,15 @@ void Twister::algorithmeJeu() {
 		}
 		QPointF center1((poly->at(1).x() + poly->at(2).x()) / 2, (poly->at(1).y() + poly->at(2).y()) / 2);
 		QPointF center2((poly2->at(1).x() + poly2->at(2).x()) / 2, (poly2->at(1).y() + poly2->at(2).y()) / 2);
-		poly->insert(2, QPointF(2 * center1.x() - poly->at(0).x(), 2 * center1.y() - poly->at(0).y()));
-		poly2->insert(2, QPointF(2 * center2.x() - poly2->at(0).x(), 2 * center2.y() - poly2->at(0).y()));
+		/*poly->insert(2, QPointF(2 * center1.x() - poly->at(0).x(), 2 * center1.y() - poly->at(0).y()));
+		poly2->insert(2, QPointF(2 * center2.x() - poly2->at(0).x(), 2 * center2.y() - poly2->at(0).y()));*/
 
-		caliPosMain(poly, poly2);
+		caliPosMain(center1, center2);
+		
 		for (QPointF* point : listObjectif) {
-			if (poly->containsPoint(*point, Qt::OddEvenFill) || poly2->containsPoint(*point, Qt::OddEvenFill)) {
+			float dist1 = sqrt(pow(center1.x() - point->x(), 2) + pow(center1.y() - point->y(), 2));
+			float dist2 = sqrt(pow(center2.x() - point->x(), 2) + pow(center2.y() - point->y(), 2));
+			if (dist1 < rayonCercleMain || dist2 < rayonCercleMain) {
 				listTouche.append(point);
 				listObjectif.removeOne(point);
 				parent->addPoint();
@@ -199,6 +201,8 @@ void Twister::algorithmeJeu() {
 			}
 			
 			if (listObjectif.size() > 2) {
+				ui.label_Over->setStyleSheet("QLabel { color : red; font-size : 60px;}");
+				ui.label_Over->setAlignment(Qt::AlignCenter);
 				ui.label_Over->show();
 				parent->loose();
 				break;
@@ -244,6 +248,28 @@ void Twister::caliPosMain(QPolygonF* poly, QPolygonF* poly2) {
 		poly2->append(QPointF(x, y));
 	}
 }
+
+void Twister::caliPosMain(QPointF &center1, QPointF &center2) {
+	std::vector<cv::Point2f> input;
+	std::vector<cv::Point2f> output;
+	
+	double x = center1.x() * 1024;
+	double y = center1.y() * 576;
+	input.push_back(cv::Point2f(x, y));
+	double x2 = center2.x() * 1024;
+	double y2 = center2.y() * 576;
+	input.push_back(cv::Point2f(x2, y2));
+	
+	perspectiveTransform(input, output, dt->getMatrice());
+
+	double X = output.at(0).x * largeur / 1920;
+	double Y = output.at(0).y * hauteur / 1080;
+	center1 = QPointF(X,Y);
+	double X2 = output.at(1).x * largeur / 1920;
+	double Y2 = output.at(1).y * hauteur / 1080;
+	center2 = QPointF(X2, Y2);
+}
+
 
 void Twister::setContinue() {
 	continueThread = false;

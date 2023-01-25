@@ -8,6 +8,7 @@ TwisterMenu::TwisterMenu(QWidget* _parent, Data* _dt)
 	parent = _parent;
 	dt = _dt;
 	tw = new Twister(this, dt);
+	db = DbManager::getInstance();
 	stm = nullptr;
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -65,6 +66,7 @@ void TwisterMenu::addPoint() {
 }
 
 void TwisterMenu::loose() {
+	db->addScore(score, "Twister");
 	score = 0;
 	ui.label_number->setText(QString::number(score));
 	ui.label_number->hide();
