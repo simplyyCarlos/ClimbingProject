@@ -33,7 +33,7 @@ scoresPongMenu::~scoresPongMenu()
 void scoresPongMenu::updateModel()
 {
 	ui.tableWidget_Parcours->clear();
-	QVector<QVector<QString>> data = *db->getUsrScoresPong();
+	QVector<QVector<QString>> data = *db->getScoresPong();
 	int row = 0;
 	int col = 0;
 	for (auto index : data) {
