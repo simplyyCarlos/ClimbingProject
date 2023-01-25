@@ -71,7 +71,7 @@ void TwisterMenu::loose() {
 	ui.label_score->hide();
 	ui.pushButton_Jouer->show();
 }
-}
+
 
 void TwisterMenu::openScoresTwisterMenu()
 {
