@@ -58,6 +58,7 @@ void scoresTwisterMenu::openPersoScore()
 	else {
 		if (sup == nullptr) {
 			sup = new scoresUsrTwister(this);
+			db->addObserver(sup);
 		}
 		this->close();
 		sup->show();
