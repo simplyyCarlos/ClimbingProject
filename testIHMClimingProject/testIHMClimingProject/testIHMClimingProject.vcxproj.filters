@@ -121,6 +121,15 @@
     <ClCompile Include="dialogCreation.cpp">
       <Filter>Window\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="scoresUsrParcours.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoreUsrPong.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresUsrTwister.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialogLogin.ui">
@@ -162,6 +171,15 @@
     <QtUic Include="dialogCreation.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="scoresUsrParcoursMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresUsrPongMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresUsrTwisterMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="testIHMClimingProject.h">
@@ -199,6 +217,15 @@
     </QtMoc>
     <QtMoc Include="dialogCreation.h">
       <Filter>Window\Menu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresUsrParcours.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoreUsrPong.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresUsrTwister.h">
+      <Filter>Window\Jeu</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

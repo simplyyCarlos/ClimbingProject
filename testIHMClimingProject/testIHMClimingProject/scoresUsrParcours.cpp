@@ -1,13 +1,10 @@
-#include "scoresParcoursMenu.h"
-#include "qmessagebox.h"
+#include "scoresUsrParcours.h"
 
-scoresParcoursMenu::scoresParcoursMenu( QWidget* _parent) : parent(_parent)
+scoresUsrParcours::scoresUsrParcours(QWidget* _parent) : parent(_parent)
 {
 	ui.setupUi(this);
 
 	db = db->getInstance();
-	uc = uc->getInstance();
-	sup = nullptr;
 
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -17,24 +14,22 @@ scoresParcoursMenu::scoresParcoursMenu( QWidget* _parent) : parent(_parent)
 	this->setFixedSize(QSize(650, 400));
 
 	ui.pushButton_Back->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
-	ui.pushButton_Perso->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 	ui.tableWidget_Parcours->setStyleSheet("QTableWidget { background : rgb(203,203,203) }");
 	ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
 
 	updateModel();
 
-	connect(ui.pushButton_Back, &QPushButton::pressed, this, &scoresParcoursMenu::pushbackButton);
-	connect(ui.pushButton_Perso, &QPushButton::pressed, this, &scoresParcoursMenu::openPersoScore);
+	connect(ui.pushButton_Back, &QPushButton::pressed, this, &scoresUsrParcours::pushbackButton);
 }
 
-scoresParcoursMenu::~scoresParcoursMenu()
+scoresUsrParcours::~scoresUsrParcours()
 {
 }
 
-void scoresParcoursMenu::updateModel()
+void scoresUsrParcours::updateModel()
 {
 	ui.tableWidget_Parcours->clear();
-	QVector<QVector<QString>> data = *db->getScoresParcours();
+	QVector<QVector<QString>> data = *db->getUsrScoresParcours();
 	int row = 0;
 	int col = 0;
 	for (auto index : data) {
@@ -50,20 +45,7 @@ void scoresParcoursMenu::updateModel()
 	}
 }
 
-void scoresParcoursMenu::pushbackButton() {
+void scoresUsrParcours::pushbackButton() {
 	this->close();
 	parent->show();
-}
-
-void scoresParcoursMenu::openPersoScore() {
-	if (uc->getName() == "") {
-		QMessageBox::warning(this, "Connexion", "Vous devez vous connecte !", QMessageBox::Ok);
-	}
-	else {
-		if (sup == nullptr) {
-			sup = new scoresUsrParcours(this);
-		}
-		this->close();
-		sup->show();
-	}
 }

@@ -2,6 +2,8 @@
 #include "ui_scoresPongMenu.h"
 #include "dbmanager.h"
 #include "observer.h"
+#include "scoreUsrPong.h"
+
 class scoresPongMenu : public QWidget, public Observer
 {
     Q_OBJECT
@@ -14,6 +16,9 @@ private:
     Ui::scoresPongMenuClass ui;
     QWidget* parent;
     DbManager* db;
+    UserConnected* uc;
+    scoreUsrPong* sup;
 private slots:
     void pushbackButton();
+    void openPersoScore();
 };

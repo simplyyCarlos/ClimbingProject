@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>scoresParcoursMenuClass</class>
- <widget class="QWidget" name="scoresParcoursMenuClass">
+ <class>scoresUsrParcoursMenuClass</class>
+ <widget class="QWidget" name="scoresUsrParcoursMenuClass">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -29,8 +29,8 @@
   <widget class="QLabel" name="label_Titre">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>50</y>
+     <x>160</x>
+     <y>70</y>
      <width>381</width>
      <height>71</height>
     </rect>
@@ -68,19 +68,6 @@
      <string>Date</string>
     </property>
    </column>
-  </widget>
-  <widget class="QPushButton" name="pushButton_Perso">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>20</y>
-     <width>101</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Scores Perso</string>
-   </property>
   </widget>
  </widget>
  <resources/>

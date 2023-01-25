@@ -64,6 +64,19 @@
     </property>
    </column>
   </widget>
+  <widget class="QPushButton" name="pushButton_Perso">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>20</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Scores Perso</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

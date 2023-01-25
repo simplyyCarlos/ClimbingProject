@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>scoresParcoursMenuClass</class>
- <widget class="QWidget" name="scoresParcoursMenuClass">
+ <class>scoresUsrTwisterMenuClass</class>
+ <widget class="QWidget" name="scoresUsrTwisterMenuClass">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -29,22 +29,22 @@
   <widget class="QLabel" name="label_Titre">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>50</y>
+     <x>140</x>
+     <y>80</y>
      <width>381</width>
      <height>71</height>
     </rect>
    </property>
    <property name="text">
-    <string>Scores Parcours</string>
+    <string>Scores Twister</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget_Parcours">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>160</y>
-     <width>571</width>
+     <x>110</x>
+     <y>170</y>
+     <width>431</width>
      <height>211</height>
     </rect>
    </property>
@@ -55,12 +55,7 @@
    </column>
    <column>
     <property name="text">
-     <string>Chrono</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Nom Parcours</string>
+     <string>Scores</string>
     </property>
    </column>
    <column>
@@ -68,19 +63,6 @@
      <string>Date</string>
     </property>
    </column>
-  </widget>
-  <widget class="QPushButton" name="pushButton_Perso">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>20</y>
-     <width>101</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Scores Perso</string>
-   </property>
   </widget>
  </widget>
  <resources/>

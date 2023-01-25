@@ -99,6 +99,12 @@ public:
 
     QVector<QVector<QString>>* getScoresTwister() const;
 
+    QVector<QVector<QString>>* getUsrScoresParcours() const;
+
+    QVector<QVector<QString>>* getUsrScoresPong() const;
+
+    QVector<QVector<QString>>* getUsrScoresTwister() const;
+
     bool getLogin(QString log, QString mdp);
     /**
      * @brief Remove all data from db
