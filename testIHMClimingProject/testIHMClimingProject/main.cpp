@@ -1,36 +1,22 @@
 #include "testIHMClimingProject.h"
 #include <QtWidgets/QApplication>
 
-#include "Parcours.h"
-#include "Prises.h"
+#include "dialogLogin.h"
 #include <iostream>
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-    /*
-    Database* db = new Database("climbingProject.db");
-    string tmp = "SELECT * FROM Parcours;";
-    const char* query = tmp.c_str();
-    db->setSql(query);
-    db->callRc();
-    db->testQuery();
-    QMapIterator<QString, QString> i(db->getResult());
-    while (i.hasNext()) {
-        i.next();
-        std::cout << i.key().toStdString() << " " << i.value().toStdString() << std::endl;
-    }
-    db->closeDb();
-    */
+    
     py::scoped_interpreter python;
     py::gil_scoped_release release;
-    Database* db = new Database("climbingProject.db");
+    DbManager* db = db->getInstance();
+    UserConnected* uc = uc->getInstance();
     QApplication a(argc, argv);
-    testIHMClimingProject w(db);
+    testIHMClimingProject w;
     w.show();
 
-    delete db;
     return a.exec();
     
 }

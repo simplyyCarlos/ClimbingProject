@@ -1,7 +1,8 @@
 #pragma once
 #include <QtWidgets/qdialog.h>
 #include "ui_dialogLogin.h"
-
+#include "dbmanager.h"
+#include "UserConnected.h";
 
 class dialogLogin : public QDialog
 {
@@ -11,6 +12,8 @@ public:
 	~dialogLogin();
 private:
 	Ui::DialogClass ui;
+	DbManager* db;
+	UserConnected* uc;
 private slots:
 	void validerConnexion();
 };

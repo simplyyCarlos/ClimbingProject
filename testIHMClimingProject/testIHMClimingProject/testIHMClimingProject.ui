@@ -14,7 +14,7 @@
    <string>testIHMClimingProject</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton_Edition">
+   <widget class="QPushButton" name="pushButton_Param">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Édition</string>
+     <string>Paramètres</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Jouer">
@@ -45,7 +45,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>81</width>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
@@ -69,14 +69,14 @@
    <widget class="QLabel" name="label_Created">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>100</x>
       <y>330</y>
       <width>491</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Created and deseigned by TAFA Rakel, RABEHI Khalis, LAGREVOL Kilian and VALETTE Jules</string>
+     <string>Crée et designer par TAFA Rakel, RABEHI Khalis, LAGREVOL Kilian et VALETTE Jules</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_Copyright">
@@ -84,12 +84,38 @@
      <rect>
       <x>240</x>
       <y>360</y>
-      <width>161</width>
+      <width>171</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>©Copyright all rights reserved </string>
+     <string>©Copyright tous droits reservés</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_User">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>170</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Creation">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Créer un Compte</string>
     </property>
    </widget>
   </widget>

@@ -61,23 +61,8 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Database.cpp">
-      <Filter>Database</Filter>
-    </ClCompile>
-    <ClCompile Include="Prises.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Parcours.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Joueur.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
     <ClCompile Include="testIHMClimingProject.cpp">
       <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="sqlite3.c">
-      <Filter>Database</Filter>
     </ClCompile>
     <ClCompile Include="calibrage.cpp">
       <Filter>Window\calibrage</Filter>
@@ -94,18 +79,6 @@
     <ClCompile Include="dialogLogin.cpp">
       <Filter>Window\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="choixParcoursMenu.cpp">
-      <Filter>Window\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="editionMenu.cpp">
-      <Filter>Window\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="jeuMenu.cpp">
-      <Filter>Window\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="scoresMenu.cpp">
-      <Filter>Window\Menu</Filter>
-    </ClCompile>
     <ClCompile Include="charucoboard.cpp">
       <Filter>Window\calibrage</Filter>
     </ClCompile>
@@ -113,6 +86,48 @@
       <Filter>Window\Jeu</Filter>
     </ClCompile>
     <ClCompile Include="twisterMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="paramMenu.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="dbmanager.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="jeuMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresPongMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresParcoursMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="PongMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="choixParcoursMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresTwisterMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="UserConnected.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogCreation.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresUsrParcours.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoreUsrPong.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresUsrTwister.cpp">
       <Filter>Window\Jeu</Filter>
     </ClCompile>
   </ItemGroup>
@@ -123,13 +138,10 @@
     <QtUic Include="jeuMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="editionMenu.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="choixParcoursMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="scoresMenu.ui">
+    <QtUic Include="scoresParcoursMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="calibrage.ui">
@@ -144,6 +156,30 @@
     <QtUic Include="twisterMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="paramMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Pong.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresPongMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresTwisterMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="dialogCreation.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresUsrParcoursMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresUsrPongMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresUsrTwisterMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="testIHMClimingProject.h">
@@ -155,40 +191,46 @@
     <QtMoc Include="View.h">
       <Filter>Window\calibrage</Filter>
     </QtMoc>
-    <QtMoc Include="choixParcoursMenu.h">
-      <Filter>Window\Menu</Filter>
-    </QtMoc>
     <QtMoc Include="dialogLogin.h">
       <Filter>Window\Menu</Filter>
     </QtMoc>
-    <QtMoc Include="editionMenu.h">
+    <QtMoc Include="paramMenu.h">
       <Filter>Window\Menu</Filter>
     </QtMoc>
     <QtMoc Include="jeuMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresPongMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresParcoursMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="PongMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="choixParcoursMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresTwisterMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="dialogCreation.h">
       <Filter>Window\Menu</Filter>
     </QtMoc>
-    <QtMoc Include="scoresMenu.h">
-      <Filter>Window\Menu</Filter>
+    <QtMoc Include="scoresUsrParcours.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoreUsrPong.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresUsrTwister.h">
+      <Filter>Window\Jeu</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractController.h">
       <Filter>Controllers</Filter>
-    </ClInclude>
-    <ClInclude Include="Database.h">
-      <Filter>Database</Filter>
-    </ClInclude>
-    <ClInclude Include="sqlite3.h">
-      <Filter>Database</Filter>
-    </ClInclude>
-    <ClInclude Include="Prises.h">
-      <Filter>Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Parcours.h">
-      <Filter>Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Joueur.h">
-      <Filter>Model</Filter>
     </ClInclude>
     <ClInclude Include="observer.h">
       <Filter>Observer</Filter>
@@ -207,6 +249,12 @@
     </ClInclude>
     <ClInclude Include="twisterMenu.h">
       <Filter>Window\Jeu</Filter>
+    </ClInclude>
+    <ClInclude Include="dbmanager.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="UserConnected.h">
+      <Filter>Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
