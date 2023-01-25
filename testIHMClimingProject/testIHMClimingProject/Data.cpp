@@ -45,3 +45,7 @@ void Data::setMatrice(double tab[9]) {
 	}
 	matCali = cv::Mat(3, 3, CV_64FC1, &mat);
 }
+
+void Data::setMatrice(cv::Mat ma) {
+	matCali = ma;
+}

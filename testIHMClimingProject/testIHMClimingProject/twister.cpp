@@ -29,6 +29,7 @@ Twister::Twister(TwisterMenu* _parent, Data* _dt)
 	prise = dt->getPrise();
 	ui.label_Over->setStyleSheet("QLabel { color : red; font-size : 60px;}");
 	ui.label_Over->setAlignment(Qt::AlignCenter);
+	ui.label_Over->hide();
 	srand(time(NULL));
 	ui.setupUi(this);
 
@@ -169,10 +170,10 @@ void Twister::algorithmeJeu() {
 			}
 
 		}
-		QPointF center1(poly->at(1).x() + poly->at(2).x() / 2, poly->at(1).y() + poly->at(2).y() / 2);
-		QPointF center2(poly2->at(1).x() + poly2->at(2).x() / 2, poly2->at(1).y() + poly2->at(2).y() / 2);
+		QPointF center1((poly->at(1).x() + poly->at(2).x()) / 2, (poly->at(1).y() + poly->at(2).y()) / 2);
+		QPointF center2((poly2->at(1).x() + poly2->at(2).x()) / 2, (poly2->at(1).y() + poly2->at(2).y()) / 2);
 		poly->insert(2, QPointF(2 * center1.x() - poly->at(0).x(), 2 * center1.y() - poly->at(0).y()));
-		poly2->insert(2, QPointF(2 * center2.x() - poly->at(0).x(), 2 * center2.y() - poly->at(0).y()));
+		poly2->insert(2, QPointF(2 * center2.x() - poly2->at(0).x(), 2 * center2.y() - poly2->at(0).y()));
 
 		caliPosMain(poly, poly2);
 		for (QPointF* point : listObjectif) {

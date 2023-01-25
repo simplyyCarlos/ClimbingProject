@@ -24,5 +24,6 @@ public:
 	bool getCalibrate() { return calibrate; }
 	void setCalibrate(bool b) { calibrate = b; }
 	void setMatrice(double[9]);
+	void setMatrice(cv::Mat);
 };
 

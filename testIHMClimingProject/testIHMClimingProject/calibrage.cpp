@@ -66,6 +66,8 @@ void Calibrage::saveCalibration() {
 		dt->addPrise(circle->getPos());
 	}
 
+	t.join();
+
 	if (qGuiApp->screens().size() > 1) {
 		auto screen = qGuiApp->screens()[1]->geometry();
 		dt->calibragePrise(screen.width(), screen.height());
@@ -75,8 +77,6 @@ void Calibrage::saveCalibration() {
 		dt->calibragePrise(screen.width(), screen.height());
 	}
 	
-
-	t.join();
 	dt->setCalibrate(true);
 	this->close();
 	parent->show();
@@ -92,7 +92,7 @@ void Calibrage::saveCalibration() {
 //}
 
 void Calibrage::getImage() {
-	py::gil_scoped_acquire acquire;
+	/*py::gil_scoped_acquire acquire;
 	try
 	{
 		auto screenshot = py::module::import("image_capture");
@@ -104,11 +104,49 @@ void Calibrage::getImage() {
 		
 		return;
 	}
-	py::gil_scoped_release release;
+	py::gil_scoped_release release;*/
+	VideoCapture cap(0);
+	double height = 1080 / 2;
+	double width = 1920/2;
+	cap.set(CAP_PROP_FRAME_HEIGHT, height);
+	cap.set(CAP_PROP_FRAME_WIDTH , width);
+	if (cap.isOpened() == false) {
+		cout << "Impossible d'ouvrir le flux vidéo de la caméra\n";
+		cin.get();
+		exit(EXIT_FAILURE);
+	}
+	String window_name = "My capture frame";
+		
+	namedWindow(window_name);
+	
+		
+	while (1) {
+		Mat frame;
+		bool bSuccess = cap.read(frame);
+		if (bSuccess == false) {
+			cout << "Video camera is disconnect\n";
+			cin.get();
+			return;
+		}
+
+		imshow(window_name, frame);
+		if (waitKey(10) == 27) {
+			Mat saved_img; 
+			cap.read(saved_img);
+			imwrite("savedImage.jpg", saved_img);
+			cout << "Esc key pressed by user. Stopping the video" << endl;
+
+			break;
+		}
+
+	}
+	cap.release();
+	return;
+	
 }
 
 void Calibrage::getMatrice(){
-	py::gil_scoped_acquire acquire;
+	/*py::gil_scoped_acquire acquire;
 	try
 	{
 		windows_shared_memory shmem(create_only, "shm", read_write, sizeof(double[9]));
@@ -128,6 +166,64 @@ void Calibrage::getMatrice(){
 		dt->setMatrice(tab);
 		return;
 	}
-	py::gil_scoped_release release;
+	py::gil_scoped_release release;*/
+	try
+	{
+		Mat img = imread("./img/charucoboard.jpeg", IMREAD_GRAYSCALE);
+		VideoCapture cap(0);
+		cap.set(CAP_PROP_FRAME_WIDTH, 1024);
+		cap.set(CAP_PROP_FRAME_HEIGHT, 576);
+		Ptr<SIFT> sift = SIFT::create();
+		vector<KeyPoint> kp_image;
+		Mat desc_image;
+		sift->detectAndCompute(img, noArray(), kp_image, desc_image);
+		FlannBasedMatcher flann;
+		bool charucoboardDetected = false;
+		while (charucoboardDetected == false)
+		{
+			try
+			{
+				Mat frame;
+				cap >> frame;
+				Mat grayframe;
+				cvtColor(frame, grayframe, COLOR_BGR2GRAY);
+				vector<KeyPoint> kp_grayframe;
+				Mat desc_grayframe;
+				sift->detectAndCompute(grayframe, noArray(), kp_grayframe, desc_grayframe);
+				vector<vector<DMatch>> matches;
+				flann.knnMatch(desc_image, desc_grayframe, matches, 2);
+				vector<DMatch> good_points;
+				for (int i = 0; i < matches.size(); i++)
+				{
+					if (matches[i][0].distance < 0.7 * matches[i][1].distance)
+					{
+						good_points.push_back(matches[i][0]);
+					}
+				}
+				Mat query_pts = Mat(good_points.size(), 1, CV_32FC2);
+				Mat train_pts = Mat(good_points.size(), 1, CV_32FC2);
+				for (int i = 0; i < good_points.size(); i++)
+				{
+					query_pts.at<Vec2f>(i) = kp_image[good_points[i].queryIdx].pt;
+					train_pts.at<Vec2f>(i) = kp_grayframe[good_points[i].trainIdx].pt;
+				}
+				Mat mask;
+				Mat matrix = findHomography(query_pts, train_pts, RANSAC, 5.0, mask);
+				Mat matrixRet;
+				invert(matrix, matrixRet);
+				charucoboardDetected = true;
+				dt->setMatrice(matrixRet);
+			}
+			catch (...)
+			{
+				continue;
+			}
+		}
+
+	}
+	catch (...)
+	{
+		;
+	}
 }
 

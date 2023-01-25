@@ -20,9 +20,16 @@
 #include <iostream>
 #include <boost/interprocess/windows_shared_memory.hpp>
 #include <boost/interprocess/mapped_region.hpp>
+#include<opencv2/opencv.hpp>
+#include<opencv2/features2d.hpp>
+#include<opencv2/core/core.hpp>
+#include<opencv2/highgui/highgui.hpp>
+
 using namespace std;
 namespace py = pybind11;
 using namespace boost::interprocess;
+using namespace cv;
+
 
 
 
