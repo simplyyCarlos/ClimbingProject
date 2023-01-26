@@ -233,7 +233,7 @@ QVector<QVector<QString>>* DbManager::getAllParcours() const
 
 QVector<QVector<QString>>* DbManager::getScoresParcours() const
 {
-    QSqlQuery query("SELECT j.pseudo,h.chrono,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Parcours' ORDER BY h.score DESC; ");
+    QSqlQuery query("SELECT j.pseudo,h.chrono,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Parcours' GROUP BY j.pseudo ORDER BY h.score DESC; ");
     int idPseudo = query.record().indexOf("pseudo");
     int idChrono = query.record().indexOf("chrono");
     int idName = query.record().indexOf("Nom");
@@ -252,7 +252,7 @@ QVector<QVector<QString>>* DbManager::getScoresParcours() const
 
 QVector<QVector<QString>>* DbManager::getScoresPong() const
 {
-    QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Pong' ORDER BY h.score DESC;");
+    QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Pong' GROUP BY j.pseudo ORDER BY h.score DESC;");
     int idPseudo = query.record().indexOf("pseudo");
     int idScore = query.record().indexOf("score");
     int idDate = query.record().indexOf("date_jeu");
@@ -269,7 +269,7 @@ QVector<QVector<QString>>* DbManager::getScoresPong() const
 
 QVector<QVector<QString>>* DbManager::getScoresTwister() const
 {
-    QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Twister' ORDER BY h.score DESC;");
+    QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Twister' GROUP BY j.pseudo ORDER BY h.score DESC;");
     int idPseudo = query.record().indexOf("pseudo");
     int idScore = query.record().indexOf("score");
     int idDate = query.record().indexOf("date_jeu");
