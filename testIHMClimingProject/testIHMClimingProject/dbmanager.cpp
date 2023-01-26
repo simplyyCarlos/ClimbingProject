@@ -94,7 +94,7 @@ bool DbManager::addScore(int score, QString jeu) {
     {
         qDebug() << "add dt/aqi failed: " << queryAdd.lastError();
     }
-    notifyObserver();
+    notifyObserver();0
     return success;
 }
 
