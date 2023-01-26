@@ -4,7 +4,7 @@ class AbstractController
 {
 public:
 	virtual ~AbstractController() {}
-	virtual void control(int id) = 0;
+	virtual void control(int id, QString jeu = "") = 0;
 };
 
 class ControllerRemoveParcours : public AbstractController
@@ -14,7 +14,7 @@ private:
 public:
 	ControllerRemoveParcours();
 	~ControllerRemoveParcours();
-	void control(int id) override;
+	void control(int id ,QString jeu = "") override;
 };
 
 class ControllerAddScore : public AbstractController
@@ -24,5 +24,5 @@ private:
 public:
 	ControllerAddScore();
 	~ControllerAddScore();
-	void control(int sc, QString jeu);
+	void control(int id, QString jeu = "") override;
 };

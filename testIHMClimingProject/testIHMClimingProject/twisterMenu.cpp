@@ -66,7 +66,7 @@ void TwisterMenu::addPoint() {
 }
 
 void TwisterMenu::loose() {
-	db->addScore(score, "Twister");
+	(ControllerAddScore().control(score,"Twister"));
 	score = 0;
 	ui.label_number->setText(QString::number(score));
 	ui.label_number->hide();

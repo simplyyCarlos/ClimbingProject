@@ -4,6 +4,7 @@
 #include "scoresTwisterMenu.h"
 #include "UserConnected.h"
 #include "dbmanager.h"
+#include "AbstractController.h"
 
 
 class TwisterMenu : public QWidget

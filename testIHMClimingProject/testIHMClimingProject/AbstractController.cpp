@@ -9,7 +9,7 @@ ControllerRemoveParcours::~ControllerRemoveParcours()
 {
 }
 
-void ControllerRemoveParcours::control(int id)
+void ControllerRemoveParcours::control(int id, QString jeu = "")
 {
 	db->removeParcours(id);
 }
@@ -23,7 +23,7 @@ ControllerAddScore::~ControllerAddScore()
 {
 }
 
-void ControllerAddScore::control(int sc, QString jeu)
+void ControllerAddScore::control(int id, QString jeu = "")
 {
-	db->addScore(sc, jeu);
+	db->addScore(id, jeu);
 }
