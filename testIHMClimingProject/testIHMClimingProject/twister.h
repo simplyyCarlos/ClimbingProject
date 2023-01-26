@@ -20,6 +20,8 @@
 #include <boost/interprocess/mapped_region.hpp>
 #include <cstdlib>
 #include <fstream>
+#include <cmath>
+
 
 
 namespace py = pybind11;
@@ -42,6 +44,7 @@ private:
 	void detectionMain();
 	void algorithmeJeu();
 	void caliPosMain(QPolygonF*, QPolygonF*);
+	void caliPosMain(QPointF &center1, QPointF &center2);
 
 public:
 	Twister(TwisterMenu*, Data*);

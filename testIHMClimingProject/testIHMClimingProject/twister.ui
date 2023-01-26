@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label_Over">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>470</y>
+     <x>530</x>
+     <y>260</y>
      <width>401</width>
      <height>131</height>
     </rect>

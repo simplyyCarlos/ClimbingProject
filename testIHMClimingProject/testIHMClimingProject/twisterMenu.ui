@@ -55,7 +55,7 @@
   <widget class="QPushButton" name="pushButton_Scores">
    <property name="geometry">
     <rect>
-     <x>590</x>
+     <x>570</x>
      <y>20</y>
      <width>91</width>
      <height>31</height>
