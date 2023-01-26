@@ -16,3 +16,13 @@ public:
 	~ControllerRemoveParcours();
 	void control(int id) override;
 };
+
+class ControllerAddScore : public AbstractController
+{
+private:
+	DbManager* db;
+public:
+	ControllerAddScore();
+	~ControllerAddScore();
+	void control(int sc, QString jeu);
+};
