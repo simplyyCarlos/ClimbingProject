@@ -156,7 +156,7 @@ void Twister::algorithmeJeu() {
 	ui.label_Over->hide();
 	continueThread = true;
 	QPolygonF* poly = new QPolygonF(), * poly2 = new QPolygonF();
-	int x = 0, timer = 50, speed = 40;
+	int x = 0, timer = 50, speed = 30;
 	while(continueThread) {
 		poly->clear();
 		poly2->clear();
