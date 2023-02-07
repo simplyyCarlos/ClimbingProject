@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Controllers">
+      <UniqueIdentifier>{fcede982-0fea-45e2-b21c-edc67988db87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Database">
+      <UniqueIdentifier>{edc58c0b-f6c9-4b2d-9feb-f3bda78bef35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{e7a8747f-eb30-4282-9efb-edc06eff7ac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{bbd5d53a-b877-4e11-908c-b952458bab79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Observer">
+      <UniqueIdentifier>{32bced6d-1a50-4556-bfba-9cedf308b96a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\calibrage">
+      <UniqueIdentifier>{2aca80a3-dd6b-4e33-8945-2291cbed9948}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Python">
+      <UniqueIdentifier>{cccc59fa-fcbe-4e68-a80e-060a474a812b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Menu">
+      <UniqueIdentifier>{7b6695ef-9792-41f4-8e5e-26c66caac4fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Jeu">
+      <UniqueIdentifier>{aa4e4588-4e3e-4854-959e-fae2215e5830}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="testIHMClimingProject.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="testIHMClimingProject.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testIHMClimingProject.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="calibrage.cpp">
+      <Filter>Window\calibrage</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Window\calibrage</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Window\calibrage</Filter>
+    </ClCompile>
+    <ClCompile Include="Data.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogLogin.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="charucoboard.cpp">
+      <Filter>Window\calibrage</Filter>
+    </ClCompile>
+    <ClCompile Include="twister.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="twisterMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="paramMenu.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="dbmanager.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="jeuMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresPongMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresParcoursMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="PongMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="choixParcoursMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresTwisterMenu.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="UserConnected.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogCreation.cpp">
+      <Filter>Window\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresUsrParcours.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoreUsrPong.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+    <ClCompile Include="scoresUsrTwister.cpp">
+      <Filter>Window\Jeu</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="dialogLogin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="jeuMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="choixParcoursMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresParcoursMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="calibrage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="charucoboard.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="twister.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="twisterMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="paramMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Pong.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresPongMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresTwisterMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="dialogCreation.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresUsrParcoursMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresUsrPongMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scoresUsrTwisterMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="testIHMClimingProject.h">
+      <Filter>Window</Filter>
+    </QtMoc>
+    <QtMoc Include="calibrage.h">
+      <Filter>Window\calibrage</Filter>
+    </QtMoc>
+    <QtMoc Include="View.h">
+      <Filter>Window\calibrage</Filter>
+    </QtMoc>
+    <QtMoc Include="dialogLogin.h">
+      <Filter>Window\Menu</Filter>
+    </QtMoc>
+    <QtMoc Include="paramMenu.h">
+      <Filter>Window\Menu</Filter>
+    </QtMoc>
+    <QtMoc Include="jeuMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresPongMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresParcoursMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="PongMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="choixParcoursMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresTwisterMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="dialogCreation.h">
+      <Filter>Window\Menu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresUsrParcours.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoreUsrPong.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+    <QtMoc Include="scoresUsrTwister.h">
+      <Filter>Window\Jeu</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="observer.h">
+      <Filter>Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Window\calibrage</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="charucoboard.h">
+      <Filter>Window\calibrage</Filter>
+    </ClInclude>
+    <ClInclude Include="twister.h">
+      <Filter>Window\Jeu</Filter>
+    </ClInclude>
+    <ClInclude Include="twisterMenu.h">
+      <Filter>Window\Jeu</Filter>
+    </ClInclude>
+    <ClInclude Include="dbmanager.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="UserConnected.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image_capture.py">
+      <Filter>Python</Filter>
+    </None>
+    <None Include="testCalibrage.py">
+      <Filter>Python</Filter>
+    </None>
+    <None Include="packages.config" />
+    <None Include="detectionMain.py">
+      <Filter>Python</Filter>
+    </None>
+  </ItemGroup>
+</Project>
