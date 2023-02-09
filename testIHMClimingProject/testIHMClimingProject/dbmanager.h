@@ -17,10 +17,7 @@
  *
  * DbManager sets up the connection with SQL database
  * and performs some basics queries. The class requires
- * existing SQL database. You can create it with sqlite:
- * 1. $ sqlite3 pollution.db
- * 2. sqlite> CREATE TABLE pollution(ids integer primary key, dt interger, aqi integer);
- * 3. sqlite> .quit
+ * existing SQL database. You can create it with sqlite.
  */
 class DbManager : public Observable
 {
@@ -44,53 +41,93 @@ public:
      * Close the db connection
      */
     ~DbManager();
-
+    /**
+     * @brief Singleton method to initialize and get the instance 
+     * @return the instance of the class
+    */
     static DbManager* getInstance();
+    /**
+     * @brief Set up of the singleton, delete the destructor by copy
+     * @param db 
+    */
     DbManager(DbManager& db) = delete;
+    /**
+     * @brief Set up of the singleton, delete the override '=' method
+     * @param  
+    */
     void operator=(const DbManager&) = delete;
+    /**
+     * @brief Method that test if the database id open
+     * @return true if is open false is is not
+    */
     bool isOpen() const;
 
     /**
-     * @brief Add data to db
-     * @param dt - date time
-     * @param aqi - air quality indice
-     * @return true - data added successfully, false - data not added
-     */
+     * @brief Method to add parcours to the database
+     * @param name Name of the parcours
+     * @param diff in a scale of 1 to 10 the difficulty of the parcours
+     * @param date the date of creation
+     * @return true if it correctly added false if not 
+    */
     bool addParcours(QString name, int diff, QString date);
-
+    /**
+     * @brief Method to add player to the database 
+     * @param name pseudo of the player 
+     * @param mdp password of the player 
+     * @return true if it correctly added false if not 
+    */
     bool addJoueur(QString name, QString mdp);
-
+    /**
+     * @brief Method to add a climbing hold to the database
+     * @param x position x of the hold 
+     * @param y position y of the hold
+     * @return true if it correctly added false if not 
+    */
     bool addPrises(float x, float y);
-
+    /**
+     * @brief Method to add score to the database 
+     * @param score score at the end of the game to add
+     * @param jeu name of the game that is played
+     * @return true if it correctly added false if not
+    */
     bool addScore(int score, QString jeu);
-
+    /**
+     * @brief Method to get the id of the player with his name
+     * @param player name of the player 
+     * @return the id associated to his name
+    */
     int getIdJoueur(QString player);
 
+    /**
+     * @brief Method to get the current date and time
+     * @return the current date and time
+    */
     QString currentDateTime();
 
     /**
-     * @brief Remove data of dt "dt" from db
-     * @param dt - dt of data to remove.
-     * @return true - data removed successfully, false - data not removed
-     */
-    bool removeParcours(int dt);
+     * @brief method to remove a parcours from the database 
+     * @param id id of the parcours to remove 
+     * @return true if it correctly deleted false if not
+    */
+    bool removeParcours(int id);
 
     /**
-     * @brief Check if data of dt "dt" exists in db
-     * @param dt - dt of data to  to check.
-     * @return true - data exists, false - data does not exist
-     */
+     * @brief Check if the pseudo already exist in the database
+     * @param log pseudo to test 
+     * @return true if it's in the database false if not
+    */
     bool pseudoExists(QString log) const;
+    /**
+     * @brief Check if the parcours exists
+     * @param id It is the id of the parcours to check
+     * @return true if it's in the database false if not
+    */
     bool parcoursExist(int id) const;
 
     /**
-     * @brief Print values of all data in db
-     */
-    void printAllData() const;
-
-    /**
-     * @brief return values of all data in db
-     */
+     * @brief Method to get all the parcours in the database
+     * @return a list of a list which contains all the information in a row
+    */
     QVector<QVector<QString>>* getAllParcours() const;
 
     QVector<QVector<QString>>* getScoresParcours() const;

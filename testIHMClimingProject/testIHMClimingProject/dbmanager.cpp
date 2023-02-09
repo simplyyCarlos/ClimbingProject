@@ -198,20 +198,6 @@ bool DbManager::removeParcours(int id)
     return success;
 }
 
-void DbManager::printAllData() const
-{
-    qDebug() << "Data in db:";
-    QSqlQuery query("SELECT * FROM pollution");
-    int idDt = query.record().indexOf("dt");
-    int idAqi = query.record().indexOf("aqi");
-    while (query.next())
-    {
-        int dt = query.value(idDt).toInt();
-        int aqi = query.value(idAqi).toInt();
-        qDebug() << "===" << dt << " " << aqi;
-    }
-}
-
 QVector<QVector<QString>>* DbManager::getAllParcours() const
 {
     QSqlQuery query("SELECT * FROM Parcours;");
