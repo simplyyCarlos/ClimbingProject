@@ -391,32 +391,6 @@ bool DbManager::parcoursExist(int id) const
     return exists;
 }
 
-bool DbManager::removeAllData()
-{
-    bool success = false;
-
-    QSqlQuery removeQuery;
-    removeQuery.prepare("DELETE FROM pollution");
-
-    if (removeQuery.exec())
-    {
-        success = true;
-    }
-    else
-    {
-        qDebug() << "remove all data failed: " << removeQuery.lastError();
-    }
-
-    return success;
-}
-
-int DbManager::returnNbRow()
-{
-    QSqlQuery query("SELECT count(*) FROM pollution;");
-    int count = query.record().indexOf("count(*)");
-    return query.value(count).toInt();
-}
-
 void DbManager::addObserver(Observer* observer)
 {
     observerList.append(observer);

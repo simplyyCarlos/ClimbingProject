@@ -129,29 +129,61 @@ public:
      * @return a list of a list which contains all the information in a row
     */
     QVector<QVector<QString>>* getAllParcours() const;
-
+    /**
+     * @brief Method to get all the score of game mode Parcours in the database
+     * @return a list of a list which contains all the information in a row
+    */
     QVector<QVector<QString>>* getScoresParcours() const;
-
+    /**
+     * @brief Method to get all the score of game mode Pong in the database
+     * @return a list of a list which contains all the information in a row
+    */
     QVector<QVector<QString>>* getScoresPong() const;
-
+    /**
+     * @brief Method to get all the score of game mode Twister in the database
+     * @return a list of a list which contains all the information in a row
+    */
     QVector<QVector<QString>>* getScoresTwister() const;
-
+    /**
+     * @brief Method to get all the score of game mode Parcours in the database for the connected user
+     * @return a list of a list which contains all the information in a row
+    */
     QVector<QVector<QString>>* getUsrScoresParcours() const;
-
+    /**
+     * @brief Method to get all the score of game mode Pong in the database for the connected user
+     * @return a list of a list which contains all the information in a row
+    */
     QVector<QVector<QString>>* getUsrScoresPong() const;
-
+    /**
+     * @brief Method to get all the score of game mode Twister in the database for the connected user
+     * @return a list of a list which contains all the information in a row
+    */
     QVector<QVector<QString>>* getUsrScoresTwister() const;
 
+    /**
+     * @brief Check if the player name and his password exists in the database 
+     * @param log pseudo of the player 
+     * @param mdp password of the player 
+     * @return true if it exists and password is correct false if not 
+    */
     bool getLogin(QString log, QString mdp);
     /**
      * @brief Remove all data from db
      * @return true - all data removed successfully, false - not removed
      */
-    bool removeAllData();
 
-    int returnNbRow();
-
+    /**
+     * @brief Method inherited from Observable class that add and observer to observerList
+     * @param observer object to add to the list
+    */
     void addObserver(Observer* observer) override;
+    /**
+     * @brief Method inherited from Observable class that remove an observer from the list
+     * @param observer 
+    */
     void removeObserver(Observer* observer) override;
+    /**
+     * @brief Method inherited from Observable class that notify all observer when something change in the database
+    */
     void notifyObserver() const override;
 };
