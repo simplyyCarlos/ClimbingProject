@@ -1,0 +1,34 @@
+\hypertarget{_data_8h_source}{}\doxysection{Data.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <qvector.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <qpoint.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}observer.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Circle.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <opencv2/core/mat.hpp>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <opencv2/core/core.hpp>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <opencv2/opencv.hpp>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_data}{Data}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     QVector<QPointF*> listPrise;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{bool} calibrate;}
+\DoxyCodeLine{15     QVector<Observer*> listObserver;}
+\DoxyCodeLine{16     cv::Matx33f matCali;}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_data}{Data}}();}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_data}{\string~Data}}();}
+\DoxyCodeLine{20     QVector<QPointF*> getPrise() \{ \textcolor{keywordflow}{return} listPrise; \}}
+\DoxyCodeLine{21     cv::Matx33f getMatrice() \{ \textcolor{keywordflow}{return} matCali; \}}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} calibragePrise(\textcolor{keywordtype}{double}, \textcolor{keywordtype}{double});}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} addPrise(QPointF*);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{bool} getCalibrate() \{ \textcolor{keywordflow}{return} calibrate; \}}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} setCalibrate(\textcolor{keywordtype}{bool} b) \{ calibrate = b; \}}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} setMatrice(\textcolor{keywordtype}{double}[9]);}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} setMatrice(cv::Mat);}
+\DoxyCodeLine{28 \};}
+\DoxyCodeLine{29 }
+
+\end{DoxyCode}

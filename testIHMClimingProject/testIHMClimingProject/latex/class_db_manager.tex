@@ -1,0 +1,489 @@
+\hypertarget{class_db_manager}{}\doxysection{Db\+Manager Class Reference}
+\label{class_db_manager}\index{DbManager@{DbManager}}
+
+
+SQL Manager class.  
+
+
+
+
+{\ttfamily \#include $<$dbmanager.\+h$>$}
+
+Inheritance diagram for Db\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_db_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_db_manager_ac5cdf8e5e932d1681ab807d8f256374c}{$\sim$\+Db\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_db_manager_ace9c8d83435ea3b59c324d5ea397b4a9}{Db\+Manager}} (\mbox{\hyperlink{class_db_manager}{Db\+Manager}} \&db)=delete
+\begin{DoxyCompactList}\small\item\em Set up of the singleton, delete the destructor by copy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_db_manager_ada3028396dcb207b43241a1c3a034266}{operator=}} (const \mbox{\hyperlink{class_db_manager}{Db\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Set up of the singleton, delete the override \textquotesingle{}=\textquotesingle{} method. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_db_manager_ac04baba8f5d5197f8bcd9230393501de}{is\+Open}} () const
+\begin{DoxyCompactList}\small\item\em Method that test if the database id open. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_db_manager_a7e2dea02b2b62ee7193208eacd323430}{add\+Parcours}} (QString name, int diff, QString date)
+\begin{DoxyCompactList}\small\item\em Method to add parcours to the database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_db_manager_a229f2ed2085be4f1795d0cb587adb141}{add\+Joueur}} (QString name, QString mdp)
+\begin{DoxyCompactList}\small\item\em Method to add player to the database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_db_manager_a01c934dacba5b7f84aac120300982c28}{add\+Prises}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Method to add a climbing hold to the database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_db_manager_a44cb7c9160ff7030aa406cde46003e9a}{add\+Score}} (int score, QString jeu)
+\begin{DoxyCompactList}\small\item\em Method to add score to the database. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_db_manager_a03a6aa8fd794d49f5aaf0134ad472b1e}{get\+Id\+Joueur}} (QString player)
+\begin{DoxyCompactList}\small\item\em Method to get the id of the player with his name. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_db_manager_aae2953e7e77db6f7ad3bc6749941fc22}{current\+Date\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Method to get the current date and time. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_db_manager_aa2c8d106b98ed5008bd25a33938a2702}{remove\+Parcours}} (int id)
+\begin{DoxyCompactList}\small\item\em method to remove a parcours from the database \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_db_manager_ac4b464f48ab463607c732333ffc120b0}{pseudo\+Exists}} (QString log) const
+\begin{DoxyCompactList}\small\item\em Check if the pseudo already exist in the database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_db_manager_a6c75d0af0fa862f5ea89589936a7a517}{parcours\+Exist}} (int id) const
+\begin{DoxyCompactList}\small\item\em Check if the parcours exists. \end{DoxyCompactList}\item 
+QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ \mbox{\hyperlink{class_db_manager_a4b509fa977e24cbf02012d079576f905}{get\+All\+Parcours}} () const
+\begin{DoxyCompactList}\small\item\em Method to get all the parcours in the database. \end{DoxyCompactList}\item 
+QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ \mbox{\hyperlink{class_db_manager_a85f2e391ad36926db2df31dc25d65ea2}{get\+Scores\+Parcours}} () const
+\begin{DoxyCompactList}\small\item\em Method to get all the score of game mode Parcours in the database. \end{DoxyCompactList}\item 
+QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ \mbox{\hyperlink{class_db_manager_a2d25e56442f5ef6b2c1e044a8a2d58b2}{get\+Scores\+Pong}} () const
+\begin{DoxyCompactList}\small\item\em Method to get all the score of game mode Pong in the database. \end{DoxyCompactList}\item 
+QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ \mbox{\hyperlink{class_db_manager_a86bab036818c916b0746bb8171d9401d}{get\+Scores\+Twister}} () const
+\begin{DoxyCompactList}\small\item\em Method to get all the score of game mode \mbox{\hyperlink{class_twister}{Twister}} in the database. \end{DoxyCompactList}\item 
+QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ \mbox{\hyperlink{class_db_manager_a434e3d60c97b385f54f80f526a220879}{get\+Usr\+Scores\+Parcours}} () const
+\begin{DoxyCompactList}\small\item\em Method to get all the score of game mode Parcours in the database for the connected user. \end{DoxyCompactList}\item 
+QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ \mbox{\hyperlink{class_db_manager_a5245f983860f3b5f8506dfe081a529f9}{get\+Usr\+Scores\+Pong}} () const
+\begin{DoxyCompactList}\small\item\em Method to get all the score of game mode Pong in the database for the connected user. \end{DoxyCompactList}\item 
+QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ \mbox{\hyperlink{class_db_manager_a838bd444c260500bd3abbc45aca3348a}{get\+Usr\+Scores\+Twister}} () const
+\begin{DoxyCompactList}\small\item\em Method to get all the score of game mode \mbox{\hyperlink{class_twister}{Twister}} in the database for the connected user. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_db_manager_a2db225ac74864a9f9d2be12b9c1212dc}{get\+Login}} (QString log, QString mdp)
+\begin{DoxyCompactList}\small\item\em Check if the player name and his password exists in the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_db_manager_ad1e065873dbe8eabf4a77ca8b72a08b1}{add\+Observer}} (\mbox{\hyperlink{class_observer}{Observer}} $\ast$observer) override
+\begin{DoxyCompactList}\small\item\em Remove all data from db. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_db_manager_a37815c45827ca1983a847a3a331f0f24}{remove\+Observer}} (\mbox{\hyperlink{class_observer}{Observer}} $\ast$observer) override
+\begin{DoxyCompactList}\small\item\em Method inherited from \mbox{\hyperlink{class_observable}{Observable}} class that remove an observer from the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_db_manager_a0bf54814f260699ad0334fcc92fc46f0}{notify\+Observer}} () const override
+\begin{DoxyCompactList}\small\item\em Method inherited from \mbox{\hyperlink{class_observable}{Observable}} class that notify all observer when something change in the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_db_manager}{Db\+Manager}} $\ast$ \mbox{\hyperlink{class_db_manager_ad0b76eab48407a9293133a48062db9da}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton method to initialize and get the instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SQL Manager class. 
+
+\mbox{\hyperlink{class_db_manager}{Db\+Manager}} sets up the connection with SQL database and performs some basics queries. The class requires existing SQL database. You can create it with sqlite. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_db_manager_ac5cdf8e5e932d1681ab807d8f256374c}\label{class_db_manager_ac5cdf8e5e932d1681ab807d8f256374c}} 
+\index{DbManager@{DbManager}!````~DbManager@{$\sim$DbManager}}
+\index{````~DbManager@{$\sim$DbManager}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$DbManager()}{~DbManager()}}
+{\footnotesize\ttfamily Db\+Manager\+::$\sim$\+Db\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+Close the db connection \mbox{\Hypertarget{class_db_manager_ace9c8d83435ea3b59c324d5ea397b4a9}\label{class_db_manager_ace9c8d83435ea3b59c324d5ea397b4a9}} 
+\index{DbManager@{DbManager}!DbManager@{DbManager}}
+\index{DbManager@{DbManager}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{DbManager()}{DbManager()}}
+{\footnotesize\ttfamily Db\+Manager\+::\+Db\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_db_manager}{Db\+Manager}} \&}]{db }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Set up of the singleton, delete the destructor by copy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em db} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_db_manager_a229f2ed2085be4f1795d0cb587adb141}\label{class_db_manager_a229f2ed2085be4f1795d0cb587adb141}} 
+\index{DbManager@{DbManager}!addJoueur@{addJoueur}}
+\index{addJoueur@{addJoueur}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{addJoueur()}{addJoueur()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::add\+Joueur (\begin{DoxyParamCaption}\item[{QString}]{name,  }\item[{QString}]{mdp }\end{DoxyParamCaption})}
+
+
+
+Method to add player to the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & pseudo of the player \\
+\hline
+{\em mdp} & password of the player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it correctly added false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_ad1e065873dbe8eabf4a77ca8b72a08b1}\label{class_db_manager_ad1e065873dbe8eabf4a77ca8b72a08b1}} 
+\index{DbManager@{DbManager}!addObserver@{addObserver}}
+\index{addObserver@{addObserver}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{addObserver()}{addObserver()}}
+{\footnotesize\ttfamily void Db\+Manager\+::add\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_observer}{Observer}} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Remove all data from db. 
+
+\begin{DoxyReturn}{Returns}
+true -\/ all data removed successfully, false -\/ not removed
+\end{DoxyReturn}
+Method inherited from \mbox{\hyperlink{class_observable}{Observable}} class that add and observer to observer\+List 
+\begin{DoxyParams}{Parameters}
+{\em observer} & object to add to the list \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_observable_a959b41e1637ebeeb32b7118b15770867}{Observable}}.
+
+\mbox{\Hypertarget{class_db_manager_a7e2dea02b2b62ee7193208eacd323430}\label{class_db_manager_a7e2dea02b2b62ee7193208eacd323430}} 
+\index{DbManager@{DbManager}!addParcours@{addParcours}}
+\index{addParcours@{addParcours}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{addParcours()}{addParcours()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::add\+Parcours (\begin{DoxyParamCaption}\item[{QString}]{name,  }\item[{int}]{diff,  }\item[{QString}]{date }\end{DoxyParamCaption})}
+
+
+
+Method to add parcours to the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the parcours \\
+\hline
+{\em diff} & in a scale of 1 to 10 the difficulty of the parcours \\
+\hline
+{\em date} & the date of creation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it correctly added false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a01c934dacba5b7f84aac120300982c28}\label{class_db_manager_a01c934dacba5b7f84aac120300982c28}} 
+\index{DbManager@{DbManager}!addPrises@{addPrises}}
+\index{addPrises@{addPrises}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{addPrises()}{addPrises()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::add\+Prises (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Method to add a climbing hold to the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position x of the hold \\
+\hline
+{\em y} & position y of the hold \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it correctly added false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a44cb7c9160ff7030aa406cde46003e9a}\label{class_db_manager_a44cb7c9160ff7030aa406cde46003e9a}} 
+\index{DbManager@{DbManager}!addScore@{addScore}}
+\index{addScore@{addScore}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{addScore()}{addScore()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::add\+Score (\begin{DoxyParamCaption}\item[{int}]{score,  }\item[{QString}]{jeu }\end{DoxyParamCaption})}
+
+
+
+Method to add score to the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & score at the end of the game to add \\
+\hline
+{\em jeu} & name of the game that is played \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it correctly added false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_aae2953e7e77db6f7ad3bc6749941fc22}\label{class_db_manager_aae2953e7e77db6f7ad3bc6749941fc22}} 
+\index{DbManager@{DbManager}!currentDateTime@{currentDateTime}}
+\index{currentDateTime@{currentDateTime}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{currentDateTime()}{currentDateTime()}}
+{\footnotesize\ttfamily QString Db\+Manager\+::current\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method to get the current date and time. 
+
+\begin{DoxyReturn}{Returns}
+the current date and time 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a4b509fa977e24cbf02012d079576f905}\label{class_db_manager_a4b509fa977e24cbf02012d079576f905}} 
+\index{DbManager@{DbManager}!getAllParcours@{getAllParcours}}
+\index{getAllParcours@{getAllParcours}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{getAllParcours()}{getAllParcours()}}
+{\footnotesize\ttfamily QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ Db\+Manager\+::get\+All\+Parcours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get all the parcours in the database. 
+
+\begin{DoxyReturn}{Returns}
+a list of a list which contains all the information in a row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a03a6aa8fd794d49f5aaf0134ad472b1e}\label{class_db_manager_a03a6aa8fd794d49f5aaf0134ad472b1e}} 
+\index{DbManager@{DbManager}!getIdJoueur@{getIdJoueur}}
+\index{getIdJoueur@{getIdJoueur}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{getIdJoueur()}{getIdJoueur()}}
+{\footnotesize\ttfamily int Db\+Manager\+::get\+Id\+Joueur (\begin{DoxyParamCaption}\item[{QString}]{player }\end{DoxyParamCaption})}
+
+
+
+Method to get the id of the player with his name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & name of the player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the id associated to his name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_ad0b76eab48407a9293133a48062db9da}\label{class_db_manager_ad0b76eab48407a9293133a48062db9da}} 
+\index{DbManager@{DbManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_db_manager}{Db\+Manager}} $\ast$ Db\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton method to initialize and get the instance. 
+
+\begin{DoxyReturn}{Returns}
+the instance of the class 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a2db225ac74864a9f9d2be12b9c1212dc}\label{class_db_manager_a2db225ac74864a9f9d2be12b9c1212dc}} 
+\index{DbManager@{DbManager}!getLogin@{getLogin}}
+\index{getLogin@{getLogin}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{getLogin()}{getLogin()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::get\+Login (\begin{DoxyParamCaption}\item[{QString}]{log,  }\item[{QString}]{mdp }\end{DoxyParamCaption})}
+
+
+
+Check if the player name and his password exists in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log} & pseudo of the player \\
+\hline
+{\em mdp} & password of the player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it exists and password is correct false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a85f2e391ad36926db2df31dc25d65ea2}\label{class_db_manager_a85f2e391ad36926db2df31dc25d65ea2}} 
+\index{DbManager@{DbManager}!getScoresParcours@{getScoresParcours}}
+\index{getScoresParcours@{getScoresParcours}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{getScoresParcours()}{getScoresParcours()}}
+{\footnotesize\ttfamily QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ Db\+Manager\+::get\+Scores\+Parcours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get all the score of game mode Parcours in the database. 
+
+\begin{DoxyReturn}{Returns}
+a list of a list which contains all the information in a row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a2d25e56442f5ef6b2c1e044a8a2d58b2}\label{class_db_manager_a2d25e56442f5ef6b2c1e044a8a2d58b2}} 
+\index{DbManager@{DbManager}!getScoresPong@{getScoresPong}}
+\index{getScoresPong@{getScoresPong}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{getScoresPong()}{getScoresPong()}}
+{\footnotesize\ttfamily QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ Db\+Manager\+::get\+Scores\+Pong (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get all the score of game mode Pong in the database. 
+
+\begin{DoxyReturn}{Returns}
+a list of a list which contains all the information in a row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a86bab036818c916b0746bb8171d9401d}\label{class_db_manager_a86bab036818c916b0746bb8171d9401d}} 
+\index{DbManager@{DbManager}!getScoresTwister@{getScoresTwister}}
+\index{getScoresTwister@{getScoresTwister}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{getScoresTwister()}{getScoresTwister()}}
+{\footnotesize\ttfamily QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ Db\+Manager\+::get\+Scores\+Twister (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get all the score of game mode \mbox{\hyperlink{class_twister}{Twister}} in the database. 
+
+\begin{DoxyReturn}{Returns}
+a list of a list which contains all the information in a row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a434e3d60c97b385f54f80f526a220879}\label{class_db_manager_a434e3d60c97b385f54f80f526a220879}} 
+\index{DbManager@{DbManager}!getUsrScoresParcours@{getUsrScoresParcours}}
+\index{getUsrScoresParcours@{getUsrScoresParcours}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{getUsrScoresParcours()}{getUsrScoresParcours()}}
+{\footnotesize\ttfamily QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ Db\+Manager\+::get\+Usr\+Scores\+Parcours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get all the score of game mode Parcours in the database for the connected user. 
+
+\begin{DoxyReturn}{Returns}
+a list of a list which contains all the information in a row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a5245f983860f3b5f8506dfe081a529f9}\label{class_db_manager_a5245f983860f3b5f8506dfe081a529f9}} 
+\index{DbManager@{DbManager}!getUsrScoresPong@{getUsrScoresPong}}
+\index{getUsrScoresPong@{getUsrScoresPong}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{getUsrScoresPong()}{getUsrScoresPong()}}
+{\footnotesize\ttfamily QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ Db\+Manager\+::get\+Usr\+Scores\+Pong (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get all the score of game mode Pong in the database for the connected user. 
+
+\begin{DoxyReturn}{Returns}
+a list of a list which contains all the information in a row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a838bd444c260500bd3abbc45aca3348a}\label{class_db_manager_a838bd444c260500bd3abbc45aca3348a}} 
+\index{DbManager@{DbManager}!getUsrScoresTwister@{getUsrScoresTwister}}
+\index{getUsrScoresTwister@{getUsrScoresTwister}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{getUsrScoresTwister()}{getUsrScoresTwister()}}
+{\footnotesize\ttfamily QVector$<$ QVector$<$ QString $>$ $>$ $\ast$ Db\+Manager\+::get\+Usr\+Scores\+Twister (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get all the score of game mode \mbox{\hyperlink{class_twister}{Twister}} in the database for the connected user. 
+
+\begin{DoxyReturn}{Returns}
+a list of a list which contains all the information in a row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_ac04baba8f5d5197f8bcd9230393501de}\label{class_db_manager_ac04baba8f5d5197f8bcd9230393501de}} 
+\index{DbManager@{DbManager}!isOpen@{isOpen}}
+\index{isOpen@{isOpen}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{isOpen()}{isOpen()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method that test if the database id open. 
+
+\begin{DoxyReturn}{Returns}
+true if is open false is is not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a0bf54814f260699ad0334fcc92fc46f0}\label{class_db_manager_a0bf54814f260699ad0334fcc92fc46f0}} 
+\index{DbManager@{DbManager}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily void Db\+Manager\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Method inherited from \mbox{\hyperlink{class_observable}{Observable}} class that notify all observer when something change in the database. 
+
+
+
+Implements \mbox{\hyperlink{class_observable_a2c5695c7d7fdddb0d9e315ad235fa9cd}{Observable}}.
+
+\mbox{\Hypertarget{class_db_manager_ada3028396dcb207b43241a1c3a034266}\label{class_db_manager_ada3028396dcb207b43241a1c3a034266}} 
+\index{DbManager@{DbManager}!operator=@{operator=}}
+\index{operator=@{operator=}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Db\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_db_manager}{Db\+Manager}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Set up of the singleton, delete the override \textquotesingle{}=\textquotesingle{} method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$br$>$} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_db_manager_a6c75d0af0fa862f5ea89589936a7a517}\label{class_db_manager_a6c75d0af0fa862f5ea89589936a7a517}} 
+\index{DbManager@{DbManager}!parcoursExist@{parcoursExist}}
+\index{parcoursExist@{parcoursExist}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{parcoursExist()}{parcoursExist()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::parcours\+Exist (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Check if the parcours exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & It is the id of the parcours to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it\textquotesingle{}s in the database false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_ac4b464f48ab463607c732333ffc120b0}\label{class_db_manager_ac4b464f48ab463607c732333ffc120b0}} 
+\index{DbManager@{DbManager}!pseudoExists@{pseudoExists}}
+\index{pseudoExists@{pseudoExists}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{pseudoExists()}{pseudoExists()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::pseudo\+Exists (\begin{DoxyParamCaption}\item[{QString}]{log }\end{DoxyParamCaption}) const}
+
+
+
+Check if the pseudo already exist in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log} & pseudo to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it\textquotesingle{}s in the database false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_db_manager_a37815c45827ca1983a847a3a331f0f24}\label{class_db_manager_a37815c45827ca1983a847a3a331f0f24}} 
+\index{DbManager@{DbManager}!removeObserver@{removeObserver}}
+\index{removeObserver@{removeObserver}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{removeObserver()}{removeObserver()}}
+{\footnotesize\ttfamily void Db\+Manager\+::remove\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_observer}{Observer}} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Method inherited from \mbox{\hyperlink{class_observable}{Observable}} class that remove an observer from the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_observable_a620631b40a72b72dd13f430d3884b732}{Observable}}.
+
+\mbox{\Hypertarget{class_db_manager_aa2c8d106b98ed5008bd25a33938a2702}\label{class_db_manager_aa2c8d106b98ed5008bd25a33938a2702}} 
+\index{DbManager@{DbManager}!removeParcours@{removeParcours}}
+\index{removeParcours@{removeParcours}!DbManager@{DbManager}}
+\doxysubsubsection{\texorpdfstring{removeParcours()}{removeParcours()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::remove\+Parcours (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+method to remove a parcours from the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of the parcours to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it correctly deleted false if not 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dbmanager.\+h\item 
+dbmanager.\+cpp\end{DoxyCompactItemize}

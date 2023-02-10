@@ -1,0 +1,61 @@
+\hypertarget{class_controller_add_score}{}\doxysection{Controller\+Add\+Score Class Reference}
+\label{class_controller_add_score}\index{ControllerAddScore@{ControllerAddScore}}
+
+
+Controller which is called when a game end and a score is added to the database.  
+
+
+
+
+{\ttfamily \#include $<$Abstract\+Controller.\+h$>$}
+
+Inheritance diagram for Controller\+Add\+Score\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_controller_add_score}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_controller_add_score_a2907f0479854eb33df35be22905ff822}\label{class_controller_add_score_a2907f0479854eb33df35be22905ff822}} 
+{\bfseries Controller\+Add\+Score} ()
+\begin{DoxyCompactList}\small\item\em Contructor of the \mbox{\hyperlink{class_controller_add_score}{Controller\+Add\+Score}} class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_controller_add_score_a2cd0a8e20943450a86e071cb2c57e65c}\label{class_controller_add_score_a2cd0a8e20943450a86e071cb2c57e65c}} 
+{\bfseries $\sim$\+Controller\+Add\+Score} ()
+\begin{DoxyCompactList}\small\item\em Destructor of the \mbox{\hyperlink{class_controller_add_score}{Controller\+Add\+Score}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_add_score_aef2c93a380ae19ca287bf3b99f15bff3}{control}} (int id, QString jeu=\char`\"{}\char`\"{}) override
+\begin{DoxyCompactList}\small\item\em Method thats is called when a game ended and called the database method to add a score to the table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller which is called when a game end and a score is added to the database. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_controller_add_score_aef2c93a380ae19ca287bf3b99f15bff3}\label{class_controller_add_score_aef2c93a380ae19ca287bf3b99f15bff3}} 
+\index{ControllerAddScore@{ControllerAddScore}!control@{control}}
+\index{control@{control}!ControllerAddScore@{ControllerAddScore}}
+\doxysubsubsection{\texorpdfstring{control()}{control()}}
+{\footnotesize\ttfamily void Controller\+Add\+Score\+::control (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{QString}]{jeu = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Method thats is called when a game ended and called the database method to add a score to the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of the player that play the game \\
+\hline
+{\em jeu} & name of the game played \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_abstract_controller_abfd4909de6ef8b70b4f76b8cbb145515}{Abstract\+Controller}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Abstract\+Controller.\+h\item 
+Abstract\+Controller.\+cpp\end{DoxyCompactItemize}

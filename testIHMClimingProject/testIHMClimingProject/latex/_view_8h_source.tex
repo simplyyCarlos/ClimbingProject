@@ -1,0 +1,33 @@
+\hypertarget{_view_8h_source}{}\doxysection{View.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Circle.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <QGraphicsScene>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QGraphicsSceneMouseEvent>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QGraphicsItem>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QGraphicsView>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <qvector.h>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_view}{View}} : \textcolor{keyword}{public} QGraphicsScene}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     Q\_OBJECT}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{15     QPointF mousePos;}
+\DoxyCodeLine{16     QVector<Circle*> circleList;}
+\DoxyCodeLine{17     QVector<QGraphicsItem*> itemList;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_view}{View}}();}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} updateModel();}
+\DoxyCodeLine{22     QVector<Circle*> getCircle() \{ \textcolor{keywordflow}{return} circleList; \}}
+\DoxyCodeLine{23 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} drawForeground(QPainter*, \textcolor{keyword}{const} QRect\&);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} mousePressEvent(QGraphicsSceneMouseEvent*);}
+\DoxyCodeLine{28 \};}
+
+\end{DoxyCode}

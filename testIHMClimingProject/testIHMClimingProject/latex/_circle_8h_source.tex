@@ -1,0 +1,27 @@
+\hypertarget{_circle_8h_source}{}\doxysection{Circle.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <qpoint.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <qstring.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QGraphicsItem>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_circle}{Circle}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{private}:}
+\DoxyCodeLine{10         QString color;}
+\DoxyCodeLine{11         QPointF pos;}
+\DoxyCodeLine{12         \textcolor{keywordtype}{double} rayon;}
+\DoxyCodeLine{13         \textcolor{keywordtype}{int} id;}
+\DoxyCodeLine{14         \textcolor{keyword}{static} \textcolor{keywordtype}{int} numero;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{public}:}
+\DoxyCodeLine{17         \mbox{\hyperlink{class_circle}{Circle}}(QString, QPointF, \textcolor{keywordtype}{double});}
+\DoxyCodeLine{18         QPointF* getPos() \{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} QPointF(pos); \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20         QGraphicsItem* getGraphicsItem() \textcolor{keyword}{const};}
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 }
+
+\end{DoxyCode}

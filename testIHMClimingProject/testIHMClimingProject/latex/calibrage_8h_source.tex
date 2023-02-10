@@ -1,0 +1,62 @@
+\hypertarget{calibrage_8h_source}{}\doxysection{calibrage.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}ui\_calibrage.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}charucoboard.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QGraphicsScene>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QGraphicsSceneMouseEvent>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}View.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Data.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include<thread>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#pragma push\_macro("{}slots"{}})}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#undef slots}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}Python.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma pop\_macro("{}slots"{}})}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <pybind11/embed.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <pybind11/attr.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <pybind11/pytypes.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <pybind11/pybind11.h>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <pybind11/numpy.h>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <pybind11/stl.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <boost/interprocess/windows\_shared\_memory.hpp>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <boost/interprocess/mapped\_region.hpp>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include<opencv2/opencv.hpp>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include<opencv2/features2d.hpp>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include<opencv2/core/core.hpp>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include<opencv2/highgui/highgui.hpp>}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{29 \textcolor{keyword}{namespace }py = pybind11;}
+\DoxyCodeLine{30 \textcolor{keyword}{using namespace }boost::interprocess;}
+\DoxyCodeLine{31 \textcolor{keyword}{using namespace }cv;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{class }\mbox{\hyperlink{class_calibrage}{Calibrage}} : \textcolor{keyword}{public} QWidget \{}
+\DoxyCodeLine{37     Q\_OBJECT}
+\DoxyCodeLine{38 \textcolor{keyword}{public}:}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_calibrage}{Calibrage}}(QWidget* \_parent, \mbox{\hyperlink{class_data}{Data}}* dt);}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_calibrage}{Calibrage}}(\mbox{\hyperlink{class_calibrage}{Calibrage}}*);}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_calibrage}{\string~Calibrage}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} calibrage();}
+\DoxyCodeLine{44 \textcolor{keyword}{private}:}
+\DoxyCodeLine{45     Ui::calibrageClass ui;}
+\DoxyCodeLine{46     \mbox{\hyperlink{class_charucoboard}{Charucoboard}}* cb;}
+\DoxyCodeLine{47     QWidget* parent;}
+\DoxyCodeLine{48     \mbox{\hyperlink{class_view}{View}}* view;}
+\DoxyCodeLine{49     \mbox{\hyperlink{class_data}{Data}}* dt;}
+\DoxyCodeLine{50     QString filename = \textcolor{stringliteral}{"{}savedImage.jpg"{}};}
+\DoxyCodeLine{51     std::thread t;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} getMatrice();}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} getImage();}
+\DoxyCodeLine{55 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} saveCalibration();}
+\DoxyCodeLine{57 \};}
+
+\end{DoxyCode}

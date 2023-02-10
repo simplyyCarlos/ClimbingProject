@@ -6,7 +6,9 @@
 #include "dbmanager.h"
 #include "AbstractController.h"
 
-
+/**
+ * @brief Window of the main menu of the Twister game
+*/
 class TwisterMenu : public QWidget
 {
 private:
@@ -19,7 +21,15 @@ private:
 	scoresTwisterMenu* stm;
 	UserConnected* uc;
 public:
+	/**
+	 * @brief Contrusctor of the class
+	 * @param window that create this window
+	 * @param data inported
+	*/
 	TwisterMenu(QWidget*, Data*);
+	/**
+	 * @brief Destructor of the class
+	*/
 	~TwisterMenu();
 	void addPoint();
 	void loose();

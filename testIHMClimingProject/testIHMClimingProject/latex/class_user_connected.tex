@@ -1,0 +1,116 @@
+\hypertarget{class_user_connected}{}\doxysection{User\+Connected Class Reference}
+\label{class_user_connected}\index{UserConnected@{UserConnected}}
+
+
+Singleton class that conatins the information of the connected user.  
+
+
+
+
+{\ttfamily \#include $<$User\+Connected.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_user_connected_a9504eaabd995ff29fd1e2dd016b1c26d}\label{class_user_connected_a9504eaabd995ff29fd1e2dd016b1c26d}} 
+{\bfseries $\sim$\+User\+Connected} ()
+\begin{DoxyCompactList}\small\item\em Destructor of the class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user_connected_a70890e604bb1a7e33f8cf2d2b82490cd}{User\+Connected}} (\mbox{\hyperlink{class_user_connected}{User\+Connected}} \&uc)=delete
+\begin{DoxyCompactList}\small\item\em Set up of the singleton, delete the destructor by copy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_connected_a24001531e6151309fde16c63fb456a08}{operator=}} (const \mbox{\hyperlink{class_user_connected}{User\+Connected}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Set up of the singleton, delete the override \textquotesingle{}=\textquotesingle{} method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user_connected}{User\+Connected}} $\ast$ \mbox{\hyperlink{class_user_connected_aef6ad0855ffa13c6b7faf2787bb15285}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton method to initialize and get the instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_user_connected_a304ee713e63cb85769a083905193c39c}\label{class_user_connected_a304ee713e63cb85769a083905193c39c}} 
+void {\bfseries disconnect} ()
+\begin{DoxyCompactList}\small\item\em set the name at null to deconnect the player \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_user_connected_a3e601f3e9a7b2feaad3dbc56707fe672}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em method to get the pseudo of the player \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_connected_a4c8925a2b29007d8814651f9455b1061}{set\+Name}} (QString set)
+\begin{DoxyCompactList}\small\item\em change the name of the user connected \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton class that conatins the information of the connected user. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_user_connected_a70890e604bb1a7e33f8cf2d2b82490cd}\label{class_user_connected_a70890e604bb1a7e33f8cf2d2b82490cd}} 
+\index{UserConnected@{UserConnected}!UserConnected@{UserConnected}}
+\index{UserConnected@{UserConnected}!UserConnected@{UserConnected}}
+\doxysubsubsection{\texorpdfstring{UserConnected()}{UserConnected()}}
+{\footnotesize\ttfamily User\+Connected\+::\+User\+Connected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_user_connected}{User\+Connected}} \&}]{uc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Set up of the singleton, delete the destructor by copy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_user_connected_aef6ad0855ffa13c6b7faf2787bb15285}\label{class_user_connected_aef6ad0855ffa13c6b7faf2787bb15285}} 
+\index{UserConnected@{UserConnected}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!UserConnected@{UserConnected}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_user_connected}{User\+Connected}} $\ast$ User\+Connected\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Singleton method to initialize and get the instance. 
+
+\begin{DoxyReturn}{Returns}
+the instance of the class 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_connected_a3e601f3e9a7b2feaad3dbc56707fe672}\label{class_user_connected_a3e601f3e9a7b2feaad3dbc56707fe672}} 
+\index{UserConnected@{UserConnected}!getName@{getName}}
+\index{getName@{getName}!UserConnected@{UserConnected}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily QString User\+Connected\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+method to get the pseudo of the player 
+
+\begin{DoxyReturn}{Returns}
+pseudo of the player 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_connected_a24001531e6151309fde16c63fb456a08}\label{class_user_connected_a24001531e6151309fde16c63fb456a08}} 
+\index{UserConnected@{UserConnected}!operator=@{operator=}}
+\index{operator=@{operator=}!UserConnected@{UserConnected}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void User\+Connected\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user_connected}{User\+Connected}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Set up of the singleton, delete the override \textquotesingle{}=\textquotesingle{} method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_connected_a4c8925a2b29007d8814651f9455b1061}\label{class_user_connected_a4c8925a2b29007d8814651f9455b1061}} 
+\index{UserConnected@{UserConnected}!setName@{setName}}
+\index{setName@{setName}!UserConnected@{UserConnected}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void User\+Connected\+::set\+Name (\begin{DoxyParamCaption}\item[{QString}]{set }\end{DoxyParamCaption})}
+
+
+
+change the name of the user connected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set} & pseudo to set \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+User\+Connected.\+h\item 
+User\+Connected.\+cpp\end{DoxyCompactItemize}

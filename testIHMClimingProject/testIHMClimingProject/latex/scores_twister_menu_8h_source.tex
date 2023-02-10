@@ -1,0 +1,29 @@
+\hypertarget{scores_twister_menu_8h_source}{}\doxysection{scores\+Twister\+Menu.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}ui\_scoresTwisterMenu.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}dbmanager.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}observer.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}scoresUsrTwister.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{classscores_twister_menu}{scoresTwisterMenu}} : \textcolor{keyword}{public} QWidget, \textcolor{keyword}{public} \mbox{\hyperlink{class_observer}{Observer}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     Q\_OBJECT}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{classscores_twister_menu}{scoresTwisterMenu}}(QWidget* \_parent);}
+\DoxyCodeLine{13     \mbox{\hyperlink{classscores_twister_menu}{\string~scoresTwisterMenu}}();}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} \mbox{\hyperlink{classscores_twister_menu_ac1cd98450c27c040ac326af4c25dd63e}{updateModel}}();}
+\DoxyCodeLine{15 \textcolor{keyword}{private}:}
+\DoxyCodeLine{16     Ui::ScoresTwisterMenuClass ui;}
+\DoxyCodeLine{17     QWidget* parent;}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_db_manager}{DbManager}}* db;}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_user_connected}{UserConnected}}* uc;}
+\DoxyCodeLine{20     \mbox{\hyperlink{classscores_usr_twister}{scoresUsrTwister}}* sup;}
+\DoxyCodeLine{21 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} pushbackButton();}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} openPersoScore();}
+\DoxyCodeLine{24 \};}
+
+\end{DoxyCode}

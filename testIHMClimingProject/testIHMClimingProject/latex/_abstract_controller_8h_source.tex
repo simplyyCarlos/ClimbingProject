@@ -1,0 +1,31 @@
+\hypertarget{_abstract_controller_8h_source}{}\doxysection{Abstract\+Controller.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}dbmanager.h"{}}}
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_abstract_controller}{AbstractController}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_abstract_controller_a385691ea3ccda2c9afe22aabe49a40b8}{\string~AbstractController}}() \{\}}
+\DoxyCodeLine{18     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_abstract_controller_abfd4909de6ef8b70b4f76b8cbb145515}{control}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, QString jeu = \textcolor{stringliteral}{"{}"{}}) = 0;}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_controller_remove_parcours}{ControllerRemoveParcours}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_abstract_controller}{AbstractController}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 \textcolor{keyword}{private}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_db_manager}{DbManager}}* db;}
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_controller_remove_parcours_a28bf1a392cbf901f42fb14c5ef3955ba}{ControllerRemoveParcours}}();}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_controller_remove_parcours_acc085f92f968644faab178f738e510a7}{\string~ControllerRemoveParcours}}();}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_controller_remove_parcours_a533f3c42149f7b96461cc0ea3fa4a357}{control}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id} ,QString jeu = \textcolor{stringliteral}{"{}"{}}) \textcolor{keyword}{override};}
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{46 \textcolor{keyword}{class }\mbox{\hyperlink{class_controller_add_score}{ControllerAddScore}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_abstract_controller}{AbstractController}}}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48 \textcolor{keyword}{private}:}
+\DoxyCodeLine{49     \mbox{\hyperlink{class_db_manager}{DbManager}}* db;}
+\DoxyCodeLine{50 \textcolor{keyword}{public}:}
+\DoxyCodeLine{54     \mbox{\hyperlink{class_controller_add_score_a2907f0479854eb33df35be22905ff822}{ControllerAddScore}}();}
+\DoxyCodeLine{58     \mbox{\hyperlink{class_controller_add_score_a2cd0a8e20943450a86e071cb2c57e65c}{\string~ControllerAddScore}}();}
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_controller_add_score_aef2c93a380ae19ca287bf3b99f15bff3}{control}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, QString jeu = \textcolor{stringliteral}{"{}"{}}) \textcolor{keyword}{override};}
+\DoxyCodeLine{65 \};}
+
+\end{DoxyCode}

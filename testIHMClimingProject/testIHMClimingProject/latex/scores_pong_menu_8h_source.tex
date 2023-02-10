@@ -1,0 +1,29 @@
+\hypertarget{scores_pong_menu_8h_source}{}\doxysection{scores\+Pong\+Menu.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}ui\_scoresPongMenu.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}dbmanager.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}observer.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}scoreUsrPong.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{classscores_pong_menu}{scoresPongMenu}} : \textcolor{keyword}{public} QWidget, \textcolor{keyword}{public} \mbox{\hyperlink{class_observer}{Observer}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     Q\_OBJECT}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{classscores_pong_menu}{scoresPongMenu}}(QWidget* \_parent);}
+\DoxyCodeLine{13     \mbox{\hyperlink{classscores_pong_menu}{\string~scoresPongMenu}}();}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} \mbox{\hyperlink{classscores_pong_menu_a2daf836bcafca842029730966fe7e166}{updateModel}}();}
+\DoxyCodeLine{15 \textcolor{keyword}{private}:}
+\DoxyCodeLine{16     Ui::scoresPongMenuClass ui;}
+\DoxyCodeLine{17     QWidget* parent;}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_db_manager}{DbManager}}* db;}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_user_connected}{UserConnected}}* uc;}
+\DoxyCodeLine{20     \mbox{\hyperlink{classscore_usr_pong}{scoreUsrPong}}* sup;}
+\DoxyCodeLine{21 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} pushbackButton();}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} openPersoScore();}
+\DoxyCodeLine{24 \};}
+
+\end{DoxyCode}

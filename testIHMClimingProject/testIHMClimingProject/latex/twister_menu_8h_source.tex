@@ -1,0 +1,38 @@
+\hypertarget{twister_menu_8h_source}{}\doxysection{twister\+Menu.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}twister.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}ui\_twisterMenu.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}scoresTwisterMenu.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}UserConnected.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}dbmanager.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}AbstractController.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_twister_menu}{TwisterMenu}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     Ui::twisterMenuClass ui;}
+\DoxyCodeLine{14     QWidget* parent;}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_data}{Data}}* dt;}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_db_manager}{DbManager}}* db;}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_twister}{Twister}}* tw;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} score;}
+\DoxyCodeLine{19     \mbox{\hyperlink{classscores_twister_menu}{scoresTwisterMenu}}* stm;}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_user_connected}{UserConnected}}* uc;}
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_twister_menu}{TwisterMenu}}(QWidget*, \mbox{\hyperlink{class_data}{Data}}*);}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_twister_menu}{\string~TwisterMenu}}();}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} addPoint();}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} loose();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} openJeu();}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} pushbackButton();}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} openScoresTwisterMenu();}
+\DoxyCodeLine{31 \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+
+\end{DoxyCode}
