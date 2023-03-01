@@ -10,7 +10,7 @@ TwisterMenu::TwisterMenu(QWidget* _parent, Data* _dt)
 	tw = new Twister(this, dt);
 	db = DbManager::getInstance();
 	stm = nullptr;
-	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
+	QPixmap bkgnd(":/testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Window, bkgnd);

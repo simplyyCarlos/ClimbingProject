@@ -1,4 +1,10 @@
 <RCC>
-    <qresource prefix="testIHMClimingProject">
+    <qresource prefix="/testIHMClimingProject">
+        <file>img/background_sae.png</file>
+        <file>img/charucoboard.jpeg</file>
+        <file>img/charucoboardOriginal.jpeg</file>
+        <file>img/icon.ico</file>
+        <file>img/logo_sae.png</file>
+        <file>climbingProject.db</file>
     </qresource>
 </RCC>

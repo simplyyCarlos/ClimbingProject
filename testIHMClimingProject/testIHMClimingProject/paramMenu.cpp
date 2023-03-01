@@ -7,7 +7,7 @@ paramMenu::paramMenu(QWidget* _parent)
 	dt = new Data();
 	ca = nullptr;
 
-	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
+	QPixmap bkgnd(":/testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Window, bkgnd);

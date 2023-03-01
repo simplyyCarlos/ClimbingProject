@@ -1,12 +1,32 @@
 #include "dbmanager.h"
 #include "qdir.h"
+#include "qstandardpaths.h"
+#include <qapplication.h>
 
 DbManager* DbManager::instance = nullptr;
 
 DbManager::DbManager(const QString &path)
 {
+    QString dbPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/climbingProject.db";
+    qDebug() << path;
+    qDebug() << dbPath;
+
+    QCoreApplication::addLibraryPath(qApp->applicationDirPath());
+
+    // Add the SQLite driver and check if it's available
     sqldb = QSqlDatabase::addDatabase("QSQLITE");
-    sqldb.setDatabaseName(path);
+    QStringList drivers = QSqlDatabase::drivers();
+    if (!drivers.contains("QSQLITE")) {
+        qDebug() << "SQLite driver not available";
+        return;
+    }
+
+    if (!QFile::exists(dbPath)) {
+        qDebug() << "copy executed";
+        QFile::copy(":/testIHMClimingProject/climbingProject.db", dbPath);
+    }
+
+    sqldb.setDatabaseName(dbPath);
     uc = uc->getInstance();
     if (!sqldb.open())
     {
@@ -29,7 +49,7 @@ DbManager::~DbManager()
 DbManager* DbManager::getInstance()
 {
     if (instance == nullptr) {
-        instance = new DbManager(QDir::currentPath() + "/../climbingProject.db");
+        instance = new DbManager(":/testIHMClimingProject/climbingProject.db");
     }
     return instance;
 }

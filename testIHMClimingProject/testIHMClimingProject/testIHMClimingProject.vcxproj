@@ -100,7 +100,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -187,6 +187,13 @@
     <None Include="image_capture.py" />
     <None Include="packages.config" />
     <None Include="testCalibrage.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\background_sae.png" />
+    <Image Include="img\charucoboard.jpeg" />
+    <Image Include="img\charucoboardOriginal.jpeg" />
+    <Image Include="img\icon.ico" />
+    <Image Include="img\logo_sae.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

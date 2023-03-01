@@ -269,4 +269,21 @@
       <Filter>Python</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\background_sae.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="img\charucoboard.jpeg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="img\charucoboardOriginal.jpeg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="img\icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="img\logo_sae.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

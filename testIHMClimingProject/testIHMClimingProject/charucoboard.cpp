@@ -16,7 +16,7 @@ Charucoboard::Charucoboard()
 	}
 
 
-	QPixmap bkgnd("../testIHMClimingProject/img/charucoboard.jpeg");
+	QPixmap bkgnd(":/testIHMClimingProject/img/charucoboard.jpeg");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Window, bkgnd);
