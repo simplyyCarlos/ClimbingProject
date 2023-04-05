@@ -2,14 +2,18 @@
 #include "qdir.h"
 #include "qstandardpaths.h"
 #include <qapplication.h>
+#include <ctime>
 
 DbManager* DbManager::instance = nullptr;
 
 DbManager::DbManager(const QString &path)
 {
+    if (path.isEmpty()) {
+        qDebug() << "Error: database path is empty";
+        return;
+    }
     QString dbPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/climbingProject.db";
-    qDebug() << path;
-    qDebug() << dbPath;
+    qDebug() << path << dbPath;
 
     QCoreApplication::addLibraryPath(qApp->applicationDirPath());
 
@@ -222,12 +226,20 @@ bool DbManager::removeParcours(int id)
 
 QVector<QVector<QString>>* DbManager::getAllParcours() const
 {
-    QSqlQuery query("SELECT * FROM Parcours;");
+    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
+    QSqlQuery query;
+    query.prepare("SELECT id_Parcours, Nom, Difficulte, Date FROM Parcours");
+
+    if (!query.exec()) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return res;
+    }
+
     int idParcours = query.record().indexOf("id_Parcours");
     int idName = query.record().indexOf("Nom");
     int idDiff = query.record().indexOf("Difficulte");
     int idDate = query.record().indexOf("Date");
-    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
+
     while (query.next()) {
         QVector<QString> data;
         data.append(query.value(idParcours).toString());
@@ -236,17 +248,22 @@ QVector<QVector<QString>>* DbManager::getAllParcours() const
         data.append(query.value(idDate).toString());
         res->append(data);
     }
+
     return res;
 }
 
 QVector<QVector<QString>>* DbManager::getScoresParcours() const
 {
+    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     QSqlQuery query("SELECT j.pseudo,h.chrono,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Parcours' GROUP BY j.pseudo ORDER BY h.score DESC; ");
+    if (!query.exec()) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return res;
+    }
     int idPseudo = query.record().indexOf("pseudo");
     int idChrono = query.record().indexOf("chrono");
     int idName = query.record().indexOf("Nom");
     int idDate = query.record().indexOf("date_jeu");
-    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     while (query.next()) {
         QVector<QString> data;
         data.append(query.value(idPseudo).toString());
@@ -260,11 +277,15 @@ QVector<QVector<QString>>* DbManager::getScoresParcours() const
 
 QVector<QVector<QString>>* DbManager::getScoresPong() const
 {
+    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Pong' GROUP BY j.pseudo ORDER BY h.score DESC;");
+    if (!query.exec()) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return res;
+    }
     int idPseudo = query.record().indexOf("pseudo");
     int idScore = query.record().indexOf("score");
     int idDate = query.record().indexOf("date_jeu");
-    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     while (query.next()) {
         QVector<QString> data;
         data.append(query.value(idPseudo).toString());
@@ -277,11 +298,15 @@ QVector<QVector<QString>>* DbManager::getScoresPong() const
 
 QVector<QVector<QString>>* DbManager::getScoresTwister() const
 {
+    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Twister' GROUP BY j.pseudo ORDER BY h.score DESC;");
+    if (!query.exec()) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return res;
+    }
     int idPseudo = query.record().indexOf("pseudo");
     int idScore = query.record().indexOf("score");
     int idDate = query.record().indexOf("date_jeu");
-    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     while (query.next()) {
         QVector<QString> data;
         data.append(query.value(idPseudo).toString());
@@ -293,12 +318,16 @@ QVector<QVector<QString>>* DbManager::getScoresTwister() const
 }
 
 QVector<QVector<QString>>* DbManager::getUsrScoresParcours() const {
+    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     QSqlQuery query("SELECT j.pseudo,h.chrono,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.id_Parcours = p.id_Parcours and h.jeu = 'Parcours' and j.pseudo = '"+ uc->getName() + "' ORDER BY h.score DESC; ");
+    if (!query.exec()) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return res;
+    }
     int idPseudo = query.record().indexOf("pseudo");
     int idChrono = query.record().indexOf("chrono");
     int idName = query.record().indexOf("Nom");
     int idDate = query.record().indexOf("date_jeu");
-    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     while (query.next()) {
         QVector<QString> data;
         data.append(query.value(idPseudo).toString());
@@ -311,12 +340,16 @@ QVector<QVector<QString>>* DbManager::getUsrScoresParcours() const {
 }
 
 QVector<QVector<QString>>* DbManager::getUsrScoresPong() const {
+    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,p.Nom,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Pong' and j.pseudo = '" + uc->getName() + "' ORDER BY h.score DESC;");
+    if (!query.exec()) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return res;
+    }
     int idPseudo = query.record().indexOf("pseudo");
     int idScore = query.record().indexOf("score");
     int idName = query.record().indexOf("Nom");
     int idDate = query.record().indexOf("date_jeu");
-    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     while (query.next()) {
         QVector<QString> data;
         data.append(query.value(idPseudo).toString());
@@ -329,11 +362,15 @@ QVector<QVector<QString>>* DbManager::getUsrScoresPong() const {
 }
 
 QVector<QVector<QString>>* DbManager::getUsrScoresTwister() const {
+    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     QSqlQuery query("SELECT DISTINCT j.pseudo,h.score,h.date_jeu FROM Historique h,Joueurs j,Parcours p WHERE h.id_Joueur = j.id_Joueur and h.jeu = 'Twister' and j.pseudo = '" + uc->getName() + "' ORDER BY h.score DESC;");
+    if (!query.exec()) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return res;
+    }
     int idPseudo = query.record().indexOf("pseudo");
     int idScore = query.record().indexOf("score");
     int idDate = query.record().indexOf("date_jeu");
-    QVector<QVector<QString>>* res = new  QVector<QVector<QString>>();
     while (query.next()) {
         QVector<QString> data;
         data.append(query.value(idPseudo).toString());
@@ -415,17 +452,23 @@ bool DbManager::parcoursExist(int id) const
 
 void DbManager::addObserver(Observer* observer)
 {
-    observerList.append(observer);
+    if (observer) {
+        observerList.append(observer);
+    }
 }
 
 void DbManager::removeObserver(Observer* observer)
 {
-    observerList.remove(observerList.indexOf(observer));
+    if (observer) {
+        observerList.remove(observerList.indexOf(observer));
+    }
 }
 
 void DbManager::notifyObserver() const
 {
     for (auto index : observerList) {
-        index->updateModel();
+        if (index) {
+            index->updateModel();
+        }
     }
 }
