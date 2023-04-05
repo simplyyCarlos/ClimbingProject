@@ -1,0 +1,80 @@
+\hypertarget{class_observable}{}\doxysection{Observable Class Reference}
+\label{class_observable}\index{Observable@{Observable}}
+Inheritance diagram for Observable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_observable}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_observable_a42f551d4d64ffa48a2ea8d7f0a4e42d4}\label{class_observable_a42f551d4d64ffa48a2ea8d7f0a4e42d4}} 
+virtual {\bfseries $\sim$\+Observable} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor of the abstract method. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_observable_a959b41e1637ebeeb32b7118b15770867}{add\+Observer}} (\mbox{\hyperlink{class_observer}{Observer}} $\ast$observer)=0
+\begin{DoxyCompactList}\small\item\em Virtual method to add an observer to the list of observer. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_observable_a620631b40a72b72dd13f430d3884b732}{remove\+Observer}} (\mbox{\hyperlink{class_observer}{Observer}} $\ast$observer)=0
+\begin{DoxyCompactList}\small\item\em Method to remove an observer to the list of observer. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_observable_a2c5695c7d7fdddb0d9e315ad235fa9cd}{notify\+Observer}} () const =0
+\begin{DoxyCompactList}\small\item\em Method to notify all the observer from the observer list that a change append in the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_observable_a959b41e1637ebeeb32b7118b15770867}\label{class_observable_a959b41e1637ebeeb32b7118b15770867}} 
+\index{Observable@{Observable}!addObserver@{addObserver}}
+\index{addObserver@{addObserver}!Observable@{Observable}}
+\doxysubsubsection{\texorpdfstring{addObserver()}{addObserver()}}
+{\footnotesize\ttfamily virtual void Observable\+::add\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_observer}{Observer}} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Virtual method to add an observer to the list of observer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & Object to add to the list \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_db_manager_ad1e065873dbe8eabf4a77ca8b72a08b1}{Db\+Manager}}.
+
+\mbox{\Hypertarget{class_observable_a2c5695c7d7fdddb0d9e315ad235fa9cd}\label{class_observable_a2c5695c7d7fdddb0d9e315ad235fa9cd}} 
+\index{Observable@{Observable}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!Observable@{Observable}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily virtual void Observable\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Method to notify all the observer from the observer list that a change append in the database. 
+
+
+
+Implemented in \mbox{\hyperlink{class_db_manager_a0bf54814f260699ad0334fcc92fc46f0}{Db\+Manager}}.
+
+\mbox{\Hypertarget{class_observable_a620631b40a72b72dd13f430d3884b732}\label{class_observable_a620631b40a72b72dd13f430d3884b732}} 
+\index{Observable@{Observable}!removeObserver@{removeObserver}}
+\index{removeObserver@{removeObserver}!Observable@{Observable}}
+\doxysubsubsection{\texorpdfstring{removeObserver()}{removeObserver()}}
+{\footnotesize\ttfamily virtual void Observable\+::remove\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_observer}{Observer}} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Method to remove an observer to the list of observer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & observer to remove from the list \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_db_manager_a37815c45827ca1983a847a3a331f0f24}{Db\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+observer.\+h\end{DoxyCompactItemize}

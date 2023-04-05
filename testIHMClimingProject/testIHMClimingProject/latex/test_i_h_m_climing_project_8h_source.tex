@@ -1,0 +1,42 @@
+\hypertarget{test_i_h_m_climing_project_8h_source}{}\doxysection{test\+IHMCliming\+Project.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <QtWidgets/QMainWindow>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}ui\_testIHMClimingProject.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}dialogLogin.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}jeuMenu.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}dbmanager.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}paramMenu.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}calibrage.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Data.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}UserConnected.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}dialogCreation.h"{}}}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{classtest_i_h_m_climing_project}{testIHMClimingProject}} : \textcolor{keyword}{public} QMainWindow}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     Q\_OBJECT}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{classtest_i_h_m_climing_project}{testIHMClimingProject}}(QWidget *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{19     \mbox{\hyperlink{classtest_i_h_m_climing_project}{\string~testIHMClimingProject}}();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     Ui::testIHMClimingProjectClass ui;}
+\DoxyCodeLine{23     QString currentFile;}
+\DoxyCodeLine{24     \mbox{\hyperlink{classjeu_menu}{jeuMenu}}* jm;}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_db_manager}{DbManager}}* db;}
+\DoxyCodeLine{26     \mbox{\hyperlink{classdialog_login}{dialogLogin}}* log;}
+\DoxyCodeLine{27     \mbox{\hyperlink{classdialog_creation}{dialogCreation}}* dc;}
+\DoxyCodeLine{28     \mbox{\hyperlink{classparam_menu}{paramMenu}}* pm;}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_data}{Data}}* dt;}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_calibrage}{Calibrage}}* ca;}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_user_connected}{UserConnected}}* uc;}
+\DoxyCodeLine{32 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} openConnexion();}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} openMenuJeu();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} openMenuEdition();}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} openCreation();}
+\DoxyCodeLine{37 \};}
+
+\end{DoxyCode}

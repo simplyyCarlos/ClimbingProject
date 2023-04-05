@@ -11,7 +11,7 @@ Calibrage::Calibrage(QWidget* _parent, Data* _dt) {
 	ui.graphicsView->setScene(view);
 	ui.graphicsView->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
-	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
+	QPixmap bkgnd(":/testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
 	palette.setBrush(QPalette::Window, bkgnd);
@@ -171,7 +171,7 @@ void Calibrage::getMatrice(){
 	py::gil_scoped_release release;*/
 	try
 	{
-		Mat img = imread("./img/charucoboard.jpeg", IMREAD_GRAYSCALE);
+		Mat img = imread("qrc:/img/charucoboard.jpeg", IMREAD_GRAYSCALE);
 		VideoCapture cap(0);
 		cap.set(CAP_PROP_FRAME_WIDTH, 1024);
 		cap.set(CAP_PROP_FRAME_HEIGHT, 576);

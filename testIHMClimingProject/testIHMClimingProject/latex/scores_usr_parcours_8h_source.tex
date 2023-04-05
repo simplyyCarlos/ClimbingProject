@@ -1,0 +1,24 @@
+\hypertarget{scores_usr_parcours_8h_source}{}\doxysection{scores\+Usr\+Parcours.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}ui\_scoresUsrParcoursMenu.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}dbmanager.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}observer.h"{}}}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{classscores_usr_parcours}{scoresUsrParcours}} : \textcolor{keyword}{public} QWidget, \textcolor{keyword}{public} \mbox{\hyperlink{class_observer}{Observer}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     Q\_OBJECT}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9     \mbox{\hyperlink{classscores_usr_parcours}{scoresUsrParcours}}(QWidget* \_parent);}
+\DoxyCodeLine{10     \mbox{\hyperlink{classscores_usr_parcours}{\string~scoresUsrParcours}}();}
+\DoxyCodeLine{11     \textcolor{keywordtype}{void} \mbox{\hyperlink{classscores_usr_parcours_a49e6b7200d1037651d7802657f990f49}{updateModel}}();}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     Ui::scoresUsrParcoursMenuClass ui;}
+\DoxyCodeLine{14     QWidget* parent;}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_db_manager}{DbManager}}* db;}
+\DoxyCodeLine{16 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} pushbackButton();}
+\DoxyCodeLine{18 \};}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}

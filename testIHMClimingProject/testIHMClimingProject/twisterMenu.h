@@ -7,7 +7,9 @@
 #include "AbstractController.h"
 #include "Reflex.h"
 
-
+/**
+ * @brief Window of the main menu of the Twister game
+*/
 class TwisterMenu : public QWidget
 {
 private:
@@ -22,7 +24,15 @@ private:
 	UserConnected* uc;
 	bool bTwister;
 public:
+	/**
+	 * @brief Contrusctor of the class
+	 * @param window that create this window
+	 * @param data inported
+	*/
 	TwisterMenu(QWidget*, Data*);
+	/**
+	 * @brief Destructor of the class
+	*/
 	~TwisterMenu();
 	void addPoint();
 	void loose();

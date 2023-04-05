@@ -1,0 +1,25 @@
+\hypertarget{param_menu_8h_source}{}\doxysection{param\+Menu.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}ui\_paramMenu.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}calibrage.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Data.h"{}}}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{classparam_menu}{paramMenu}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     Q\_OBJECT}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{classparam_menu}{paramMenu}}(QWidget* \_parent);}
+\DoxyCodeLine{11     \mbox{\hyperlink{classparam_menu}{\string~paramMenu}}();}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     Ui::paramMenu ui;}
+\DoxyCodeLine{14     QWidget* parent;}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_calibrage}{Calibrage}}* ca;}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_data}{Data}}* dt;}
+\DoxyCodeLine{17 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} pushbackButton();}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} pushCalibre();}
+\DoxyCodeLine{20 \};}
+
+\end{DoxyCode}

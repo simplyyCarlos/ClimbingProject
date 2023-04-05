@@ -1,0 +1,21 @@
+\hypertarget{observer_8h_source}{}\doxysection{observer.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{ \#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_observer}{Observer}} \{}
+\DoxyCodeLine{5 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_observer_afcc6b67be6c386f2f3d2c363aa59cb47}{\string~Observer}}() \{\}}
+\DoxyCodeLine{13     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observer_a14c437bdaaa08f265bb413fb9cb66afa}{updateModel}}() = 0;}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_observable}{Observable}} \{}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_observable_a42f551d4d64ffa48a2ea8d7f0a4e42d4}{\string~Observable}}() \{\}}
+\DoxyCodeLine{26     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observable_a959b41e1637ebeeb32b7118b15770867}{addObserver}}(\mbox{\hyperlink{class_observer}{Observer}}* observer) = 0;}
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observable_a620631b40a72b72dd13f430d3884b732}{removeObserver}}(\mbox{\hyperlink{class_observer}{Observer}}* observer) = 0;}
+\DoxyCodeLine{35     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observable_a2c5695c7d7fdddb0d9e315ad235fa9cd}{notifyObserver}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{36 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,34 @@
+\hypertarget{choix_parcours_menu_8h_source}{}\doxysection{choix\+Parcours\+Menu.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}ui\_choixParcoursMenu.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}observer.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}dbmanager.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AbstractController.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}scoresParcoursMenu.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}UserConnected.h"{}}}
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{classchoix_parcours_menu}{choixParcoursMenu}} : \textcolor{keyword}{public} QWidget, \textcolor{keyword}{public} \mbox{\hyperlink{class_observer}{Observer}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     Q\_OBJECT}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{classchoix_parcours_menu}{choixParcoursMenu}}(QWidget* \_parent);}
+\DoxyCodeLine{14     \mbox{\hyperlink{classchoix_parcours_menu}{\string~choixParcoursMenu}}();}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} \mbox{\hyperlink{classchoix_parcours_menu_adedff9123281d9ec7e4d9f51fba3e7f3}{updateModel}}();}
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17     Ui::choixParcoursMenuClass ui;}
+\DoxyCodeLine{18     QWidget* parent;}
+\DoxyCodeLine{19     }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_db_manager}{DbManager}}* db;}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_user_connected}{UserConnected}}* uc;}
+\DoxyCodeLine{22     \mbox{\hyperlink{classscores_parcours_menu}{scoresParcoursMenu}}* spm;}
+\DoxyCodeLine{23 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} pushbackButton();}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} addButton();}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} deleteButton();}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} openScoreParcoursMenu();}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} openEditionMenu();}
+\DoxyCodeLine{29 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,25 @@
+\hypertarget{dialog_creation_8h_source}{}\doxysection{dialog\+Creation.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <QtWidgets/qdialog.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}ui\_dialogCreation.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}dbmanager.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}UserConnected.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{classdialog_creation}{dialogCreation}} : \textcolor{keyword}{public} QDialog}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     Q\_OBJECT;}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{classdialog_creation}{dialogCreation}}(QWidget* parent);}
+\DoxyCodeLine{12     \mbox{\hyperlink{classdialog_creation}{\string~dialogCreation}}();}
+\DoxyCodeLine{13 \textcolor{keyword}{private}:}
+\DoxyCodeLine{14     Ui::CreationClass ui;}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_db_manager}{DbManager}}* db;}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_user_connected}{UserConnected}}* uc;}
+\DoxyCodeLine{17 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} validerCreation();}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+
+\end{DoxyCode}

@@ -1,0 +1,58 @@
+\hypertarget{dbmanager_8h_source}{}\doxysection{dbmanager.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}QtSql/qsqldatabase.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}QtSql/qsqlerror.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}QtSql/qsqlquery.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}QtSql/qsqlrecord.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}qvector.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}qdebug.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}observer.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}UserConnected.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_db_manager}{DbManager}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_observable}{Observable}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{keyword}{private}:}
+\DoxyCodeLine{25     \textcolor{keyword}{static} \mbox{\hyperlink{class_db_manager}{DbManager}}* instance;}
+\DoxyCodeLine{26     QSqlDatabase sqldb;}
+\DoxyCodeLine{27     QVector<Observer*> observerList;}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_user_connected}{UserConnected}}* uc;}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_db_manager}{DbManager}}(\textcolor{keyword}{const} QString\& path);}
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{43     \mbox{\hyperlink{class_db_manager_ac5cdf8e5e932d1681ab807d8f256374c}{\string~DbManager}}();}
+\DoxyCodeLine{48     \textcolor{keyword}{static} \mbox{\hyperlink{class_db_manager}{DbManager}}* \mbox{\hyperlink{class_db_manager_ad0b76eab48407a9293133a48062db9da}{getInstance}}();}
+\DoxyCodeLine{53     \mbox{\hyperlink{class_db_manager_ace9c8d83435ea3b59c324d5ea397b4a9}{DbManager}}(\mbox{\hyperlink{class_db_manager}{DbManager}}\& db) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_db_manager_ada3028396dcb207b43241a1c3a034266}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_db_manager}{DbManager}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{63     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_db_manager_ac04baba8f5d5197f8bcd9230393501de}{isOpen}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_db_manager_a7e2dea02b2b62ee7193208eacd323430}{addParcours}}(QString name, \textcolor{keywordtype}{int} diff, QString date);}
+\DoxyCodeLine{79     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_db_manager_a229f2ed2085be4f1795d0cb587adb141}{addJoueur}}(QString name, QString mdp);}
+\DoxyCodeLine{86     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_db_manager_a01c934dacba5b7f84aac120300982c28}{addPrises}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y);}
+\DoxyCodeLine{93     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_db_manager_a44cb7c9160ff7030aa406cde46003e9a}{addScore}}(\textcolor{keywordtype}{int} score, QString jeu);}
+\DoxyCodeLine{99     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_db_manager_a03a6aa8fd794d49f5aaf0134ad472b1e}{getIdJoueur}}(QString player);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{105     QString \mbox{\hyperlink{class_db_manager_aae2953e7e77db6f7ad3bc6749941fc22}{currentDateTime}}();}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_db_manager_aa2c8d106b98ed5008bd25a33938a2702}{removeParcours}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{119     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_db_manager_ac4b464f48ab463607c732333ffc120b0}{pseudoExists}}(QString log) \textcolor{keyword}{const};}
+\DoxyCodeLine{125     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_db_manager_a6c75d0af0fa862f5ea89589936a7a517}{parcoursExist}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{131     QVector<QVector<QString>>* \mbox{\hyperlink{class_db_manager_a4b509fa977e24cbf02012d079576f905}{getAllParcours}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{136     QVector<QVector<QString>>* \mbox{\hyperlink{class_db_manager_a85f2e391ad36926db2df31dc25d65ea2}{getScoresParcours}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{141     QVector<QVector<QString>>* \mbox{\hyperlink{class_db_manager_a2d25e56442f5ef6b2c1e044a8a2d58b2}{getScoresPong}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{146     QVector<QVector<QString>>* \mbox{\hyperlink{class_db_manager_a86bab036818c916b0746bb8171d9401d}{getScoresTwister}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{151     QVector<QVector<QString>>* \mbox{\hyperlink{class_db_manager_a434e3d60c97b385f54f80f526a220879}{getUsrScoresParcours}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{156     QVector<QVector<QString>>* \mbox{\hyperlink{class_db_manager_a5245f983860f3b5f8506dfe081a529f9}{getUsrScoresPong}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{161     QVector<QVector<QString>>* \mbox{\hyperlink{class_db_manager_a838bd444c260500bd3abbc45aca3348a}{getUsrScoresTwister}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{169     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_db_manager_a2db225ac74864a9f9d2be12b9c1212dc}{getLogin}}(QString log, QString mdp);}
+\DoxyCodeLine{179     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_db_manager_ad1e065873dbe8eabf4a77ca8b72a08b1}{addObserver}}(\mbox{\hyperlink{class_observer}{Observer}}* observer) \textcolor{keyword}{override};}
+\DoxyCodeLine{184     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_db_manager_a37815c45827ca1983a847a3a331f0f24}{removeObserver}}(\mbox{\hyperlink{class_observer}{Observer}}* observer) \textcolor{keyword}{override};}
+\DoxyCodeLine{188     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_db_manager_a0bf54814f260699ad0334fcc92fc46f0}{notifyObserver}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{189 \};}
+
+\end{DoxyCode}

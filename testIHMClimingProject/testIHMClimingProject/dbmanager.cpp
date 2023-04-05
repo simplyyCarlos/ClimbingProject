@@ -1,12 +1,32 @@
 #include "dbmanager.h"
 #include "qdir.h"
+#include "qstandardpaths.h"
+#include <qapplication.h>
 
 DbManager* DbManager::instance = nullptr;
 
 DbManager::DbManager(const QString &path)
 {
+    QString dbPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/climbingProject.db";
+    qDebug() << path;
+    qDebug() << dbPath;
+
+    QCoreApplication::addLibraryPath(qApp->applicationDirPath());
+
+    // Add the SQLite driver and check if it's available
     sqldb = QSqlDatabase::addDatabase("QSQLITE");
-    sqldb.setDatabaseName(path);
+    QStringList drivers = QSqlDatabase::drivers();
+    if (!drivers.contains("QSQLITE")) {
+        qDebug() << "SQLite driver not available";
+        return;
+    }
+
+    if (!QFile::exists(dbPath)) {
+        qDebug() << "copy executed";
+        QFile::copy(":/testIHMClimingProject/climbingProject.db", dbPath);
+    }
+
+    sqldb.setDatabaseName(dbPath);
     uc = uc->getInstance();
     if (!sqldb.open())
     {
@@ -29,7 +49,7 @@ DbManager::~DbManager()
 DbManager* DbManager::getInstance()
 {
     if (instance == nullptr) {
-        instance = new DbManager(QDir::currentPath() + "/../climbingProject.db");
+        instance = new DbManager(":/testIHMClimingProject/climbingProject.db");
     }
     return instance;
 }
@@ -196,20 +216,6 @@ bool DbManager::removeParcours(int id)
     }
     notifyObserver();
     return success;
-}
-
-void DbManager::printAllData() const
-{
-    qDebug() << "Data in db:";
-    QSqlQuery query("SELECT * FROM pollution");
-    int idDt = query.record().indexOf("dt");
-    int idAqi = query.record().indexOf("aqi");
-    while (query.next())
-    {
-        int dt = query.value(idDt).toInt();
-        int aqi = query.value(idAqi).toInt();
-        qDebug() << "===" << dt << " " << aqi;
-    }
 }
 
 QVector<QVector<QString>>* DbManager::getAllParcours() const
@@ -403,32 +409,6 @@ bool DbManager::parcoursExist(int id) const
     }
 
     return exists;
-}
-
-bool DbManager::removeAllData()
-{
-    bool success = false;
-
-    QSqlQuery removeQuery;
-    removeQuery.prepare("DELETE FROM pollution");
-
-    if (removeQuery.exec())
-    {
-        success = true;
-    }
-    else
-    {
-        qDebug() << "remove all data failed: " << removeQuery.lastError();
-    }
-
-    return success;
-}
-
-int DbManager::returnNbRow()
-{
-    QSqlQuery query("SELECT count(*) FROM pollution;");
-    int count = query.record().indexOf("count(*)");
-    return query.value(count).toInt();
 }
 
 void DbManager::addObserver(Observer* observer)

@@ -1,0 +1,61 @@
+\hypertarget{twister_8h_source}{}\doxysection{twister.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}ui\_twister.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Data.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}qscreen.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}qpainter.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}qpen.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include<thread>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma push\_macro("{}slots"{}})}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#undef slots}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Python.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#pragma pop\_macro("{}slots"{}})}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <pybind11/embed.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <pybind11/attr.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <pybind11/pytypes.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <pybind11/pybind11.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <pybind11/numpy.h>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <pybind11/stl.h>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <boost/interprocess/windows\_shared\_memory.hpp>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <boost/interprocess/mapped\_region.hpp>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{namespace }py = pybind11;}
+\DoxyCodeLine{28 \textcolor{keyword}{using namespace }boost::interprocess;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{class_twister_menu}{TwisterMenu}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{class_twister}{Twister}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34 \textcolor{keyword}{private}:}
+\DoxyCodeLine{35     Ui::twisterClass ui;}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_twister_menu}{TwisterMenu}}* parent;}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_data}{Data}}* dt;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{float}* tabMain;}
+\DoxyCodeLine{39     QVector<QPointF*> listObjectif, listTouche, prise;}
+\DoxyCodeLine{40     \textcolor{keywordtype}{bool} continueThread;}
+\DoxyCodeLine{41     \textcolor{keywordtype}{int} largeur, hauteur;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} paintEvent(QPaintEvent*) \textcolor{keyword}{override};}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} detectionMain();}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} algorithmeJeu();}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} caliPosMain(QPolygonF*, QPolygonF*);}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} caliPosMain(QPointF \&center1, QPointF \&center2);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{public}:}
+\DoxyCodeLine{50     \mbox{\hyperlink{class_twister}{Twister}}(\mbox{\hyperlink{class_twister_menu}{TwisterMenu}}*, \mbox{\hyperlink{class_data}{Data}}*);}
+\DoxyCodeLine{51     \mbox{\hyperlink{class_twister}{\string~Twister}}();}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} lancerJeu();}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} setContinue();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \};}
+\DoxyCodeLine{56 }
+
+\end{DoxyCode}

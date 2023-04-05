@@ -1,4 +1,5 @@
 #include "testIHMClimingProject.h"
+#include <qdir.h>
 
 testIHMClimingProject::testIHMClimingProject(QWidget *parent)
     : QMainWindow(parent)
@@ -6,7 +7,7 @@ testIHMClimingProject::testIHMClimingProject(QWidget *parent)
     ui.setupUi(this);
     db = db->getInstance();
     uc = uc->getInstance();
-    QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
+    QPixmap bkgnd(":/testIHMClimingProject/img/background_sae.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
