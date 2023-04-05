@@ -5,6 +5,7 @@
 #include "UserConnected.h"
 #include "dbmanager.h"
 #include "AbstractController.h"
+#include "Reflex.h"
 
 
 class TwisterMenu : public QWidget
@@ -15,14 +16,17 @@ private:
 	Data* dt;
 	DbManager* db;
 	Twister* tw;
+	Reflex* rf;
 	int score;
 	scoresTwisterMenu* stm;
 	UserConnected* uc;
+	bool bTwister;
 public:
 	TwisterMenu(QWidget*, Data*);
 	~TwisterMenu();
 	void addPoint();
 	void loose();
+	void setBTwister(bool);
 
 private slots:
 	void openJeu();

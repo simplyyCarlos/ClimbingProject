@@ -8,8 +8,10 @@ TwisterMenu::TwisterMenu(QWidget* _parent, Data* _dt)
 	parent = _parent;
 	dt = _dt;
 	tw = new Twister(this, dt);
+	rf = new Reflex(this, dt);
 	db = DbManager::getInstance();
 	stm = nullptr;
+	bTwister = true;
 	QPixmap bkgnd("../testIHMClimingProject/img/background_sae.png");
 	bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
 	QPalette palette;
@@ -82,4 +84,15 @@ void TwisterMenu::openScoresTwisterMenu()
 	}
 	this->close();
 	stm->show();
+}
+
+void TwisterMenu::setBTwister(bool b) {
+	bTwister = b;
+	if (b) {
+		ui.label_Titre->setText("Twister");
+	}
+	else {
+		ui.label_Titre->setText("Reflex");
+	}
+	
 }

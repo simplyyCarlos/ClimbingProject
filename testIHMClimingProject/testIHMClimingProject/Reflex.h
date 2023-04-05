@@ -21,13 +21,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <cmath>
-#include "Prise.h"
 
-#define red QColor(238,34,34)
-#define blue QColor(34,55,238)
-#define green QColor(75,215,75)
-#define yellow QColor(240,255,42)
-#define grey QColor(110, 110, 110)
 
 
 namespace py = pybind11;
@@ -35,31 +29,29 @@ using namespace boost::interprocess;
 
 class TwisterMenu;
 
-class Twister : public QWidget
+class Reflex : public QWidget
 {
 private:
 	Ui::twisterClass ui;
 	TwisterMenu* parent;
 	Data* dt;
 	float* tabMain;
-	QVector<Prise*> priseList;
-	QVector<int> listColor;
+	QVector<QPointF*> listObjectif, listTouche, prise;
 	bool continueThread;
 	int largeur, hauteur;
-	QColor handColor[2];
 
 	void paintEvent(QPaintEvent*) override;
 	void detectionMain();
 	void algorithmeJeu();
 	void caliPosMain(QPolygonF*, QPolygonF*);
 	void caliPosMain(QPointF& center1, QPointF& center2);
-	QColor randomColor();
 
 public:
-	Twister(TwisterMenu*, Data*);
-	~Twister();
+	Reflex(TwisterMenu*, Data*);
+	~Reflex();
 	void lancerJeu();
 	void setContinue();
 
 };
+
 

@@ -46,6 +46,16 @@ void jeuMenu::openTwister() {
 		tw = new TwisterMenu(this, dt);
 	}
 	this->close();
+	tw->setBTwister(true);
+	tw->show();
+}
+
+void jeuMenu::openReflex() {
+	if (tw == nullptr) {
+		tw = new TwisterMenu(this, dt);
+	}
+	this->close();
+	tw->setBTwister(false);
 	tw->show();
 }
 

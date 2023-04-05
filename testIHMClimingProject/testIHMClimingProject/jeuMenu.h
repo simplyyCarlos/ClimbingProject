@@ -26,6 +26,7 @@ private slots:
     void pushbackButton();
     void openMenuChoixParcours();
     void openTwister();
+    void openReflex();
     void openPongMenu();
 };
 

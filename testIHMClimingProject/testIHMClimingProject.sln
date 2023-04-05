@@ -5,16 +5,32 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testIHMClimingProject", "testIHMClimingProject\testIHMClimingProject.vcxproj", "{F2618C64-D92F-4163-A2F0-1AC7A9C5017C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTestClimbingProject", "UnitTestClimbingProject\UnitTestClimbingProject.vcxproj", "{604E0D29-CC5B-43FD-808E-C7E016585EC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F2618C64-D92F-4163-A2F0-1AC7A9C5017C}.Debug|x64.ActiveCfg = Debug|x64
 		{F2618C64-D92F-4163-A2F0-1AC7A9C5017C}.Debug|x64.Build.0 = Debug|x64
+		{F2618C64-D92F-4163-A2F0-1AC7A9C5017C}.Debug|x86.ActiveCfg = Debug|x64
+		{F2618C64-D92F-4163-A2F0-1AC7A9C5017C}.Debug|x86.Build.0 = Debug|x64
 		{F2618C64-D92F-4163-A2F0-1AC7A9C5017C}.Release|x64.ActiveCfg = Release|x64
 		{F2618C64-D92F-4163-A2F0-1AC7A9C5017C}.Release|x64.Build.0 = Release|x64
+		{F2618C64-D92F-4163-A2F0-1AC7A9C5017C}.Release|x86.ActiveCfg = Release|x64
+		{F2618C64-D92F-4163-A2F0-1AC7A9C5017C}.Release|x86.Build.0 = Release|x64
+		{604E0D29-CC5B-43FD-808E-C7E016585EC9}.Debug|x64.ActiveCfg = Debug|x64
+		{604E0D29-CC5B-43FD-808E-C7E016585EC9}.Debug|x64.Build.0 = Debug|x64
+		{604E0D29-CC5B-43FD-808E-C7E016585EC9}.Debug|x86.ActiveCfg = Debug|Win32
+		{604E0D29-CC5B-43FD-808E-C7E016585EC9}.Debug|x86.Build.0 = Debug|Win32
+		{604E0D29-CC5B-43FD-808E-C7E016585EC9}.Release|x64.ActiveCfg = Release|x64
+		{604E0D29-CC5B-43FD-808E-C7E016585EC9}.Release|x64.Build.0 = Release|x64
+		{604E0D29-CC5B-43FD-808E-C7E016585EC9}.Release|x86.ActiveCfg = Release|Win32
+		{604E0D29-CC5B-43FD-808E-C7E016585EC9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
