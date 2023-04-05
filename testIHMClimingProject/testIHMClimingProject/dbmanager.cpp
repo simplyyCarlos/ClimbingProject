@@ -43,6 +43,7 @@ DbManager::~DbManager()
     if (sqldb.isOpen())
     {
         sqldb.close();
+        qDebug() << "Database closed";
     }
 }
 
@@ -72,10 +73,11 @@ bool DbManager::addParcours(QString name, int diff, QString date) {
     if(queryAdd.exec())
     {
         success = true;
+        qDebug() << "add parcours succed";
     }
     else
     {
-        qDebug() << "add dt/aqi failed: " << queryAdd.lastError();
+        qDebug() << "add parcours failed: " << queryAdd.lastError();
     }
 
     return success;
