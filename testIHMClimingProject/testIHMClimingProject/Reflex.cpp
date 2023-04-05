@@ -1,16 +1,17 @@
 #include "Reflex.h"
 #include "twisterMenu.h"
 
-#define rayonCercle 35.0f
+#define rayonCercle 80.0f
 #define rayonCercleMain 35.0f
 
-Reflex::Reflex(TwisterMenu* _parent, Data* _dt)
+Reflex::Reflex(TwisterMenu* _parent)
 {
 	ui.setupUi(this);
 	parent = _parent;
-	dt = _dt;
+	dt = Data::getInstance();
 	tabMain = nullptr;
 	QRect screen;
+	
 
 	if (qGuiApp->screens().size() > 1) {
 		screen = qGuiApp->screens()[1]->geometry();

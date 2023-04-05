@@ -4,7 +4,6 @@ paramMenu::paramMenu(QWidget* _parent)
 {
 	ui.setupUi(this);
 
-	dt = new Data();
 	ca = nullptr;
 
 	QPixmap bkgnd(":/testIHMClimingProject/img/background_sae.png");
@@ -26,13 +25,13 @@ paramMenu::paramMenu(QWidget* _parent)
 
 paramMenu::~paramMenu()
 {
-	delete dt, ca;
+	delete ca;
 }
 
 void paramMenu::pushCalibre()
 {
 	if (ca == nullptr) {
-		ca = new Calibrage(this, dt);
+		ca = new Calibrage(this);
 	}
 	this->close();
 	ca->show();

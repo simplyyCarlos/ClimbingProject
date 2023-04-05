@@ -1,10 +1,10 @@
 #include "calibrage.h"
 
 
-Calibrage::Calibrage(QWidget* _parent, Data* _dt) {
+Calibrage::Calibrage(QWidget* _parent) {
 	parent = _parent;
 	cb = new Charucoboard();
-	dt = _dt;
+	dt = Data::getInstance();
 	view = new View();
 	view->setSceneRect(0, 0, 832, 624);
 	ui.setupUi(this);

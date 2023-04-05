@@ -36,7 +36,7 @@ using namespace cv;
 class Calibrage : public QWidget {
 	Q_OBJECT
 public:
-	Calibrage(QWidget* _parent, Data* dt);
+	Calibrage(QWidget* _parent);
 	Calibrage(Calibrage*);
 	~Calibrage();
 

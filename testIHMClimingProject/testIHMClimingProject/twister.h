@@ -56,7 +56,7 @@ private:
 	QColor randomColor();
 
 public:
-	Twister(TwisterMenu*, Data*);
+	Twister(TwisterMenu*);
 	~Twister();
 	void lancerJeu();
 	void setContinue();

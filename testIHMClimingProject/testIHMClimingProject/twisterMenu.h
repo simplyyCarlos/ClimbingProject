@@ -15,7 +15,6 @@ class TwisterMenu : public QWidget
 private:
 	Ui::twisterMenuClass ui;
 	QWidget* parent;
-	Data* dt;
 	DbManager* db;
 	Twister* tw;
 	Reflex* rf;
@@ -29,7 +28,7 @@ public:
 	 * @param window that create this window
 	 * @param data inported
 	*/
-	TwisterMenu(QWidget*, Data*);
+	TwisterMenu(QWidget*);
 	/**
 	 * @brief Destructor of the class
 	*/

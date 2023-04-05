@@ -23,7 +23,6 @@ private:
     Ui::paramMenu ui;
     QWidget* parent;
     Calibrage* ca;
-    Data* dt;
 private slots:
     /**
      * @brief Action when the button "back" is pressed that go back to the parent window

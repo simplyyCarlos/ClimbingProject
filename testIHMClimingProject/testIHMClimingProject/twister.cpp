@@ -4,15 +4,16 @@
 #define rayonCercle 80.0f
 #define rayonCercleMain 35.0f
 
-Twister::Twister(TwisterMenu* _parent, Data* _dt)
+Twister::Twister(TwisterMenu* _parent)
 {
 	ui.setupUi(this);
 	parent = _parent;
-	dt = _dt;
+	dt = Data::getInstance();
 	tabMain = nullptr;
 	QRect screen;
 	handColor[0] = grey;
 	handColor[1] = grey;
+	continueThread = false;
 
 	if (qGuiApp->screens().size() > 1) {
 		screen = qGuiApp->screens()[1]->geometry();

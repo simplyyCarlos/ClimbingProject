@@ -10,13 +10,15 @@
 class Data
 {
 private:
+	static Data* instance;
 	QVector<QPointF*> listPrise;
 	bool calibrate;
 	QVector<Observer*> listObserver;
 	cv::Matx33f matCali;
-public:
 	Data();
+public:
 	~Data();
+	static Data* getInstance();
 	QVector<QPointF*> getPrise() { return listPrise; }
 	cv::Matx33f getMatrice() { return matCali; }
 	void calibragePrise(double, double);

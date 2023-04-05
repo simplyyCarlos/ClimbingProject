@@ -18,7 +18,7 @@ public:
      * @param _parent window that create this class 
      * @param dt data inported
     */
-    jeuMenu(QWidget* _parent, Data* dt);
+    jeuMenu(QWidget* _parent);
     /**
      * @brief destructor of the class
     */
@@ -31,7 +31,6 @@ private:
     PongMenu* pm;
     DbManager* db;
     TwisterMenu* tw;
-    Data* dt;
 private slots:
     /**
      * @brief Action when the button "back" is pressed that go back to the parent window

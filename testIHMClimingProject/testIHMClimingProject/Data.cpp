@@ -5,6 +5,13 @@ Data::Data()
 	calibrate = false;
 }
 
+Data* Data::getInstance() {
+	if (instance == nullptr) {
+		instance = new Data();
+	}
+	return instance;
+}
+
 Data::~Data()
 {
 }

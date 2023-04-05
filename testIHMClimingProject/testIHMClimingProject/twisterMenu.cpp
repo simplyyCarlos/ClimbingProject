@@ -1,14 +1,13 @@
 #include "twisterMenu.h"
 #include "qmessagebox.h"
 
-TwisterMenu::TwisterMenu(QWidget* _parent, Data* _dt)
+TwisterMenu::TwisterMenu(QWidget* _parent)
 {
 	ui.setupUi(this);
 	uc = uc->getInstance();
 	parent = _parent;
-	dt = _dt;
-	tw = new Twister(this, dt);
-	rf = new Reflex(this, dt);
+	tw = new Twister(this);
+	rf = new Reflex(this);
 	db = DbManager::getInstance();
 	stm = nullptr;
 	bTwister = true;
@@ -36,7 +35,7 @@ TwisterMenu::TwisterMenu(QWidget* _parent, Data* _dt)
 
 TwisterMenu::~TwisterMenu()
 {
-	delete dt, tw, stm;
+	delete tw, stm;
 }
 
 void TwisterMenu::openJeu() {

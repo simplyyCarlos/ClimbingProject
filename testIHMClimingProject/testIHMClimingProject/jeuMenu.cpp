@@ -1,7 +1,7 @@
 #include "jeuMenu.h"
 
-jeuMenu::jeuMenu(QWidget* _parent, Data* _dt)
-	: parent(_parent), dt(_dt)
+jeuMenu::jeuMenu(QWidget* _parent)
+	: parent(_parent)
 {
 	ui.setupUi(this);
 	db = db->getInstance();
@@ -33,7 +33,7 @@ jeuMenu::jeuMenu(QWidget* _parent, Data* _dt)
 
 jeuMenu::~jeuMenu()
 {
-	delete cpm, pm, tw, dt;
+	delete cpm, pm, tw;
 }
 
 void jeuMenu::pushbackButton() {
@@ -43,7 +43,7 @@ void jeuMenu::pushbackButton() {
 
 void jeuMenu::openTwister() {
 	if (tw == nullptr) {
-		tw = new TwisterMenu(this, dt);
+		tw = new TwisterMenu(this);
 	}
 	this->close();
 	tw->setBTwister(true);
@@ -52,7 +52,7 @@ void jeuMenu::openTwister() {
 
 void jeuMenu::openReflex() {
 	if (tw == nullptr) {
-		tw = new TwisterMenu(this, dt);
+		tw = new TwisterMenu(this);
 	}
 	this->close();
 	tw->setBTwister(false);

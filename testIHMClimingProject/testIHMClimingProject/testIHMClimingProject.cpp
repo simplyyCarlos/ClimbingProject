@@ -13,7 +13,7 @@ testIHMClimingProject::testIHMClimingProject(QWidget *parent)
     palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
     this->setFixedSize(QSize(650, 400));
-    jm = nullptr, pm = nullptr, ca=nullptr, dt = new Data;
+    jm = nullptr, pm = nullptr, ca=nullptr;
     log = new dialogLogin(this);
     dc = new dialogCreation(this);
 
@@ -33,7 +33,7 @@ testIHMClimingProject::testIHMClimingProject(QWidget *parent)
 
 testIHMClimingProject::~testIHMClimingProject()
 {
-    delete jm, log, pm, dt, ca, dc;
+    delete jm, log, pm, ca, dc;
 }
 
 void testIHMClimingProject::openConnexion() {
@@ -54,14 +54,14 @@ void testIHMClimingProject::openConnexion() {
 void testIHMClimingProject::openMenuJeu() {
     if (dt->getCalibrate()) {
         if (jm == nullptr) {
-            jm = new jeuMenu(this, dt);
+            jm = new jeuMenu(this);
         }
         this->close();
         jm->show();
     }
     else {
         if (ca == nullptr) {
-            ca = new Calibrage(this, dt);
+            ca = new Calibrage(this);
         }
         this->close();
         ca->show();

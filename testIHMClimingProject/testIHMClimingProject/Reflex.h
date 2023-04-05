@@ -47,7 +47,7 @@ private:
 	void caliPosMain(QPointF& center1, QPointF& center2);
 
 public:
-	Reflex(TwisterMenu*, Data*);
+	Reflex(TwisterMenu*);
 	~Reflex();
 	void lancerJeu();
 	void setContinue();
