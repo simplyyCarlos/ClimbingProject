@@ -60,7 +60,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <IncludePath>C:\opencv\build\include;..\packages\pybind11-2.10.1\include;C:\Python310\include</IncludePath>
-    <LibraryPath>C:\Python310\libs;</LibraryPath>
+    <LibraryPath>C:\opencv\build\x64\vc15\lib;C:\Python310\Lib;C:\Python310\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link />
@@ -110,6 +110,7 @@
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="dbmanager.cpp" />
     <ClCompile Include="dialogCreation.cpp" />
+    <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="paramMenu.cpp" />
     <ClCompile Include="PongMenu.cpp" />
     <ClCompile Include="Prise.cpp" />
@@ -169,6 +170,7 @@
     <QtMoc Include="scoresUsrParcours.h" />
     <QtMoc Include="scoreUsrPong.h" />
     <QtMoc Include="scoresUsrTwister.h" />
+    <ClInclude Include="Jeu.h" />
     <ClInclude Include="Prise.h" />
     <ClInclude Include="Reflex.h" />
     <ClInclude Include="Twister.h" />

@@ -1,5 +1,7 @@
 #include "Data.h"
 
+Data* Data::instance = nullptr;
+
 Data::Data()
 {
 	calibrate = false;

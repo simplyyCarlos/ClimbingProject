@@ -1,27 +1,7 @@
 #pragma once
 #include "ui_twister.h"
 #include "Data.h"
-#include "qscreen.h"
-#include "qpainter.h"
-#include "qpen.h"
-#include<thread>
-#pragma push_macro("slots")
-#undef slots
-#include "Python.h"
-#pragma pop_macro("slots")
-#include <pybind11/embed.h>
-#include <pybind11/attr.h>
-#include <pybind11/pytypes.h>
-#include <pybind11/pybind11.h>
-#include <pybind11/numpy.h>
-#include <pybind11/stl.h>
-#include <iostream>
-#include <boost/interprocess/windows_shared_memory.hpp>
-#include <boost/interprocess/mapped_region.hpp>
-#include <cstdlib>
-#include <fstream>
-#include <cmath>
-#include "Prise.h"
+#include "Jeu.h"
 
 #define red QColor(238,34,34)
 #define blue QColor(34,55,238)
@@ -35,31 +15,18 @@ using namespace boost::interprocess;
 
 class TwisterMenu;
 
-class Twister : public QWidget
+class Twister : public Jeu
 {
 private:
-	Ui::twisterClass ui;
-	TwisterMenu* parent;
-	Data* dt;
-	float* tabMain;
 	QVector<Prise*> priseList;
 	QVector<int> listColor;
-	bool continueThread;
-	int largeur, hauteur;
 	QColor handColor[2];
 
 	void paintEvent(QPaintEvent*) override;
-	void detectionMain();
-	void algorithmeJeu();
-	void caliPosMain(QPolygonF*, QPolygonF*);
-	void caliPosMain(QPointF& center1, QPointF& center2);
+	void algorithmeJeu() override;
 	QColor randomColor();
 
 public:
 	Twister(TwisterMenu*);
-	~Twister();
-	void lancerJeu();
-	void setContinue();
-
 };
 

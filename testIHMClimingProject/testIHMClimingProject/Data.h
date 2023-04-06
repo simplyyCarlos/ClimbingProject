@@ -29,3 +29,4 @@ public:
 	void setMatrice(cv::Mat);
 };
 
+

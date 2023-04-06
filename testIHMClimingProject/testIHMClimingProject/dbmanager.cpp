@@ -27,10 +27,10 @@ DbManager::DbManager(const QString &path)
 
     if (!QFile::exists(dbPath)) {
         qDebug() << "copy executed";
-        QFile::copy(":/testIHMClimingProject/climbingProject.db", dbPath);
+        QFile::copy(path, dbPath);
     }
 
-    sqldb.setDatabaseName(dbPath);
+    sqldb.setDatabaseName(path);
     uc = uc->getInstance();
     if (!sqldb.open())
     {
