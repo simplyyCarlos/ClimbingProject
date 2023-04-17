@@ -35,7 +35,7 @@ TwisterMenu::TwisterMenu(QWidget* _parent)
 
 TwisterMenu::~TwisterMenu()
 {
-	delete tw, stm;
+	delete tw, rf;
 }
 
 void TwisterMenu::openJeu() {
@@ -48,8 +48,14 @@ void TwisterMenu::openJeu() {
 		ui.label_number->show();
 		ui.pushButton_Jouer->hide();
 		QApplication::processEvents();
-		std::thread jeu(&Twister::lancerJeu, tw);
-		jeu.detach();
+		std::thread* jeu;
+		if (bTwister) {
+			jeu = new std::thread(&Twister::lancerJeu, tw);
+		}
+		else {
+			jeu = new std::thread(&Reflex::lancerJeu, rf);
+		}
+		jeu->detach();
 	}
 }
 

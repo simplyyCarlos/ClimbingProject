@@ -13,27 +13,22 @@ jeuMenu::jeuMenu(QWidget* _parent)
 	this->setFixedSize(QSize(650, 400));
 	tw = nullptr;
 
-	cpm = nullptr,pm = nullptr;
-
 	ui.pushButton_Twistter->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
-	ui.pushButton_Parcours->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
-	ui.pushButton_Pong->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
+	ui.pushButton_Reflex->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 25px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 	ui.pushButton_Back->setStyleSheet(":hover{background-color : grey;} QPushButton { background-color: rgb(209,102,102); font-size : 15px; color : white; border-width: 1px; border-style: solid; border-color: white; border-radius : 5px;}");
 	ui.label_Titre->setStyleSheet("QLabel { color : white; font-size : 50px;}");
-	ui.textBrowser_Parcours->setStyleSheet("QTextBrowser { background-color : rgb(170,105,139);}");
-	ui.textBrowser_Pong->setStyleSheet("QTextBrowser { background-color : rgb(170,105,139);}");
+	ui.textBrowser_Reflex->setStyleSheet("QTextBrowser { background-color : rgb(170,105,139);}");
 	ui.textBrowser_Twistter->setStyleSheet("QTextBrowser { background-color : rgb(170,105,139);}");
 
 
 	connect(ui.pushButton_Twistter, &QPushButton::pressed, this, &jeuMenu::openTwister);
 	connect(ui.pushButton_Back, &QPushButton::pressed, this, &jeuMenu::pushbackButton);
-	connect(ui.pushButton_Parcours, &QPushButton::pressed, this, &jeuMenu::openMenuChoixParcours);
-	connect(ui.pushButton_Pong, &QPushButton::pressed, this, &jeuMenu::openPongMenu);
+	connect(ui.pushButton_Reflex, &QPushButton::pressed, this, &jeuMenu::openReflex);
 }
 
 jeuMenu::~jeuMenu()
 {
-	delete cpm, pm, tw;
+	delete tw;
 }
 
 void jeuMenu::pushbackButton() {
@@ -59,20 +54,4 @@ void jeuMenu::openReflex() {
 	tw->show();
 }
 
-void jeuMenu::openMenuChoixParcours() {
-	if (cpm == nullptr) {
-		cpm = new choixParcoursMenu(this);
-		db->addObserver(cpm);
-	}
-	this->close();
-	cpm->show();
-}
 
-void jeuMenu::openPongMenu()
-{
-	if (pm == nullptr) {
-		pm = new PongMenu(this);
-	}
-	this->close();
-	pm->show();
-}

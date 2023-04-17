@@ -27,8 +27,6 @@ public:
 private:
     Ui::jeuMenuClass ui;
     QWidget* parent;
-    choixParcoursMenu* cpm;
-    PongMenu* pm;
     DbManager* db;
     TwisterMenu* tw;
 private slots:
@@ -36,18 +34,12 @@ private slots:
      * @brief Action when the button "back" is pressed that go back to the parent window
     */
     void pushbackButton();
-    /**
-     * @brief Action that open the window of parcours mode
-    */
-    void openMenuChoixParcours();
+
     /**
      * @brief Action that open the Twister game menu
     */
     void openTwister();
     void openReflex();
-    /**
-     * @brief Action that open the Pong menu
-    */
-    void openPongMenu();
+
 };
 
